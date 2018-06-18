@@ -1,171 +1,219 @@
-const {
-  GraphQLNonNull,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLFloat,
-  GraphQLBoolean,
-  GraphQLList,
-  GraphQLEnumType,
-  GraphQLObjectType,
-  GraphQLInputObjectType,
-  GraphQLScalarType,
-  isInputType,
-  getNamedType
-} = require("graphql");
+const debug = require("debug")("graphile-build-postgis");
 
-const nullableIf = (GraphQLNonNull, condition, Type) =>
-  condition ? Type : new GraphQLNonNull(Type);
+// We only currently support SRID 4326 (WGS 84 long lat)
 
-const Point = new GraphQLObjectType({
-  name: "GeographyPoint",
-  fields: {
-    longitude: {
-      type: new GraphQLNonNull(GraphQLFloat)
-    },
-    latitude: {
-      type: new GraphQLNonNull(GraphQLFloat)
-    }
+/*
+ *
+ * NOTES:
+ *
+ *   atttypmod: 1107460
+ *   (1107460 >> 8) & (2 ** 16 - 1): 4326
+ *   (atttypmod && 255) >> 2: 1
+ *   geography(point)
+ *   geography(point, 4326)
+ *
+ *   1 - point
+ *   2 - linestr
+ *   3 - polygon
+ *   4 - multipoint
+ *   5 - multilinestr
+ *   6 - multipolygon
+ *   7 - geometrycollection
+ *
+ */
+
+const TYPE_LOOKUP = {
+  0: "generic",
+  1: "point",
+  2: "linestr",
+  3: "polygon",
+  4: "multipoint",
+  5: "multilinestr",
+  6: "multipolygon",
+  7: "geometrycollection",
+};
+
+const getSubtypeAndSridFromModifier = (isGeography, modifier) => {
+  const ALL_ZEROES_HOPEFULLY = modifier >> 24;
+  if (ALL_ZEROES_HOPEFULLY !== 0) {
+    throw new Error("Unsupported PostGIS modifier");
   }
-});
-
-const PointInput = new GraphQLInputObjectType({
-  name: "GeographyPointInput",
-  fields: {
-    longitude: {
-      type: new GraphQLNonNull(GraphQLFloat)
-    },
-    latitude: {
-      type: new GraphQLNonNull(GraphQLFloat)
-    }
+  const SRID = (modifier >> 8) & (2 ** 16 - 1);
+  if (isGeography && (SRID !== 4326 && SRID !== 0)) {
+    throw new Error(
+      `We only support SRID 4326 currently, saw something with SRID '${SRID}'`
+    );
   }
-});
+  if (!isGeography && SRID !== 0) {
+    throw new Error("Unexepected SRID with geometry type");
+  }
+  const SUBTYPE = (modifier & 255) >> 2;
+  if (SUBTYPE > 7 || SUBTYPE < 0) {
+    throw new Error(
+      `Unsupported PostGIS modifier, expected 0-7, received ${SUBTYPE} (${modifier})`
+    );
+  }
+  const IS_XYM = modifier & 1;
+  return {
+    srid: SRID,
+    isXym: IS_XYM,
+    subtype: SUBTYPE,
+    subtypeString: TYPE_LOOKUP[SUBTYPE],
+  };
+};
 
-// select oid, typname, typarray, typcategory, typtype from pg_catalog.pg_type where typtype = 'b' order by oid;
-const GEOGRAPHY_TYPE_ID = 17033;
-
-const GeographyPointPlugin = function GeographyPointPlugin(
-  builder,
-  { pgInflection: inflection }
-) {
-  builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
+const GeographyPointPlugin = function GeographyPointPlugin(builder) {
+  builder.hook("build", build => {
     const {
-      extend,
-      pgGetGqlTypeByTypeId,
+      newWithHooks,
       pgIntrospectionResultsByKind: introspectionResultsByKind,
+      graphql: {
+        GraphQLNonNull,
+        GraphQLFloat,
+        GraphQLObjectType,
+        GraphQLInputObjectType,
+      },
+      pgRegisterGqlTypeByTypeId,
+      pgRegisterGqlInputTypeByTypeId,
+      pgTweaksByTypeIdAndModifer,
+      getTypeByName,
       pgSql: sql,
       pg2gql,
-      graphql: { GraphQLString, GraphQLNonNull },
-      getAliasFromResolveInfo,
-      pgTweakFragmentForType,
-      pgColumnFilter
     } = build;
-    const {
-      scope: { isPgRowType, isPgCompoundType, pgIntrospection: table },
-      fieldWithHooks,
-      Self
-    } = context;
-    if (
-      !(isPgRowType || isPgCompoundType) ||
-      !table ||
-      table.kind !== "class"
-    ) {
-      // Copied from `PgColumnsPlugin`
-      // Skip anything that isn't a table
-      return fields;
+    debug("PostGIS plugin enabled");
+    // Check we have the postgis extension
+    const POSTGIS = introspectionResultsByKind.extension.find(
+      e => e.name === "postgis"
+    );
+    if (!POSTGIS) {
+      debug("PostGIS extension not found in database; skipping");
+      return build;
     }
-
-    const geographyColumns = introspectionResultsByKind.attribute
-      .filter(attr => attr.classId === table.id)
-      .filter(attr => parseInt(attr.typeId) === GEOGRAPHY_TYPE_ID);
-
-    if (geographyColumns.length === 0) {
-      // Skip any tables that don't have any geography columns
-      return fields;
+    // Extract the geography and geometry types
+    const GEOMETRY_TYPE = introspectionResultsByKind.type.find(
+      t => t.name === "geometry" && t.namespaceId === POSTGIS.namespaceId
+    );
+    const GEOGRAPHY_TYPE = introspectionResultsByKind.type.find(
+      t => t.name === "geography" && t.namespaceId === POSTGIS.namespaceId
+    );
+    if (!GEOGRAPHY_TYPE || !GEOMETRY_TYPE) {
+      throw new Error(
+        "PostGIS is installed, but we couldn't find the geometry/geography types!"
+      );
     }
+    let constructedTypes = {};
+    let _interface;
 
-    const geographyFields = geographyColumns
-      .filter(attr => pgColumnFilter(attr, build, context))
-      .reduce((memo, attr) => {
-        // A lot of this is also copied from `PgColumnsPlugin`
-        const fieldName = inflection.column(
-          attr.name,
-          table.name,
-          table.namespaceName
-        );
-        if (memo[fieldName]) {
-          throw new Error(
-            `Two columns produce the same GraphQL field name '${fieldName}' on class '${
-              table.namespaceName
-            }.${table.name}'; one of them is '${attr.name}'`
-          );
-        }
-        memo[fieldName] = fieldWithHooks(
-          fieldName,
-          ({ getDataFromParsedResolveInfoFragment, addDataGenerator }) => {
-            const ReturnType = Point;
-            addDataGenerator(parsedResolveInfoFragment => {
-              // `parsedResolveInfoFragment` has information about what info
-              // the client requested, such as `latitude` and `longitude`
-              const { alias } = parsedResolveInfoFragment;
-              return {
-                pgQuery: queryBuilder => {
-                  // geography types not not compound types, but they need
-                  // to be treated like complex types, so I need to dive into
-                  // the `type.type === "c"` section of this code...
-                  const getSelectValueForFieldAndType = (sqlFullName, type) => {
-                    debugger;
-                    if (type.type === "c") {
-                      const resolveData = getDataFromParsedResolveInfoFragment(
-                        parsedResolveInfoFragment,
-                        ReturnType
-                      );
-                      const jsonBuildObject = queryFromResolveData(
-                        sql.identifier(Symbol()), // Ignore!
-                        sqlFullName,
-                        resolveData,
-                        { onlyJsonField: true, addNullCase: true }
-                      );
-                      return jsonBuildObject;
-                    } else {
-                      return pgTweakFragmentForType(sqlFullName, type);
-                    }
-                  };
-                  queryBuilder.select(
-                    getSelectValueForFieldAndType(
-                      sql.fragment`(${queryBuilder.getTableAlias()}.${sql.identifier(
-                        attr.name
-                      )})`, // The brackets are necessary to stop the parser getting confused, ref: https://www.postgresql.org/docs/9.6/static/rowtypes.html#ROWTYPES-ACCESSING
-                      attr.type
-                    ),
-                    alias
-                  );
-                }
-              };
-            });
-            return {
-              description: attr.description,
-              type: nullableIf(
-                GraphQLNonNull,
-                !attr.isNotNull && !attr.type.domainIsNotNull,
-                ReturnType
-              ),
-              resolve: (data, _args, _context, resolveInfo) => {
-                const alias = getAliasFromResolveInfo(resolveInfo);
-                debugger;
-                return pg2gql(data[alias], attr.type);
-              }
-            };
+    const GraphQLJSON = getTypeByName("JSON");
+
+    function getGeographyInterface() {
+      if (!_interface) {
+        _interface = newWithHooks(GraphQLInterfaceType, {
+          name,
+          fields: {
+            geojson: {
+              type: GraphQLJSON,
+              description: "Converts the object to GeoJSON",
+            },
           },
-          { pgFieldIntrospection: attr }
+          resolveType(value, info) {
+            // FIXME!
+            return getGeographyType(value.__geotype);
+          },
+          description: "All PostGIS geography types implement this interface",
+        });
+      }
+      return _interface;
+    }
+    function getGeographyType(type, typeModifier) {
+      const typeId = type.id;
+      const { subtype, subtypeString } = getSubtypeAndSridFromModifier(
+        true,
+        typeModifier
+      );
+      debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
+      const key = `geography_output_${subtype}`;
+      if (!constructedTypes[key]) {
+        if (!pgTweaksByTypeIdAndModifer[typeId]) {
+          pgTweaksByTypeIdAndModifer[typeId] = {};
+        }
+        const typeModifierKey = typeModifier != null ? typeModifier : -1;
+        pgTweaksByTypeIdAndModifer[typeId][typeModifierKey] = (
+          fragment,
+          resolveData
+        ) => {
+          const params = [
+            sql.literal("__geometryType"),
+            sql.fragment`${sql.identifier(
+              POSTGIS.namespace.name,
+              "geometrytype" // MUST be lowercase!
+            )}(${fragment})`,
+            sql.literal("geojson"),
+            sql.fragment`${sql.identifier(
+              POSTGIS.namespace.name,
+              "st_asgeojson" // MUST be lowercase!
+            )}(${fragment})::JSON`,
+          ];
+          return sql.fragment`json_build_object(
+            ${sql.join(params, ", ")}
+          )`;
+        };
+        const jsonType = introspectionResultsByKind.type.find(
+          t => t.name === "json" && t.namespaceName === "pg_catalog"
         );
-        return memo;
-      }, {});
-    // `PgColumnsPlugin` uses the `extend` function, which is designed to
-    // throw an error if we overwrite existing fields. By the time this
-    // plugin runs, geometry columns will already be in the existing fields
-    // as string types, so we *want* to overwrite existing fields.
-    // As a result, we use `Object.assign` instead of `extend`.
-    return Object.assign({}, fields, geographyFields);
+        constructedTypes[key] = build.newWithHooks(
+          GraphQLObjectType,
+          {
+            // TODO: use inflector
+            name: `Geography_${TYPE_LOOKUP[subtype]}`,
+            fields: {
+              geojson: {
+                type: GraphQLJSON,
+                resolve: (data, _args, _context, _resolveInfo) => {
+                  return pg2gql(data.geojson, jsonType);
+                },
+              },
+              /*
+                longitude: {
+                  type: new GraphQLNonNull(GraphQLFloat),
+                },
+                latitude: {
+                  type: new GraphQLNonNull(GraphQLFloat),
+                },
+              */
+            },
+          },
+          {
+            isPgGISGeographyType: true,
+            pgGISSubtype: subtype,
+          }
+        );
+      }
+      return constructedTypes[key];
+    }
+    function getGeographyInputType() {
+      const key = `geography_input_${subtype}`;
+      if (!constructedTypes[key]) {
+        constructedTypes[key] = newWithHooks(GraphQLInputObjectType, {
+          name: "GeographyPointInput",
+          fields: {
+            longitude: {
+              type: new GraphQLNonNull(GraphQLFloat),
+            },
+            latitude: {
+              type: new GraphQLNonNull(GraphQLFloat),
+            },
+          },
+        });
+      }
+      return constructedTypes[key];
+    }
+
+    debug(`Registering handler for ${GEOGRAPHY_TYPE.id}`);
+    pgRegisterGqlTypeByTypeId(GEOGRAPHY_TYPE.id, (_set, typeModifier) => {
+      return getGeographyType(GEOGRAPHY_TYPE, typeModifier);
+    });
+    return build;
   });
 };
 
