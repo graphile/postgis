@@ -105,8 +105,10 @@ mutation {
 
 ## Polygons
 
-SQL DDL
+SQL DDL (requires PostGIS, e.g. `brew install postgis`)
+
 ```sql
+CREATE EXTENSION IF NOT EXISTS postgis;
 CREATE TABLE country (
   id        serial primary key,
   name      text not null,
