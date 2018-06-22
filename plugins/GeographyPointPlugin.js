@@ -25,12 +25,12 @@ const debug = require("debug")("graphile-build-postgis");
 const TYPE_LOOKUP = {
   0: "generic",
   1: "point",
-  2: "linestr",
+  2: "linestring",
   3: "polygon",
   4: "multipoint",
-  5: "multilinestr",
+  5: "multilinestring",
   6: "multipolygon",
-  7: "geometrycollection",
+  7: "geometry-collection",
 };
 
 const getSubtypeAndSridFromModifier = (isGeography, modifier) => {
@@ -63,6 +63,20 @@ const getSubtypeAndSridFromModifier = (isGeography, modifier) => {
 };
 
 const GeographyPointPlugin = function GeographyPointPlugin(builder) {
+  builder.hook("inflection", inflection => {
+    return {
+      ...inflection,
+      geographyType(subtype) {
+        return this.upperCamelCase(`geography-${TYPE_LOOKUP[subtype]}`);
+      },
+      geometryType(subtype) {
+        return this.upperCamelCase(`geometry-${TYPE_LOOKUP[subtype]}`);
+      },
+      geojsonFieldName() {
+        return `geojson`;
+      },
+    };
+  });
   builder.hook("build", build => {
     const {
       newWithHooks,
@@ -79,6 +93,7 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
       getTypeByName,
       pgSql: sql,
       pg2gql,
+      inflection,
     } = build;
     debug("PostGIS plugin enabled");
     // Check we have the postgis extension
@@ -105,13 +120,14 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
     let _interface;
 
     const GraphQLJSON = getTypeByName("JSON");
+    const geojsonFieldName = inflection.geojsonFieldName();
 
     function getGeographyInterface() {
       if (!_interface) {
         _interface = newWithHooks(GraphQLInterfaceType, {
           name,
           fields: {
-            geojson: {
+            [geojsonFieldName]: {
               type: GraphQLJSON,
               description: "Converts the object to GeoJSON",
             },
@@ -148,7 +164,7 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
               POSTGIS.namespace.name,
               "geometrytype" // MUST be lowercase!
             )}(${fragment})`,
-            sql.literal("geojson"),
+            sql.literal(geojsonFieldName),
             sql.fragment`${sql.identifier(
               POSTGIS.namespace.name,
               "st_asgeojson" // MUST be lowercase!
@@ -164,13 +180,12 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
         constructedTypes[key] = build.newWithHooks(
           GraphQLObjectType,
           {
-            // TODO: use inflector
-            name: `Geography_${TYPE_LOOKUP[subtype]}`,
+            name: inflection.geographyType(subtype),
             fields: {
-              geojson: {
+              [geojsonFieldName]: {
                 type: GraphQLJSON,
                 resolve: (data, _args, _context, _resolveInfo) => {
-                  return pg2gql(data.geojson, jsonType);
+                  return pg2gql(data[geojsonFieldName], jsonType);
                 },
               },
               /*
