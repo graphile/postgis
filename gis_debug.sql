@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS gis_debug;
 CREATE TABLE gis_debug (
   id                        serial primary key,
 
+  geog                      geography,
+
   geog_point                geography(point),
   geog_linestr              geography(linestring),
   geog_poly                 geography(polygon),
@@ -34,6 +36,8 @@ CREATE TABLE gis_debug (
   -- geog_multilinestrmz       geography(multilinestringm),
   -- geog_multipolymz          geography(multipolygonm),
   -- geog_geometrycollectionmz geography(geometrycollectionm),
+
+  geom                      geometry,
 
   geom_point                geometry(point),
   geom_linestr              geometry(linestring),
@@ -69,6 +73,8 @@ CREATE TABLE gis_debug (
 );
 
 insert into gis_debug (
+  geog,
+
   geog_point,
   geog_linestr,
   geog_poly,
@@ -84,6 +90,8 @@ insert into gis_debug (
   geog_multilinestrm,
   geog_multipolym,
   geog_geometrycollectionm,
+
+  geom,
 
   geom_point,
   geom_linestr,
@@ -101,6 +109,8 @@ insert into gis_debug (
   geom_multipolym,
   geom_geometrycollectionm
 ) values (
+  ST_GeographyFromText('GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))'),
+
   ST_GeographyFromText('POINT (30 10)'),
   ST_GeographyFromText('LINESTRING (30 10, 10 30, 40 40)'),
   ST_GeographyFromText('POLYGON ((35 10, 45 45, 15 40, 10 20, 35 10), (20 30, 35 35, 30 20, 20 30))'),
@@ -116,6 +126,8 @@ insert into gis_debug (
   ST_GeographyFromText('MULTILINESTRING M ((10 10 99, 20 20 99, 10 40 99), (40 40 99, 30 30 99, 40 20 99, 30 10 99))'),
   ST_GeographyFromText('MULTIPOLYGON M (((40 40 99, 20 45 99, 45 30 99, 40 40 99)), ((20 35 99, 10 30 99, 10 10 99, 30 5 99, 45 20 99, 20 35 99), (30 20 99, 20 15 99, 20 25 99, 30 20 99)))'),
   ST_GeographyFromText('GEOMETRYCOLLECTION M (POINT M (4 6 99),LINESTRING M (4 6 99,7 10 99))'),
+
+  ST_GeometryFromText('GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))'),
 
   ST_GeometryFromText('POINT (30 10)'),
   ST_GeometryFromText('LINESTRING (30 10, 10 30, 40 40)'),
