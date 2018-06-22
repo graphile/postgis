@@ -23,7 +23,6 @@ const debug = require("debug")("graphile-build-postgis");
  */
 
 const TYPE_LOOKUP = {
-  0: "generic",
   1: "point",
   2: "linestring",
   3: "polygon",
@@ -32,6 +31,26 @@ const TYPE_LOOKUP = {
   6: "multipolygon",
   7: "geometry-collection",
 };
+
+const subtypeByPgGeometryType = {
+  POINT: 1,
+  LINESTR: 2,
+  POLYGON: 3,
+  MULTIPOINT: 4,
+  MULTILINESTR: 5,
+  MULTIPOLYGON: 6,
+  GEOMETRYCOLLECTION: 7,
+};
+
+const subtypeByGeojsonType = {
+  'Point': 1,
+  'LineString': 2,
+  'Polygon': 3,
+  'MultiPoint': 4,
+  'MultiLinestr': 5,
+  'MultiPolygon': 6,
+  'GeometryCollection': 7,
+}
 
 const getSubtypeAndSridFromModifier = (isGeography, modifier) => {
   const ALL_ZEROES_HOPEFULLY = modifier >> 24;
@@ -66,12 +85,12 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
   builder.hook("inflection", inflection => {
     return {
       ...inflection,
-      geographyType(subtype) {
-        return this.upperCamelCase(`geography-${TYPE_LOOKUP[subtype]}`);
+      gisType(type, subtype) {
+        return this.upperCamelCase(`${type.name}-${TYPE_LOOKUP[subtype]}`);
       },
-      geometryType(subtype) {
-        return this.upperCamelCase(`geometry-${TYPE_LOOKUP[subtype]}`);
-      },
+      gisInterfaceName(type) {
+        return this.upperCamelCase(`${type.name}-interface`);
+      }
       geojsonFieldName() {
         return `geojson`;
       },
@@ -79,27 +98,12 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
   });
   builder.hook("build", build => {
     const {
-      newWithHooks,
       pgIntrospectionResultsByKind: introspectionResultsByKind,
-      graphql: {
-        GraphQLNonNull,
-        GraphQLFloat,
-        GraphQLObjectType,
-        GraphQLInputObjectType,
-      },
-      pgRegisterGqlTypeByTypeId,
-      pgRegisterGqlInputTypeByTypeId,
-      pgTweaksByTypeIdAndModifer,
-      getTypeByName,
-      pgSql: sql,
-      pg2gql,
-      inflection,
     } = build;
-    debug("PostGIS plugin enabled");
-    // Check we have the postgis extension
     const POSTGIS = introspectionResultsByKind.extension.find(
       e => e.name === "postgis"
     );
+    // Check we have the postgis extension
     if (!POSTGIS) {
       debug("PostGIS extension not found in database; skipping");
       return build;
@@ -116,16 +120,50 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
         "PostGIS is installed, but we couldn't find the geometry/geography types!"
       );
     }
-    let constructedTypes = {};
-    let _interface;
+    return build.extend(build, {
+      pgGISGraphQLTypesByTypeAndSubtype: {},
+      pgGISGraphQLInterfaceTypesByType: {},
+      pgGISGeometryType: GEOMETRY_TYPE,
+      pgGISGeographyType: GEOGRAPHY_TYPE,
+      pgGISExtension: POSTGIS,
+    });
+  });
+  builder.hook("init", (_, build) => {
+    const {
+      newWithHooks,
+      pgIntrospectionResultsByKind: introspectionResultsByKind,
+      graphql: {
+        GraphQLNonNull,
+        GraphQLFloat,
+        GraphQLObjectType,
+        GraphQLInputObjectType,
+        GraphQLInterfaceType,
+      },
+      pgRegisterGqlTypeByTypeId,
+      pgRegisterGqlInputTypeByTypeId,
+      pgTweaksByTypeIdAndModifer,
+      getTypeByName,
+      pgSql: sql,
+      pg2gql,
+      inflection,
+      pgGISGraphQLTypesByTypeAndSubtype: constructedTypes,
+      pgGISGraphQLInterfaceTypesByType: _interfaces,
+      pgGISGeometryType: GEOMETRY_TYPE,
+      pgGISGeographyType: GEOGRAPHY_TYPE,
+      pgGISExtension: POSTGIS,
+    } = build;
+    if (!GEOMETRY_TYPE || !GEOGRAPHY_TYPE) {
+      return _;
+    }
+    debug("PostGIS plugin enabled");
 
     const GraphQLJSON = getTypeByName("JSON");
     const geojsonFieldName = inflection.geojsonFieldName();
 
-    function getGeographyInterface() {
-      if (!_interface) {
-        _interface = newWithHooks(GraphQLInterfaceType, {
-          name,
+    function getGisInterface(type) {
+      if (!_interfaces[type.id]) {
+        _interfaces[type.id] = newWithHooks(GraphQLInterfaceType, {
+          name: inflection.gisInterfaceName(type),
           fields: {
             [geojsonFieldName]: {
               type: GraphQLJSON,
@@ -133,23 +171,28 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
             },
           },
           resolveType(value, info) {
-            // FIXME!
-            return getGeographyType(value.__geotype);
+            const subtype = subtypeByPgGeometryType[value.__gisType];
+            const Type = constructedTypes[type.id] && constructedTypes[type.id][subtype];
+            return Type;
           },
           description: "All PostGIS geography types implement this interface",
+        }, {
+          isPgGISGeographyInterface: true,
         });
       }
-      return _interface;
+      return _interfaces[type.id];
     }
-    function getGeographyType(type, typeModifier) {
+    function getGisType(type, typeModifier) {
       const typeId = type.id;
       const { subtype, subtypeString } = getSubtypeAndSridFromModifier(
         true,
         typeModifier
       );
       debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
-      const key = `geography_output_${subtype}`;
-      if (!constructedTypes[key]) {
+      if (!constructedTypes[type.id]) {
+        constructedTypes[type.id] = {};
+      }
+      if (!constructedTypes[type.id][subtype]) {
         if (!pgTweaksByTypeIdAndModifer[typeId]) {
           pgTweaksByTypeIdAndModifer[typeId] = {};
         }
@@ -159,12 +202,12 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
           resolveData
         ) => {
           const params = [
-            sql.literal("__geometryType"),
+            sql.literal("__gisType"),
             sql.fragment`${sql.identifier(
               POSTGIS.namespace.name,
               "geometrytype" // MUST be lowercase!
             )}(${fragment})`,
-            sql.literal(geojsonFieldName),
+            sql.literal("__geojson"),
             sql.fragment`${sql.identifier(
               POSTGIS.namespace.name,
               "st_asgeojson" // MUST be lowercase!
@@ -177,58 +220,119 @@ const GeographyPointPlugin = function GeographyPointPlugin(builder) {
         const jsonType = introspectionResultsByKind.type.find(
           t => t.name === "json" && t.namespaceName === "pg_catalog"
         );
-        constructedTypes[key] = build.newWithHooks(
-          GraphQLObjectType,
-          {
-            name: inflection.geographyType(subtype),
-            fields: {
-              [geojsonFieldName]: {
-                type: GraphQLJSON,
-                resolve: (data, _args, _context, _resolveInfo) => {
-                  return pg2gql(data[geojsonFieldName], jsonType);
+        if (subtype === 0) {
+          constructedTypes[type.id][subtype] = getGisInterface(type);
+        } else {
+          constructedTypes[type.id][subtype] = newWithHooks(
+            GraphQLObjectType,
+            {
+              name: inflection.gisType(type, subtype),
+              interfaces: [
+                getGisInterface(type),
+              ],
+              fields: {
+                [geojsonFieldName]: {
+                  type: GraphQLJSON,
+                  resolve: (data, _args, _context, _resolveInfo) => {
+                    return pg2gql(data.__geojson, jsonType);
+                  },
                 },
               },
-              /*
-                longitude: {
-                  type: new GraphQLNonNull(GraphQLFloat),
-                },
-                latitude: {
-                  type: new GraphQLNonNull(GraphQLFloat),
-                },
-              */
             },
-          },
-          {
-            isPgGISGeographyType: true,
-            pgGISSubtype: subtype,
-          }
-        );
+            {
+              isPgGISGeographyType: true,
+              pgGISType: type,
+              pgGISSubtype: subtype,
+            }
+          );
+        }
       }
-      return constructedTypes[key];
-    }
-    function getGeographyInputType() {
-      const key = `geography_input_${subtype}`;
-      if (!constructedTypes[key]) {
-        constructedTypes[key] = newWithHooks(GraphQLInputObjectType, {
-          name: "GeographyPointInput",
-          fields: {
-            longitude: {
-              type: new GraphQLNonNull(GraphQLFloat),
-            },
-            latitude: {
-              type: new GraphQLNonNull(GraphQLFloat),
-            },
-          },
-        });
-      }
-      return constructedTypes[key];
+      return constructedTypes[type.id][subtype];
     }
 
     debug(`Registering handler for ${GEOGRAPHY_TYPE.id}`);
     pgRegisterGqlTypeByTypeId(GEOGRAPHY_TYPE.id, (_set, typeModifier) => {
-      return getGeographyType(GEOGRAPHY_TYPE, typeModifier);
+      return getGisType(GEOGRAPHY_TYPE, typeModifier);
     });
-    return build;
+    debug(`Registering handler for ${GEOMETRY_TYPE.id}`);
+    pgRegisterGqlTypeByTypeId(GEOMETRY_TYPE.id, (_set, typeModifier) => {
+      return getGisType(GEOMETRY_TYPE, typeModifier);
+    });
+    return _;
+  });
+
+  builder.hook('GraphQLObjectType:fields', function AddLatitudeAndLongitudeToPointType(fields, build, context) {
+    const {
+      scope: {
+        isPgGISGeographyType,
+        pgGISSubtype,
+      }
+    } = context;
+    if (!isPgGISGeographyType || pgGISSubtype !== 1) {
+      return fields;
+    }
+    const {
+      extend,
+      graphql: {
+        GraphQLNonNull,
+        GraphQLFloat,
+      },
+    } = build;
+    return extend(fields, {
+      longitude: {
+        type: new GraphQLNonNull(GraphQLFloat),
+        resolve(data) {
+          return data.__geojson.coordinates[0];
+        }
+      },
+      latitude: {
+        type: new GraphQLNonNull(GraphQLFloat),
+        resolve(data) {
+          return data.__geojson.coordinates[1];
+        }
+      },
+    });
+  });
+
+  builder.hook('GraphQLObjectType:fields', function AddGeometriesToGeometryCollection(fields, build, context) {
+    const {
+      scope: {
+        isPgGISGeographyType,
+        pgGISType,
+        pgGISSubtype,
+      }
+    } = context;
+    if (!isPgGISGeographyType || pgGISSubtype !== 7) {
+      return fields;
+    }
+    const {
+      extend,
+      pgGISGraphQLInterfaceTypesByType,
+      graphql: {
+        GraphQLList,
+      }
+    } = build;
+    const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id];
+    if (!Interface) {
+      debug("Unexpectedly couldn't find the interface");
+      return fields;
+    }
+
+    return extend(fields, {
+      geometries: {
+        type: new GraphQLList(Interface),
+        resolve(data) {
+          return data.__geojson.geometries.map(geom => {
+            const subtype = subtypeByGeojsonType[geom.type];
+            const pgGeometryType = Object.keys(subtypeByPgGeometryType).find(k => subtypeByPgGeometryType[k] === subtype);
+            return {
+              __gisType: pgGeometryType,
+              __geojson: geom,
+            }
+          });
+        }
+      },
+    });
   });
 };
 
