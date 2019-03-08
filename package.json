@@ -1,0 +1,28 @@
+{
+  "name": "@graphile/postgis",
+  "version": "0.0.1",
+  "description": "PostGIS support for PostGraphile",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graphile/postgis.git"
+  },
+  "keywords": [
+    "postgraphile",
+    "graphile",
+    "plugin",
+    "postgis",
+    "gis",
+    "postgresql",
+    "graphql"
+  ],
+  "author": "Benjie Gillam <code@benjiegillam.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/graphile/postgis/issues"
+  },
+  "homepage": "https://github.com/graphile/postgis#readme"
+}
