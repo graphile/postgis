@@ -8,7 +8,7 @@
     "watch": "tsc --watch",
     "test": "jest -i",
     "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
-    "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_postgis -s test --watch --dynamic-json'",
+    "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_postgis -s test --enhance-graphiql --watch --dynamic-json --show-error-stack --extended-errors severity,code,detail,hint,position,internalPosition,internalQuery,where,schema,table,column,dataType,constraint,file,line,routine'",
     "dev": "psql -f gis_debug.sql graphile_postgis && concurrently --kill-others 'npm run watch' 'npm run postgraphile'",
     "prepack": "rm -Rf dist && npm run build"
   },

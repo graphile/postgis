@@ -85,12 +85,12 @@ const PostgisRegisterTypesPlugin: Plugin = builder => {
             const params = [
               sql.literal("__gisType"),
               sql.fragment`${sql.identifier(
-                POSTGIS.namespace.name,
+                POSTGIS.namespaceName || "public",
                 "geometrytype" // MUST be lowercase!
               )}(${fragment})`,
               sql.literal("__geojson"),
               sql.fragment`${sql.identifier(
-                POSTGIS.namespace.name,
+                POSTGIS.namespaceName || "public",
                 "st_asgeojson" // MUST be lowercase!
               )}(${fragment})::JSON`,
             ];
