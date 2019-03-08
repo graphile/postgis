@@ -8,6 +8,8 @@
     "watch": "tsc --watch",
     "test": "jest -i",
     "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
+    "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_postgis -s test --watch --dynamic-json'",
+    "dev": "psql -f gis_debug.sql graphile_postgis && concurrently --kill-others 'npm run watch' 'npm run postgraphile'",
     "prepack": "rm -Rf dist && npm run build"
   },
   "repository": {
@@ -35,6 +37,8 @@
     "pg-sql2": "^2.2.1"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10",
     "postgraphile": "^4.4.0-beta.3",
     "prettier": "^1.16.4",
     "tslint": "^5.13.1",

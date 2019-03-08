@@ -1,5 +1,10 @@
 CREATE EXTENSION IF NOT EXISTS postgis;
-DROP TABLE IF EXISTS gis_debug;
+
+drop schema if exists test cascade;
+
+create schema test;
+set search_path to test, public;
+
 CREATE TABLE gis_debug (
   id                        serial primary key,
 

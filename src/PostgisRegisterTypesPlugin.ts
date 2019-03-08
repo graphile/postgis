@@ -101,7 +101,7 @@ const PostgisRegisterTypesPlugin: Plugin = builder => {
           const jsonType = introspectionResultsByKind.type.find(
             (t: PgType) => t.name === "json" && t.namespaceName === "pg_catalog"
           );
-          console.log(type.id, subtype);
+
           if (subtype === 0) {
             constructedTypes[type.id][subtype] = getGisInterface(type);
           } else {
