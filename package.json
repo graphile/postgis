@@ -8,7 +8,7 @@
     "watch": "tsc --watch",
     "test": "jest -i",
     "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
-    "prepack": "npm run build"
+    "prepack": "rm -Rf dist && npm run build"
   },
   "repository": {
     "type": "git",
@@ -45,7 +45,5 @@
     "@types/graphql": "^14.0.7",
     "debug": "^4.1.1"
   },
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }
