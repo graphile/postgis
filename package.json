@@ -1,6 +1,6 @@
 {
   "name": "@graphile/postgis",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "PostGIS support for PostGraphile",
   "main": "dist/index.js",
   "scripts": {
@@ -44,5 +44,6 @@
     "@types/debug": "^4.1.2",
     "@types/graphql": "^14.0.7",
     "debug": "^4.1.1"
-  }
+  },
+  "files": ["dist"]
 }
