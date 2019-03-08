@@ -4,7 +4,11 @@
   "description": "PostGIS support for PostGraphile",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest -i",
+    "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,21 @@
   "bugs": {
     "url": "https://github.com/graphile/postgis/issues"
   },
-  "homepage": "https://github.com/graphile/postgis#readme"
+  "homepage": "https://github.com/graphile/postgis#readme",
+  "peerDependencies": {
+    "graphile-build": "^4.3.0",
+    "graphile-build-pg": "^4.3.0",
+    "pg-sql2": "^2.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@types/debug": "^4.1.2",
+    "@types/graphql": "^14.0.7",
+    "debug": "^4.1.1"
+  }
 }
