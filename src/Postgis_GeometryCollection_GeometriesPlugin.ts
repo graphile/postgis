@@ -5,7 +5,7 @@ import {
   SUBTYPE_BY_PG_GEOMETRY_TYPE,
 } from "./constants";
 
-const PostgisGeometryCollectionGeometriesPlugin: Plugin = builder => {
+const plugin: Plugin = builder => {
   builder.hook(
     "GraphQLObjectType:fields",
     function AddGeometriesToGeometryCollection(fields, build, context) {
@@ -46,4 +46,4 @@ const PostgisGeometryCollectionGeometriesPlugin: Plugin = builder => {
     }
   );
 };
-export default PostgisGeometryCollectionGeometriesPlugin;
+export default plugin;

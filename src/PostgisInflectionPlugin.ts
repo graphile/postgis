@@ -2,7 +2,7 @@ import { Plugin } from "graphile-build";
 import { PgType } from "graphile-build-pg";
 import { TYPE_LOOKUP } from "./constants";
 
-const PostgisInflectionPlugin: Plugin = builder => {
+const plugin: Plugin = builder => {
   builder.hook("inflection", inflection => {
     return {
       ...inflection,
@@ -19,4 +19,4 @@ const PostgisInflectionPlugin: Plugin = builder => {
   });
 };
 
-export default PostgisInflectionPlugin;
+export default plugin;

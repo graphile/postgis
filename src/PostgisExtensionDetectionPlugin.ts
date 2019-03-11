@@ -2,7 +2,7 @@ import { Plugin } from "graphile-build";
 import { PgExtension, PgType } from "graphile-build-pg";
 import debug from "./debug";
 
-const PostgisExtensionDetectionPlugin: Plugin = builder => {
+const plugin: Plugin = builder => {
   builder.hook("build", build => {
     const { pgIntrospectionResultsByKind: introspectionResultsByKind } = build;
     const pgGISExtension = introspectionResultsByKind.extension.find(
@@ -37,4 +37,4 @@ const PostgisExtensionDetectionPlugin: Plugin = builder => {
   });
 };
 
-export default PostgisExtensionDetectionPlugin;
+export default plugin;

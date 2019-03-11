@@ -6,7 +6,23 @@ import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
 import { getSubtypeAndSridFromModifier } from "./utils";
 import { SQL } from "pg-sql2";
 
-const PostgisRegisterTypesPlugin: Plugin = builder => {
+const plugin: Plugin = builder => {
+  builder.hook("build", build => {
+    return build.extend(build, {
+      getPostgisTypeByGeometryType(
+        geometryType: number,
+        isXym: boolean = false
+      ) {
+        const typeModifier =
+          (4326 << 8) + (geometryType << 2) + (isXym ? 1 : 0);
+        return this.pgGetGqlTypeByTypeIdAndModifier(
+          this.pgGISGeographyType.id,
+          typeModifier
+        );
+      },
+    });
+  });
+
   builder.hook(
     "init",
     (_, build) => {
@@ -65,10 +81,12 @@ const PostgisRegisterTypesPlugin: Plugin = builder => {
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const { subtype, subtypeString } = getSubtypeAndSridFromModifier(
-          true,
-          typeModifier
-        );
+        const {
+          subtype,
+          subtypeString,
+          isXym,
+          srid,
+        } = getSubtypeAndSridFromModifier(true, typeModifier);
         debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
@@ -128,6 +146,8 @@ const PostgisRegisterTypesPlugin: Plugin = builder => {
                 isPgGISGeographyType: true,
                 pgGISType: type,
                 pgGISSubtype: subtype,
+                pgGISIsXym: isXym,
+                pgGISSrid: srid,
               }
             );
           }
@@ -157,4 +177,4 @@ const PostgisRegisterTypesPlugin: Plugin = builder => {
   );
 };
 
-export default PostgisRegisterTypesPlugin;
+export default plugin;

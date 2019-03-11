@@ -1,6 +1,6 @@
 import { Plugin } from "graphile-build";
 
-const PostgisPointLatitudeLongitudePlugin: Plugin = builder => {
+const plugin: Plugin = builder => {
   builder.hook(
     "GraphQLObjectType:fields",
     function AddLatitudeAndLongitudeToPointType(fields, build, context) {
@@ -31,4 +31,4 @@ const PostgisPointLatitudeLongitudePlugin: Plugin = builder => {
     }
   );
 };
-export default PostgisPointLatitudeLongitudePlugin;
+export default plugin;
