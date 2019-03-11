@@ -8,6 +8,7 @@ import Postgis_LineString_CoordinatesPlugin from "./Postgis_LineString_Coordinat
 import Postgis_Polygon_RingsPlugin from "./Postgis_Polygon_RingsPlugin";
 import Postgis_MultiPoint_PointsPlugin from "./Postgis_MultiPoint_PointsPlugin";
 import Postgis_MultiLineString_LineStringsPlugin from "./Postgis_MultiLineString_LineStringsPlugin";
+import Postgis_MultiPolygon_PolygonsPlugin from "./Postgis_MultiPolygon_PolygonsPlugin";
 
 // We only currently support SRID 4326 (WGS 84 long lat)
 
@@ -30,6 +31,9 @@ const PostgisPlugin: Plugin = async (builder, options) => {
 
   // Enhancing the `MultiLineString` type:
   await Postgis_MultiLineString_LineStringsPlugin(builder, options);
+
+  // Enhancing the `MultiLineString` type:
+  await Postgis_MultiPolygon_PolygonsPlugin(builder, options);
 
   // Enhancing the `GeometryCollection` type:
   await Postgis_GeometryCollection_GeometriesPlugin(builder, options);
