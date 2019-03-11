@@ -22,7 +22,7 @@ const plugin: Plugin = builder => {
     );
 
     return extend(fields, {
-      exteriorRing: {
+      exterior: {
         type: LineString,
         resolve(data: any) {
           return {
@@ -34,7 +34,7 @@ const plugin: Plugin = builder => {
           };
         },
       },
-      interiorRings: {
+      interiors: {
         type: new GraphQLList(LineString),
         resolve(data: any) {
           return data.__geojson.coordinates.slice(1).map((coord: any) => ({

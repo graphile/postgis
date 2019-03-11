@@ -22,7 +22,7 @@ const plugin: Plugin = builder => {
     );
 
     return extend(fields, {
-      coordinates: {
+      points: {
         type: new GraphQLList(Point),
         resolve(data: any) {
           return data.__geojson.coordinates.map((coord: any) => {

@@ -4,7 +4,7 @@ import PostgisExtensionDetectionPlugin from "./PostgisExtensionDetectionPlugin";
 import PostgisRegisterTypesPlugin from "./PostgisRegisterTypesPlugin";
 import Postgis_Point_LatitudeLongitudePlugin from "./Postgis_Point_LatitudeLongitudePlugin";
 import Postgis_GeometryCollection_GeometriesPlugin from "./Postgis_GeometryCollection_GeometriesPlugin";
-import Postgis_LineString_CoordinatesPlugin from "./Postgis_LineString_CoordinatesPlugin";
+import Postgis_LineString_PointsPlugin from "./Postgis_LineString_PointsPlugin";
 import Postgis_Polygon_RingsPlugin from "./Postgis_Polygon_RingsPlugin";
 import Postgis_MultiPoint_PointsPlugin from "./Postgis_MultiPoint_PointsPlugin";
 import Postgis_MultiLineString_LineStringsPlugin from "./Postgis_MultiLineString_LineStringsPlugin";
@@ -21,7 +21,7 @@ const PostgisPlugin: Plugin = async (builder, options) => {
   await Postgis_Point_LatitudeLongitudePlugin(builder, options);
 
   // Enhancing the `LineString` type:
-  await Postgis_LineString_CoordinatesPlugin(builder, options);
+  await Postgis_LineString_PointsPlugin(builder, options);
 
   // Enhancing the `Polygon` type:
   await Postgis_Polygon_RingsPlugin(builder, options);
