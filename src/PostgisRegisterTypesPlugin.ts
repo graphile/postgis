@@ -81,13 +81,10 @@ const plugin: Plugin = builder => {
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const { subtype, subtypeString, srid } = getSubtypeAndSridFromModifier(
+        const { subtype, subtypeString } = getSubtypeAndSridFromModifier(
           true,
           typeModifier
         );
-        if (srid !== 4326) {
-          return null;
-        }
         debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
