@@ -47,3 +47,15 @@ Load the plugin:
 ```
 postgraphile --append-plugins @graphile/postgis
 ```
+
+## Development
+
+Contributions are extremely welcome! To get started, clone down this repo and then:
+
+```
+createdb graphile_postgis
+yarn
+yarn dev
+```
+
+Note the development server runs at http://localhost:5123/graphiql
