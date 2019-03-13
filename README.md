@@ -19,7 +19,7 @@ Work is ongoing, here's the plan:
 - [x] Read-only support for determining the geometry sub-types of columns and exposing these directly (rather than the interface)
 - [x] Read-only support for `longitude` and `latitude` on `geography(POINT)` columns
 - [x] Read-only support for viewing the list of `geometries` in a `geography(GEOMETRYCOLLECTION)`
-- [ ] Read-only support for a list of points (`longitude` and `latitude`) on
+- [x] Read-only support for a list of points (`longitude` and `latitude`) on
       `geography(LINESTRING)` and `geography(POLYGON)` columns
 - [ ] Read-only support for computed attributes on
       `geography(LINESTRING)` and `geography(POLYGON)`, such as `area`,
