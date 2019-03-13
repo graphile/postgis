@@ -21,13 +21,12 @@ Work is ongoing, here's the plan:
 - [x] Read-only support for viewing the list of `geometries` in a `geography(GEOMETRYCOLLECTION)`
 - [x] Read-only support for a list of points (`longitude` and `latitude`) on
       `geography(LINESTRING)` and `geography(POLYGON)` columns
+- [x] Create/update/null support for `geography(POINT)` columns
+- [x] Create/update/null support for `geography(LINESTRING)` and `geography(POLYGON)` columns
+- [ ] Integration with `postgraphile-plugin-connection-filter` to enable PostGIS specific filtering
 - [ ] Read-only support for computed attributes on
       `geography(LINESTRING)` and `geography(POLYGON)`, such as `area`,
-      `length`, `perimeter`, and `centroid`
-- [x] Create/update/null support for `geography(POINT)` columns
-- [x] Create/update/null support for `geography(LINESTRING)` and
-      `geography(POLYGON)` columns
-- [ ] Integration with `postgraphile-plugin-connection-filter` to enable PostGIS specific filtering
+      `length`, `perimeter`, and `centroid` - currently possible by adding a plugin and consuming the GeoJSON directly.
 
 There are many, many other features that this plugin could support - if you
 have specific needs please get in touch!
