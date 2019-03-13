@@ -24,8 +24,8 @@ Work is ongoing, here's the plan:
 - [ ] Read-only support for computed attributes on
       `geography(LINESTRING)` and `geography(POLYGON)`, such as `area`,
       `length`, `perimeter`, and `centroid`
-- [ ] Create/update/delete support for `geography(POINT)` columns
-- [ ] Create/update/delete support for `geography(LINESTRING)` and
+- [x] Create/update/null support for `geography(POINT)` columns
+- [x] Create/update/null support for `geography(LINESTRING)` and
       `geography(POLYGON)` columns
 - [ ] Integration with `postgraphile-plugin-connection-filter` to enable PostGIS specific filtering
 

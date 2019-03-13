@@ -5,9 +5,20 @@ import { GraphQLResolveInfo, GraphQLType } from "graphql";
 import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
 import { getSubtypeAndSridFromModifier } from "./utils";
 import { SQL } from "pg-sql2";
+import makeGeoJSONType from "./makeGeoJSONType";
+
+function identity<T>(input: T): T {
+  return input;
+}
 
 const plugin: Plugin = builder => {
   builder.hook("build", build => {
+    const GeoJSON = makeGeoJSONType(
+      build.graphql,
+      build.inflection.builtin("GeoJSON")
+    );
+    build.addType(GeoJSON);
+
     return build.extend(build, {
       getPostgisTypeByGeometryType(
         geometryType: number,
@@ -31,10 +42,12 @@ const plugin: Plugin = builder => {
         pgIntrospectionResultsByKind: introspectionResultsByKind,
         graphql: { GraphQLObjectType, GraphQLInterfaceType },
         pgRegisterGqlTypeByTypeId,
+        pgRegisterGqlInputTypeByTypeId,
         pgTweaksByTypeIdAndModifer,
         getTypeByName,
         pgSql: sql,
         pg2gql,
+        pg2GqlMapper,
         inflection,
         pgGISGraphQLTypesByTypeAndSubtype: constructedTypes,
         pgGISGraphQLInterfaceTypesByType: _interfaces,
@@ -47,7 +60,7 @@ const plugin: Plugin = builder => {
       }
       debug("PostGIS plugin enabled");
 
-      const GraphQLJSON = getTypeByName("JSON");
+      const GeoJSON = getTypeByName(inflection.builtin("GeoJSON"));
       const geojsonFieldName = inflection.geojsonFieldName();
 
       function getGisInterface(type: PgType) {
@@ -58,7 +71,7 @@ const plugin: Plugin = builder => {
               name: inflection.gisInterfaceName(type),
               fields: {
                 [geojsonFieldName]: {
-                  type: GraphQLJSON,
+                  type: GeoJSON,
                   description: "Converts the object to GeoJSON",
                 },
               },
@@ -110,9 +123,9 @@ const plugin: Plugin = builder => {
                 "st_asgeojson" // MUST be lowercase!
               )}(${fragment})::JSON`,
             ];
-            return sql.fragment`json_build_object(
+            return sql.fragment`(case when ${fragment} is null then null else json_build_object(
             ${sql.join(params, ", ")}
-          )`;
+          ) end)`;
           };
         }
         if (!constructedTypes[type.id][subtype]) {
@@ -131,7 +144,7 @@ const plugin: Plugin = builder => {
                 interfaces: [getGisInterface(type)],
                 fields: {
                   [geojsonFieldName]: {
-                    type: GraphQLJSON,
+                    type: GeoJSON,
                     resolve: (
                       data: any,
                       _args: any,
@@ -155,13 +168,37 @@ const plugin: Plugin = builder => {
       }
 
       debug(`Registering handler for ${GEOGRAPHY_TYPE.id}`);
+
+      pgRegisterGqlInputTypeByTypeId(GEOGRAPHY_TYPE.id, () => GeoJSON);
+      pg2GqlMapper[GEOGRAPHY_TYPE.id] = {
+        map: identity,
+        unmap: (o: any) =>
+          sql.fragment`st_geomfromgeojson(${sql.value(
+            JSON.stringify(o)
+          )}::text)::${sql.identifier(
+            POSTGIS.namespaceName || "public",
+            "geography"
+          )}`,
+      };
+
       pgRegisterGqlTypeByTypeId(
         GEOGRAPHY_TYPE.id,
         (_set: (type: GraphQLType) => void, typeModifier: number) => {
           return getGisType(GEOGRAPHY_TYPE, typeModifier);
         }
       );
+
       debug(`Registering handler for ${GEOMETRY_TYPE.id}`);
+
+      pgRegisterGqlInputTypeByTypeId(GEOMETRY_TYPE.id, () => GeoJSON);
+      pg2GqlMapper[GEOMETRY_TYPE.id] = {
+        map: identity,
+        unmap: (o: any) =>
+          sql.fragment`st_geomfromgeojson(${sql.value(
+            JSON.stringify(o)
+          )}::text)`,
+      };
+
       pgRegisterGqlTypeByTypeId(
         GEOMETRY_TYPE.id,
         (_set: (type: GraphQLType) => void, typeModifier: number) => {
