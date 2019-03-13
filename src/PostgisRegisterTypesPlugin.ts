@@ -81,21 +81,22 @@ const plugin: Plugin = builder => {
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const {
-          subtype,
-          subtypeString,
-          isXym,
-          srid,
-        } = getSubtypeAndSridFromModifier(true, typeModifier);
+        const { subtype, subtypeString, srid } = getSubtypeAndSridFromModifier(
+          true,
+          typeModifier
+        );
+        if (srid !== 4326) {
+          return null;
+        }
         debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
         }
-        if (!constructedTypes[type.id][subtype]) {
-          if (!pgTweaksByTypeIdAndModifer[typeId]) {
-            pgTweaksByTypeIdAndModifer[typeId] = {};
-          }
-          const typeModifierKey = typeModifier != null ? typeModifier : -1;
+        const typeModifierKey = typeModifier != null ? typeModifier : -1;
+        if (!pgTweaksByTypeIdAndModifer[typeId]) {
+          pgTweaksByTypeIdAndModifer[typeId] = {};
+        }
+        if (!pgTweaksByTypeIdAndModifer[typeId][typeModifierKey]) {
           pgTweaksByTypeIdAndModifer[typeId][typeModifierKey] = (
             fragment: SQL,
             _resolveData: any
@@ -116,13 +117,16 @@ const plugin: Plugin = builder => {
             ${sql.join(params, ", ")}
           )`;
           };
-          const jsonType = introspectionResultsByKind.type.find(
-            (t: PgType) => t.name === "json" && t.namespaceName === "pg_catalog"
-          );
-
+        }
+        if (!constructedTypes[type.id][subtype]) {
           if (subtype === 0) {
             constructedTypes[type.id][subtype] = getGisInterface(type);
           } else {
+            const jsonType = introspectionResultsByKind.type.find(
+              (t: PgType) =>
+                t.name === "json" && t.namespaceName === "pg_catalog"
+            );
+
             constructedTypes[type.id][subtype] = newWithHooks(
               GraphQLObjectType,
               {
@@ -146,8 +150,6 @@ const plugin: Plugin = builder => {
                 isPgGISGeographyType: true,
                 pgGISType: type,
                 pgGISSubtype: subtype,
-                pgGISIsXym: isXym,
-                pgGISSrid: srid,
               }
             );
           }
