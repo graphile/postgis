@@ -16,7 +16,7 @@ export const getSubtypeAndSridFromModifier = (
     );
   }
   if (!isGeography && srid !== 0) {
-    throw new Error("Unexepected SRID with geometry type");
+    throw new Error("Unexpected SRID with geometry type");
   }
   const subtype = (modifier & 255) >> 2;
   if (subtype > 7 || subtype < 0) {
