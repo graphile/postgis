@@ -3,7 +3,7 @@ import debug from "./debug";
 import { PgType } from "graphile-build-pg";
 import { GraphQLResolveInfo, GraphQLType } from "graphql";
 import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
-import { getSubtypeAndSridFromModifier } from "./utils";
+import { getSubtypeAndSridFromModifier, getGisTypeModifier } from "./utils";
 import { SQL } from "pg-sql2";
 import makeGeoJSONType from "./makeGeoJSONType";
 
@@ -21,11 +21,12 @@ const plugin: Plugin = builder => {
 
     return build.extend(build, {
       getPostgisTypeByGeometryType(
-        geometryType: number,
-        isXym: boolean = false
+        subtype: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7,
+        hasZ: boolean = false,
+        hasM: boolean = false
       ) {
-        const typeModifier =
-          (4326 << 8) + (geometryType << 2) + (isXym ? 1 : 0);
+        const srid = 4326; // We only support SRID 4326 currently
+        const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(
           this.pgGISGeographyType.id,
           typeModifier
