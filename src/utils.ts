@@ -1,6 +1,7 @@
 import { SubtypeDetails, Subtype } from "./interfaces";
 import { TYPE_LOOKUP } from "./constants";
 
+// TODO: rename to getGisSubtypeDetails
 export const getSubtypeAndSridFromModifier = (
   isGeography: boolean,
   modifier: number

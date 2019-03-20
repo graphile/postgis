@@ -21,6 +21,7 @@ const plugin: Plugin = builder => {
     build.addType(GeoJSON);
 
     return build.extend(build, {
+      // TODO: rename to getGqlTypeByGisSubtypeDetails
       getPostgisTypeByGeometryType(
         subtype: Subtype,
         hasZ: boolean = false,
