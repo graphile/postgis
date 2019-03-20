@@ -52,17 +52,17 @@ export const getSubtypeAndSridFromModifier = (
   };
 };
 
-// Ref: https://github.com/postgis/postgis/blob/2.5.2/liblwgeom/liblwgeom.h.in#L156-L173
-// #define TYPMOD_SET_SRID(typmod, srid) ((typmod) = (((typmod) & 0xE00000FF) | ((srid & 0x001FFFFF)<<8)))
-// #define TYPMOD_SET_TYPE(typmod, type) ((typmod) = (typmod & 0xFFFFFF03) | ((type & 0x0000003F)<<2))
-// #define TYPMOD_SET_Z(typmod) ((typmod) = typmod | 0x00000002)
-// #define TYPMOD_SET_M(typmod) ((typmod) = typmod | 0x00000001)
 export const getGisTypeModifier = (
   subtype: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7,
   hasZ: boolean,
   hasM: boolean,
   srid: number // We only support SRID 4326 currently
 ): number => {
+  // Ref: https://github.com/postgis/postgis/blob/2.5.2/liblwgeom/liblwgeom.h.in#L156-L173
+  // #define TYPMOD_SET_SRID(typmod, srid) ((typmod) = (((typmod) & 0xE00000FF) | ((srid & 0x001FFFFF)<<8)))
+  // #define TYPMOD_SET_TYPE(typmod, type) ((typmod) = (typmod & 0xFFFFFF03) | ((type & 0x0000003F)<<2))
+  // #define TYPMOD_SET_Z(typmod) ((typmod) = typmod | 0x00000002)
+  // #define TYPMOD_SET_M(typmod) ((typmod) = typmod | 0x00000001)
   return (
     ((srid & 0x001fffff) << 8) +
     ((subtype & 0x0000003f) << 2) +
