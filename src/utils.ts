@@ -1,8 +1,7 @@
 import { SubtypeDetails, Subtype } from "./interfaces";
-import { TYPE_LOOKUP } from "./constants";
+import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants";
 
-// TODO: rename to getGisSubtypeDetails
-export const getSubtypeAndSridFromModifier = (
+export const getGisSubtypeDetails = (
   isGeography: boolean,
   modifier: number
 ): SubtypeDetails => {
@@ -46,7 +45,7 @@ export const getSubtypeAndSridFromModifier = (
 
   return {
     subtype,
-    subtypeString: TYPE_LOOKUP[subtype],
+    subtypeString: SUBTYPE_STRING_BY_SUBTYPE[subtype],
     hasZ,
     hasM,
     srid,

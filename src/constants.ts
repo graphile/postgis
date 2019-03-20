@@ -1,5 +1,4 @@
-// TODO: rename to SUBTYPE_STRING_BY_SUBTYPE
-export const TYPE_LOOKUP = {
+export const SUBTYPE_STRING_BY_SUBTYPE = {
   1: "point",
   2: "linestring",
   3: "polygon",
