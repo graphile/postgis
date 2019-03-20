@@ -1,3 +1,4 @@
+// TODO: rename to SUBTYPE_STRING_BY_SUBTYPE
 export const TYPE_LOOKUP = {
   1: "point",
   2: "linestring",
