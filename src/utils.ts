@@ -1,4 +1,4 @@
-import { SubtypeDetails } from "./interfaces";
+import { SubtypeDetails, Subtype } from "./interfaces";
 import { TYPE_LOOKUP } from "./constants";
 
 export const getSubtypeAndSridFromModifier = (
@@ -53,7 +53,7 @@ export const getSubtypeAndSridFromModifier = (
 };
 
 export const getGisTypeModifier = (
-  subtype: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  subtype: Subtype,
   hasZ: boolean,
   hasM: boolean,
   srid: number // We only support SRID 4326 currently
