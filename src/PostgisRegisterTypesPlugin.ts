@@ -25,9 +25,9 @@ const plugin: Plugin = builder => {
         pgGISType: PgType,
         subtype: Subtype,
         hasZ: boolean = false,
-        hasM: boolean = false
+        hasM: boolean = false,
+        srid: number = 0
       ) {
-        const srid = 4326; // We only support SRID 4326 currently
         const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(pgGISType.id, typeModifier);
       },
@@ -94,10 +94,7 @@ const plugin: Plugin = builder => {
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const { subtype, subtypeString } = getGisSubtypeDetails(
-          true,
-          typeModifier
-        );
+        const { subtype, subtypeString } = getGisSubtypeDetails(typeModifier);
         debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
