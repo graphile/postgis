@@ -4,7 +4,7 @@ import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
     const {
-      scope: { isPgGISGeographyType, pgGISSubtype },
+      scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
     } = context;
     if (
       !isPgGISGeographyType ||
@@ -18,6 +18,7 @@ const plugin: Plugin = builder => {
       graphql: { GraphQLList },
     } = build;
     const LineString = getPostgisTypeByGeometryType(
+      pgGISType,
       SUBTYPE_BY_PG_GEOMETRY_TYPE.LINESTR
     );
 
