@@ -22,6 +22,7 @@ const plugin: Plugin = builder => {
 
     return build.extend(build, {
       getPostgisTypeByGeometryType(
+        pgGISType: PgType,
         subtype: Subtype,
         hasZ: boolean = false,
         hasM: boolean = false
@@ -29,7 +30,7 @@ const plugin: Plugin = builder => {
         const srid = 4326; // We only support SRID 4326 currently
         const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(
-          this.pgGISGeographyType.id,
+          pgGISType.id,
           typeModifier
         );
       },
