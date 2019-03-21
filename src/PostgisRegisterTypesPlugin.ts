@@ -94,7 +94,8 @@ const plugin: Plugin = builder => {
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const { subtype, subtypeString } = getGisSubtypeDetails(typeModifier);
+        const gisSubtypeDetails = getGisSubtypeDetails(typeModifier);
+        const { subtype, subtypeString } = gisSubtypeDetails;
         debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
@@ -157,6 +158,7 @@ const plugin: Plugin = builder => {
                 isPgGISGeographyType: true,
                 pgGISType: type,
                 pgGISSubtype: subtype,
+                pgGISSubtypeDetails: gisSubtypeDetails,
               }
             );
           }
