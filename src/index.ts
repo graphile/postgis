@@ -10,8 +10,6 @@ import Postgis_MultiPoint_PointsPlugin from "./Postgis_MultiPoint_PointsPlugin";
 import Postgis_MultiLineString_LineStringsPlugin from "./Postgis_MultiLineString_LineStringsPlugin";
 import Postgis_MultiPolygon_PolygonsPlugin from "./Postgis_MultiPolygon_PolygonsPlugin";
 
-// We only currently support SRID 4326 (WGS 84 long lat)
-
 const PostgisPlugin: Plugin = async (builder, options) => {
   await PostgisInflectionPlugin(builder, options);
   await PostgisExtensionDetectionPlugin(builder, options);
