@@ -6,10 +6,10 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "test": "jest -i",
+    "test": "psql -Xv ON_ERROR_STOP=1 -f __tests__/schema.sql graphile_test && jest -i",
     "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
-    "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_postgis -s test -p 5123 --enhance-graphiql --watch --dynamic-json --show-error-stack --extended-errors severity,code,detail,hint,position,internalPosition,internalQuery,where,schema,table,column,dataType,constraint,file,line,routine'",
-    "dev": "psql -f gis_debug.sql graphile_postgis && concurrently --kill-others 'npm run watch' 'npm run postgraphile'",
+    "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_test -s graphile_postgis -p 5123 --enhance-graphiql --watch --dynamic-json --show-error-stack --extended-errors severity,code,detail,hint,position,internalPosition,internalQuery,where,schema,table,column,dataType,constraint,file,line,routine'",
+    "dev": "psql -f __tests__/schema.sql graphile_test && concurrently --kill-others 'npm run watch' 'npm run postgraphile'",
     "prepack": "rm -Rf dist && npm run build"
   },
   "repository": {
@@ -38,10 +38,13 @@
     "pg-sql2": "^2.2.1"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.11",
     "concurrently": "^4.1.0",
+    "jest": "^24.5.0",
     "nodemon": "^1.18.10",
     "postgraphile": "^4.4.0-beta.3",
     "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3333"

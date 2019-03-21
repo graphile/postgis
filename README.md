@@ -38,7 +38,7 @@ This plugin requires PostGraphile **v4.4.0-beta.3** or higher to function correc
 Add PostGIS to your database:
 
 ```sql
-CREATE EXTENSION IF NOT EXISTS postgis USING SCHEMA public;
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
 ```
 
 Load the plugin:
@@ -52,7 +52,7 @@ postgraphile --append-plugins @graphile/postgis
 Contributions are extremely welcome! To get started, clone down this repo and then:
 
 ```
-createdb graphile_postgis
+createdb graphile_test
 yarn
 yarn dev
 ```
