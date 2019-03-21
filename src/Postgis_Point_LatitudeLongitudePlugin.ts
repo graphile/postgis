@@ -6,11 +6,7 @@ const plugin: Plugin = builder => {
     function AddLatitudeAndLongitudeToPointType(fields, build, context) {
       const { inflection } = build;
       const {
-        scope: {
-          isPgGISGeographyType,
-          pgGISType,
-          pgGISSubtypeDetails,
-        },
+        scope: { isPgGISGeographyType, pgGISType, pgGISSubtypeDetails },
       } = context;
       if (!isPgGISGeographyType || pgGISSubtypeDetails.subtype !== 1) {
         return fields;
