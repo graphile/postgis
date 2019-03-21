@@ -29,10 +29,7 @@ const plugin: Plugin = builder => {
       ) {
         const srid = 4326; // We only support SRID 4326 currently
         const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
-        return this.pgGetGqlTypeByTypeIdAndModifier(
-          pgGISType.id,
-          typeModifier
-        );
+        return this.pgGetGqlTypeByTypeIdAndModifier(pgGISType.id, typeModifier);
       },
     });
   });

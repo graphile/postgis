@@ -7,7 +7,9 @@ const plugin: Plugin = builder => {
     return {
       ...inflection,
       gisType(type: PgType, subtype: number) {
-        return this.upperCamelCase(`${type.name}-${SUBTYPE_STRING_BY_SUBTYPE[subtype]}`);
+        return this.upperCamelCase(
+          `${type.name}-${SUBTYPE_STRING_BY_SUBTYPE[subtype]}`
+        );
       },
       gisInterfaceName(type: PgType) {
         return this.upperCamelCase(`${type.name}-interface`);
