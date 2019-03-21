@@ -6,7 +6,7 @@ export async function withPgPool<T = any>(
   cb: (pool: pg.Pool) => Promise<T>
 ): Promise<T> {
   const pool = new pg.Pool({
-    connectionString: "graphile_test",
+    connectionString: process.env.TEST_DATABASE_URL,
   });
   try {
     return await cb(pool);
