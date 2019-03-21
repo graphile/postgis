@@ -158,6 +158,7 @@ const plugin: Plugin = builder => {
                 isPgGISGeographyType: true,
                 pgGISType: type,
                 pgGISSubtype: subtype,
+                pgGISSubtypeDetails: gisSubtypeDetails,
               }
             );
           }

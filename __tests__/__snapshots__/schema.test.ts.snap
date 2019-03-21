@@ -168,8 +168,8 @@ type GeometryMultipolygon implements GeometryInterface {
 
 type GeometryPoint implements GeometryInterface {
   geojson: GeoJSON
-  latitude: Float!
-  longitude: Float!
+  x: Float!
+  y: Float!
 }
 
 type GeometryPolygon implements GeometryInterface {
