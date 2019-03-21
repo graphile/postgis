@@ -182,33 +182,33 @@ type GisDebug implements Node {
   geog: GeographyInterface
   geogGeometrycollection: GeographyGeometryCollection
   geogGeometrycollectionm: GeographyGeometryCollection
-  geogLinestr: GeographyLinestring
-  geogLinestrm: GeographyLinestring
-  geogMultilinestr: GeographyMultilinestring
-  geogMultilinestrm: GeographyMultilinestring
+  geogLinestring: GeographyLinestring
+  geogLinestringm: GeographyLinestring
+  geogMultilinestring: GeographyMultilinestring
+  geogMultilinestringm: GeographyMultilinestring
   geogMultipoint: GeographyMultipoint
   geogMultipointm: GeographyMultipoint
-  geogMultipoly: GeographyMultipolygon
-  geogMultipolym: GeographyMultipolygon
+  geogMultipolygon: GeographyMultipolygon
+  geogMultipolygonm: GeographyMultipolygon
   geogPoint: GeographyPoint
   geogPointm: GeographyPoint
-  geogPoly: GeographyPolygon
-  geogPolym: GeographyPolygon
+  geogPolygon: GeographyPolygon
+  geogPolygonm: GeographyPolygon
   geom: GeometryInterface
   geomGeometrycollection: GeometryGeometryCollection
   geomGeometrycollectionm: GeometryGeometryCollection
-  geomLinestr: GeometryLinestring
-  geomLinestrm: GeometryLinestring
-  geomMultilinestr: GeometryMultilinestring
-  geomMultilinestrm: GeometryMultilinestring
+  geomLinestring: GeometryLinestring
+  geomLinestringm: GeometryLinestring
+  geomMultilinestring: GeometryMultilinestring
+  geomMultilinestringm: GeometryMultilinestring
   geomMultipoint: GeometryMultipoint
   geomMultipointm: GeometryMultipoint
-  geomMultipoly: GeometryMultipolygon
-  geomMultipolym: GeometryMultipolygon
+  geomMultipolygon: GeometryMultipolygon
+  geomMultipolygonm: GeometryMultipolygon
   geomPoint: GeometryPoint
   geomPointm: GeometryPoint
-  geomPoly: GeometryPolygon
-  geomPolym: GeometryPolygon
+  geomPolygon: GeometryPolygon
+  geomPolygonm: GeometryPolygon
   id: Int!
 
   \\"\\"\\"
@@ -233,17 +233,17 @@ input GisDebugCondition {
   \\"\\"\\"
   geogGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestr\` field.\\"\\"\\"
-  geogLinestr: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogLinestring\` field.\\"\\"\\"
+  geogLinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestrm\` field.\\"\\"\\"
-  geogLinestrm: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogLinestringm\` field.\\"\\"\\"
+  geogLinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestr\` field.\\"\\"\\"
-  geogMultilinestr: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestring\` field.\\"\\"\\"
+  geogMultilinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestrm\` field.\\"\\"\\"
-  geogMultilinestrm: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestringm\` field.\\"\\"\\"
+  geogMultilinestringm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geogMultipoint\` field.\\"\\"\\"
   geogMultipoint: GeoJSON
@@ -251,11 +251,11 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geogMultipointm\` field.\\"\\"\\"
   geogMultipointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipoly\` field.\\"\\"\\"
-  geogMultipoly: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygon\` field.\\"\\"\\"
+  geogMultipolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipolym\` field.\\"\\"\\"
-  geogMultipolym: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygonm\` field.\\"\\"\\"
+  geogMultipolygonm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geogPoint\` field.\\"\\"\\"
   geogPoint: GeoJSON
@@ -263,11 +263,11 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geogPointm\` field.\\"\\"\\"
   geogPointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPoly\` field.\\"\\"\\"
-  geogPoly: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogPolygon\` field.\\"\\"\\"
+  geogPolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPolym\` field.\\"\\"\\"
-  geogPolym: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geogPolygonm\` field.\\"\\"\\"
+  geogPolygonm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geom\` field.\\"\\"\\"
   geom: GeoJSON
@@ -280,17 +280,17 @@ input GisDebugCondition {
   \\"\\"\\"
   geomGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestr\` field.\\"\\"\\"
-  geomLinestr: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomLinestring\` field.\\"\\"\\"
+  geomLinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestrm\` field.\\"\\"\\"
-  geomLinestrm: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomLinestringm\` field.\\"\\"\\"
+  geomLinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestr\` field.\\"\\"\\"
-  geomMultilinestr: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestring\` field.\\"\\"\\"
+  geomMultilinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestrm\` field.\\"\\"\\"
-  geomMultilinestrm: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestringm\` field.\\"\\"\\"
+  geomMultilinestringm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geomMultipoint\` field.\\"\\"\\"
   geomMultipoint: GeoJSON
@@ -298,11 +298,11 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geomMultipointm\` field.\\"\\"\\"
   geomMultipointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipoly\` field.\\"\\"\\"
-  geomMultipoly: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygon\` field.\\"\\"\\"
+  geomMultipolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipolym\` field.\\"\\"\\"
-  geomMultipolym: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygonm\` field.\\"\\"\\"
+  geomMultipolygonm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geomPoint\` field.\\"\\"\\"
   geomPoint: GeoJSON
@@ -310,11 +310,11 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geomPointm\` field.\\"\\"\\"
   geomPointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPoly\` field.\\"\\"\\"
-  geomPoly: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomPolygon\` field.\\"\\"\\"
+  geomPolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPolym\` field.\\"\\"\\"
-  geomPolym: GeoJSON
+  \\"\\"\\"Checks for equality with the object’s \`geomPolygonm\` field.\\"\\"\\"
+  geomPolygonm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`id\` field.\\"\\"\\"
   id: Int
@@ -325,33 +325,33 @@ input GisDebugInput {
   geog: GeoJSON
   geogGeometrycollection: GeoJSON
   geogGeometrycollectionm: GeoJSON
-  geogLinestr: GeoJSON
-  geogLinestrm: GeoJSON
-  geogMultilinestr: GeoJSON
-  geogMultilinestrm: GeoJSON
+  geogLinestring: GeoJSON
+  geogLinestringm: GeoJSON
+  geogMultilinestring: GeoJSON
+  geogMultilinestringm: GeoJSON
   geogMultipoint: GeoJSON
   geogMultipointm: GeoJSON
-  geogMultipoly: GeoJSON
-  geogMultipolym: GeoJSON
+  geogMultipolygon: GeoJSON
+  geogMultipolygonm: GeoJSON
   geogPoint: GeoJSON
   geogPointm: GeoJSON
-  geogPoly: GeoJSON
-  geogPolym: GeoJSON
+  geogPolygon: GeoJSON
+  geogPolygonm: GeoJSON
   geom: GeoJSON
   geomGeometrycollection: GeoJSON
   geomGeometrycollectionm: GeoJSON
-  geomLinestr: GeoJSON
-  geomLinestrm: GeoJSON
-  geomMultilinestr: GeoJSON
-  geomMultilinestrm: GeoJSON
+  geomLinestring: GeoJSON
+  geomLinestringm: GeoJSON
+  geomMultilinestring: GeoJSON
+  geomMultilinestringm: GeoJSON
   geomMultipoint: GeoJSON
   geomMultipointm: GeoJSON
-  geomMultipoly: GeoJSON
-  geomMultipolym: GeoJSON
+  geomMultipolygon: GeoJSON
+  geomMultipolygonm: GeoJSON
   geomPoint: GeoJSON
   geomPointm: GeoJSON
-  geomPoly: GeoJSON
-  geomPolym: GeoJSON
+  geomPolygon: GeoJSON
+  geomPolygonm: GeoJSON
   id: Int
 }
 
@@ -362,33 +362,33 @@ input GisDebugPatch {
   geog: GeoJSON
   geogGeometrycollection: GeoJSON
   geogGeometrycollectionm: GeoJSON
-  geogLinestr: GeoJSON
-  geogLinestrm: GeoJSON
-  geogMultilinestr: GeoJSON
-  geogMultilinestrm: GeoJSON
+  geogLinestring: GeoJSON
+  geogLinestringm: GeoJSON
+  geogMultilinestring: GeoJSON
+  geogMultilinestringm: GeoJSON
   geogMultipoint: GeoJSON
   geogMultipointm: GeoJSON
-  geogMultipoly: GeoJSON
-  geogMultipolym: GeoJSON
+  geogMultipolygon: GeoJSON
+  geogMultipolygonm: GeoJSON
   geogPoint: GeoJSON
   geogPointm: GeoJSON
-  geogPoly: GeoJSON
-  geogPolym: GeoJSON
+  geogPolygon: GeoJSON
+  geogPolygonm: GeoJSON
   geom: GeoJSON
   geomGeometrycollection: GeoJSON
   geomGeometrycollectionm: GeoJSON
-  geomLinestr: GeoJSON
-  geomLinestrm: GeoJSON
-  geomMultilinestr: GeoJSON
-  geomMultilinestrm: GeoJSON
+  geomLinestring: GeoJSON
+  geomLinestringm: GeoJSON
+  geomMultilinestring: GeoJSON
+  geomMultilinestringm: GeoJSON
   geomMultipoint: GeoJSON
   geomMultipointm: GeoJSON
-  geomMultipoly: GeoJSON
-  geomMultipolym: GeoJSON
+  geomMultipolygon: GeoJSON
+  geomMultipolygonm: GeoJSON
   geomPoint: GeoJSON
   geomPointm: GeoJSON
-  geomPoly: GeoJSON
-  geomPolym: GeoJSON
+  geomPolygon: GeoJSON
+  geomPolygonm: GeoJSON
   id: Int
 }
 
@@ -426,60 +426,60 @@ enum GisDebugsOrderBy {
   GEOG_GEOMETRYCOLLECTION_DESC
   GEOG_GEOMETRYCOLLECTIONM_ASC
   GEOG_GEOMETRYCOLLECTIONM_DESC
-  GEOG_LINESTR_ASC
-  GEOG_LINESTR_DESC
-  GEOG_LINESTRM_ASC
-  GEOG_LINESTRM_DESC
-  GEOG_MULTILINESTR_ASC
-  GEOG_MULTILINESTR_DESC
-  GEOG_MULTILINESTRM_ASC
-  GEOG_MULTILINESTRM_DESC
+  GEOG_LINESTRING_ASC
+  GEOG_LINESTRING_DESC
+  GEOG_LINESTRINGM_ASC
+  GEOG_LINESTRINGM_DESC
+  GEOG_MULTILINESTRING_ASC
+  GEOG_MULTILINESTRING_DESC
+  GEOG_MULTILINESTRINGM_ASC
+  GEOG_MULTILINESTRINGM_DESC
   GEOG_MULTIPOINT_ASC
   GEOG_MULTIPOINT_DESC
   GEOG_MULTIPOINTM_ASC
   GEOG_MULTIPOINTM_DESC
-  GEOG_MULTIPOLY_ASC
-  GEOG_MULTIPOLY_DESC
-  GEOG_MULTIPOLYM_ASC
-  GEOG_MULTIPOLYM_DESC
+  GEOG_MULTIPOLYGON_ASC
+  GEOG_MULTIPOLYGON_DESC
+  GEOG_MULTIPOLYGONM_ASC
+  GEOG_MULTIPOLYGONM_DESC
   GEOG_POINT_ASC
   GEOG_POINT_DESC
   GEOG_POINTM_ASC
   GEOG_POINTM_DESC
-  GEOG_POLY_ASC
-  GEOG_POLY_DESC
-  GEOG_POLYM_ASC
-  GEOG_POLYM_DESC
+  GEOG_POLYGON_ASC
+  GEOG_POLYGON_DESC
+  GEOG_POLYGONM_ASC
+  GEOG_POLYGONM_DESC
   GEOM_ASC
   GEOM_DESC
   GEOM_GEOMETRYCOLLECTION_ASC
   GEOM_GEOMETRYCOLLECTION_DESC
   GEOM_GEOMETRYCOLLECTIONM_ASC
   GEOM_GEOMETRYCOLLECTIONM_DESC
-  GEOM_LINESTR_ASC
-  GEOM_LINESTR_DESC
-  GEOM_LINESTRM_ASC
-  GEOM_LINESTRM_DESC
-  GEOM_MULTILINESTR_ASC
-  GEOM_MULTILINESTR_DESC
-  GEOM_MULTILINESTRM_ASC
-  GEOM_MULTILINESTRM_DESC
+  GEOM_LINESTRING_ASC
+  GEOM_LINESTRING_DESC
+  GEOM_LINESTRINGM_ASC
+  GEOM_LINESTRINGM_DESC
+  GEOM_MULTILINESTRING_ASC
+  GEOM_MULTILINESTRING_DESC
+  GEOM_MULTILINESTRINGM_ASC
+  GEOM_MULTILINESTRINGM_DESC
   GEOM_MULTIPOINT_ASC
   GEOM_MULTIPOINT_DESC
   GEOM_MULTIPOINTM_ASC
   GEOM_MULTIPOINTM_DESC
-  GEOM_MULTIPOLY_ASC
-  GEOM_MULTIPOLY_DESC
-  GEOM_MULTIPOLYM_ASC
-  GEOM_MULTIPOLYM_DESC
+  GEOM_MULTIPOLYGON_ASC
+  GEOM_MULTIPOLYGON_DESC
+  GEOM_MULTIPOLYGONM_ASC
+  GEOM_MULTIPOLYGONM_DESC
   GEOM_POINT_ASC
   GEOM_POINT_DESC
   GEOM_POINTM_ASC
   GEOM_POINTM_DESC
-  GEOM_POLY_ASC
-  GEOM_POLY_DESC
-  GEOM_POLYM_ASC
-  GEOM_POLYM_DESC
+  GEOM_POLYGON_ASC
+  GEOM_POLYGON_DESC
+  GEOM_POLYGONM_ASC
+  GEOM_POLYGONM_DESC
   ID_ASC
   ID_DESC
   NATURAL
