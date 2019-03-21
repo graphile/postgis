@@ -53,8 +53,15 @@ Contributions are extremely welcome! To get started, clone down this repo and th
 
 ```
 createdb graphile_test
+export TEST_DATABASE_URL=postgres://localhost:5432/graphile_test
 yarn
 yarn dev
 ```
 
 Note the development server runs at http://localhost:5123/graphiql
+
+To run the tests:
+
+```
+yarn test
+```
