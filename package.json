@@ -7,7 +7,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "test": "scripts/test",
-    "tslint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
+    "lint": "prettier --list-different 'src/**/*' && tslint --config tslint.json --project tsconfig.json",
     "postgraphile": "nodemon --watch dist -x 'postgraphile --append-plugins `pwd`/dist/index.js -c graphile_test -s graphile_postgis -p 5123 --enhance-graphiql --watch --dynamic-json --show-error-stack --extended-errors severity,code,detail,hint,position,internalPosition,internalQuery,where,schema,table,column,dataType,constraint,file,line,routine'",
     "dev": "psql -f __tests__/schema.sql graphile_test && concurrently --kill-others 'npm run watch' 'npm run postgraphile'",
     "prepack": "rm -Rf dist && npm run build"
