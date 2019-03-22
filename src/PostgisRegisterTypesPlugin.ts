@@ -155,7 +155,7 @@ const plugin: Plugin = builder => {
                 },
               },
               {
-                isPgGISGeographyType: true,
+                isPgGISType: true,
                 pgGISType: type,
                 pgGISTypeDetails: typeDetails,
               }

@@ -7,10 +7,10 @@ const plugin: Plugin = builder => {
     "GraphQLObjectType:fields",
     function AddGeometriesToGeometryCollection(fields, build, context) {
       const {
-        scope: { isPgGISGeographyType, pgGISType, pgGISTypeDetails },
+        scope: { isPgGISType, pgGISType, pgGISTypeDetails },
       } = context;
       if (
-        !isPgGISGeographyType ||
+        !isPgGISType ||
         !pgGISTypeDetails ||
         pgGISTypeDetails.subtype !== GIS_SUBTYPE.GeometryCollection
       ) {
