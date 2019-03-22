@@ -2,7 +2,7 @@ import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { PgType } from "graphile-build-pg";
 import { GraphQLResolveInfo, GraphQLType } from "graphql";
-import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
+import { GIS_SUBTYPE } from "./constants";
 import { Subtype } from "./interfaces";
 import { getGisSubtypeDetails, getGisTypeModifier } from "./utils";
 import { SQL } from "pg-sql2";
@@ -76,7 +76,7 @@ const plugin: Plugin = builder => {
                 },
               },
               resolveType(value: any, _info?: GraphQLResolveInfo) {
-                const subtype = SUBTYPE_BY_PG_GEOMETRY_TYPE[value.__gisType];
+                const subtype = GIS_SUBTYPE[value.__gisType];
                 const Type =
                   constructedTypes[type.id] &&
                   constructedTypes[type.id][subtype];
@@ -95,8 +95,8 @@ const plugin: Plugin = builder => {
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
         const gisSubtypeDetails = getGisSubtypeDetails(typeModifier);
-        const { subtype, subtypeString } = gisSubtypeDetails;
-        debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
+        const { subtype } = gisSubtypeDetails;
+        debug(`Getting type ${typeModifier} / ${subtype}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
         }

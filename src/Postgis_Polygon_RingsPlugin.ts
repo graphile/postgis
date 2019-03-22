@@ -1,15 +1,12 @@
 import { Plugin } from "graphile-build";
-import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
+import { GIS_SUBTYPE } from "./constants";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
     const {
       scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
     } = context;
-    if (
-      !isPgGISGeographyType ||
-      pgGISSubtype !== SUBTYPE_BY_PG_GEOMETRY_TYPE.POLYGON
-    ) {
+    if (!isPgGISGeographyType || pgGISSubtype !== GIS_SUBTYPE.Polygon) {
       return fields;
     }
     const {
@@ -19,7 +16,7 @@ const plugin: Plugin = builder => {
     } = build;
     const LineString = getPostgisTypeByGeometryType(
       pgGISType,
-      SUBTYPE_BY_PG_GEOMETRY_TYPE.LINESTR
+      GIS_SUBTYPE.LineString
     );
 
     return extend(fields, {
@@ -27,7 +24,7 @@ const plugin: Plugin = builder => {
         type: LineString,
         resolve(data: any) {
           return {
-            __gisType: SUBTYPE_BY_PG_GEOMETRY_TYPE.LINESTR,
+            __gisType: GIS_SUBTYPE.LineString,
             __geojson: {
               type: "LineString",
               coordinates: data.__geojson.coordinates[0],
@@ -39,7 +36,7 @@ const plugin: Plugin = builder => {
         type: new GraphQLList(LineString),
         resolve(data: any) {
           return data.__geojson.coordinates.slice(1).map((coord: any) => ({
-            __gisType: SUBTYPE_BY_PG_GEOMETRY_TYPE.LINESTR,
+            __gisType: GIS_SUBTYPE.LineString,
             __geojson: {
               type: "LineString",
               coordinates: coord,
