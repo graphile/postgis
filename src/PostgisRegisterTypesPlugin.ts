@@ -4,7 +4,7 @@ import { PgType } from "graphile-build-pg";
 import { GraphQLResolveInfo, GraphQLType } from "graphql";
 import { GIS_SUBTYPE } from "./constants";
 import { Subtype } from "./interfaces";
-import { getGISTypeDetails, getGisTypeModifier } from "./utils";
+import { getGISTypeDetails, getGISTypeModifier } from "./utils";
 import { SQL } from "pg-sql2";
 import makeGeoJSONType from "./makeGeoJSONType";
 
@@ -28,7 +28,7 @@ const plugin: Plugin = builder => {
         hasM: boolean = false,
         srid: number = 0
       ) {
-        const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
+        const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(pgGISType.id, typeModifier);
       },
     });

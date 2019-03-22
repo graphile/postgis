@@ -39,7 +39,7 @@ export const getGISTypeDetails = (modifier: number): GISTypeDetails => {
   };
 };
 
-export const getGisTypeModifier = (
+export const getGISTypeModifier = (
   subtype: Subtype,
   hasZ: boolean,
   hasM: boolean,
