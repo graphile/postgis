@@ -82,8 +82,7 @@ const plugin: Plugin = builder => {
                   constructedTypes[type.id][subtype];
                 return Type;
               },
-              description:
-                "All PostGIS geography types implement this interface",
+              description: `All ${type.name} types implement this interface`,
             },
             {
               isPgGISGeographyInterface: true,

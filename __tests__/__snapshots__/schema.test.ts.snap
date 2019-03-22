@@ -92,7 +92,7 @@ type GeographyGeometryCollection implements GeographyInterface {
   geometries: [GeographyInterface]
 }
 
-\\"\\"\\"All PostGIS geography types implement this interface\\"\\"\\"
+\\"\\"\\"All geography types implement this interface\\"\\"\\"
 interface GeographyInterface {
   \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
   geojson: GeoJSON
@@ -140,7 +140,7 @@ type GeometryGeometryCollection implements GeometryInterface {
   geometries: [GeometryInterface]
 }
 
-\\"\\"\\"All PostGIS geography types implement this interface\\"\\"\\"
+\\"\\"\\"All geometry types implement this interface\\"\\"\\"
 interface GeometryInterface {
   \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
   geojson: GeoJSON
