@@ -4,9 +4,13 @@ import { GIS_SUBTYPE } from "./constants";
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
     const {
-      scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
+      scope: { isPgGISGeographyType, pgGISType, pgGISTypeDetails },
     } = context;
-    if (!isPgGISGeographyType || pgGISSubtype !== GIS_SUBTYPE.MultiLineString) {
+    if (
+      !isPgGISGeographyType ||
+      !pgGISTypeDetails ||
+      pgGISTypeDetails.subtype !== GIS_SUBTYPE.MultiLineString
+    ) {
       return fields;
     }
     const {
