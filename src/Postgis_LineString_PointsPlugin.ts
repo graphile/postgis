@@ -6,10 +6,7 @@ const plugin: Plugin = builder => {
     const {
       scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
     } = context;
-    if (
-      !isPgGISGeographyType ||
-      pgGISSubtype !== SUBTYPE_BY_PG_GEOMETRY_TYPE.LINESTR
-    ) {
+    if (!isPgGISGeographyType || pgGISSubtype !== GIS_SUBTYPE.LineString) {
       return fields;
     }
     const {
