@@ -3,12 +3,12 @@ import { GIS_SUBTYPE } from "./constants";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
-    const { inflection } = build;
     const {
       scope: { isPgGISGeographyType, pgGISType, pgGISTypeDetails },
     } = context;
     if (
       !isPgGISGeographyType ||
+      !pgGISTypeDetails ||
       pgGISTypeDetails.subtype !== GIS_SUBTYPE.Point
     ) {
       return fields;
@@ -16,6 +16,7 @@ const plugin: Plugin = builder => {
     const {
       extend,
       graphql: { GraphQLNonNull, GraphQLFloat },
+      inflection,
     } = build;
     const xFieldName = inflection.gisXFieldName(
       pgGISType,
