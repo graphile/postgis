@@ -1,6 +1,6 @@
-import { SubtypeDetails, Subtype } from "./interfaces";
+import { GISTypeDetails, Subtype } from "./interfaces";
 
-export const getGisSubtypeDetails = (modifier: number): SubtypeDetails => {
+export const getGISTypeDetails = (modifier: number): GISTypeDetails => {
   const allZeroesHopefully = modifier >> 24;
   if (allZeroesHopefully !== 0) {
     throw new Error("Unsupported PostGIS modifier");

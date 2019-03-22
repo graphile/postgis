@@ -5,11 +5,11 @@ const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
     const { inflection } = build;
     const {
-      scope: { isPgGISGeographyType, pgGISType, pgGISSubtypeDetails },
+      scope: { isPgGISGeographyType, pgGISType, pgGISTypeDetails },
     } = context;
     if (
       !isPgGISGeographyType ||
-      pgGISSubtypeDetails.subtype !== GIS_SUBTYPE.Point
+      pgGISTypeDetails.subtype !== GIS_SUBTYPE.Point
     ) {
       return fields;
     }
@@ -19,11 +19,11 @@ const plugin: Plugin = builder => {
     } = build;
     const xFieldName = inflection.gisXFieldName(
       pgGISType,
-      pgGISSubtypeDetails.srid
+      pgGISTypeDetails.srid
     );
     const yFieldName = inflection.gisYFieldName(
       pgGISType,
-      pgGISSubtypeDetails.srid
+      pgGISTypeDetails.srid
     );
     return extend(fields, {
       [xFieldName]: {
