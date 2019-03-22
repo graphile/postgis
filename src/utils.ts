@@ -1,5 +1,4 @@
 import { SubtypeDetails, Subtype } from "./interfaces";
-import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants";
 
 export const getGisSubtypeDetails = (modifier: number): SubtypeDetails => {
   const allZeroesHopefully = modifier >> 24;
@@ -34,7 +33,6 @@ export const getGisSubtypeDetails = (modifier: number): SubtypeDetails => {
 
   return {
     subtype,
-    subtypeString: SUBTYPE_STRING_BY_SUBTYPE[subtype],
     hasZ,
     hasM,
     srid,

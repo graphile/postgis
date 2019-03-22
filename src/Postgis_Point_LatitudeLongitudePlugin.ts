@@ -1,4 +1,5 @@
 import { Plugin } from "graphile-build";
+import { GIS_SUBTYPE } from "./constants";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
@@ -6,7 +7,10 @@ const plugin: Plugin = builder => {
     const {
       scope: { isPgGISGeographyType, pgGISType, pgGISSubtypeDetails },
     } = context;
-    if (!isPgGISGeographyType || pgGISSubtypeDetails.subtype !== 1) {
+    if (
+      !isPgGISGeographyType ||
+      pgGISSubtypeDetails.subtype !== GIS_SUBTYPE.Point
+    ) {
       return fields;
     }
     const {

@@ -1,5 +1,5 @@
 import { Plugin } from "graphile-build";
-import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
+import { GIS_SUBTYPE } from "./constants";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
@@ -17,10 +17,7 @@ const plugin: Plugin = builder => {
       getPostgisTypeByGeometryType,
       graphql: { GraphQLList },
     } = build;
-    const Point = getPostgisTypeByGeometryType(
-      pgGISType,
-      SUBTYPE_BY_PG_GEOMETRY_TYPE.POINT
-    );
+    const Point = getPostgisTypeByGeometryType(pgGISType, GIS_SUBTYPE.Point);
 
     return extend(fields, {
       points: {
@@ -28,7 +25,7 @@ const plugin: Plugin = builder => {
         resolve(data: any) {
           return data.__geojson.coordinates.map((coord: any) => {
             return {
-              __gisType: SUBTYPE_BY_PG_GEOMETRY_TYPE.POINT,
+              __gisType: GIS_SUBTYPE.Point,
               __geojson: {
                 type: "Point",
                 coordinates: coord,

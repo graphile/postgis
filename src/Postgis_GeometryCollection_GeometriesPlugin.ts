@@ -1,9 +1,6 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
-import {
-  SUBTYPE_BY_GEOJSON_TYPE,
-  SUBTYPE_BY_PG_GEOMETRY_TYPE,
-} from "./constants";
+import { GIS_SUBTYPE } from "./constants";
 
 const plugin: Plugin = builder => {
   builder.hook(
@@ -12,7 +9,10 @@ const plugin: Plugin = builder => {
       const {
         scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
       } = context;
-      if (!isPgGISGeographyType || pgGISSubtype !== 7) {
+      if (
+        !isPgGISGeographyType ||
+        pgGISSubtype !== GIS_SUBTYPE.GeometryCollection
+      ) {
         return fields;
       }
       const {
@@ -31,12 +31,8 @@ const plugin: Plugin = builder => {
           type: new GraphQLList(Interface),
           resolve(data: any) {
             return data.__geojson.geometries.map((geom: any) => {
-              const subtype = SUBTYPE_BY_GEOJSON_TYPE[geom.type];
-              const pgGeometryType = Object.keys(
-                SUBTYPE_BY_PG_GEOMETRY_TYPE
-              ).find(k => SUBTYPE_BY_PG_GEOMETRY_TYPE[k] === subtype);
               return {
-                __gisType: pgGeometryType,
+                __gisType: GIS_SUBTYPE[geom.type],
                 __geojson: geom,
               };
             });
