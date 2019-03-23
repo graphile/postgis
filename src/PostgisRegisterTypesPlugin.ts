@@ -2,7 +2,6 @@ import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { PgType } from "graphile-build-pg";
 import { GraphQLResolveInfo, GraphQLType } from "graphql";
-import { GIS_SUBTYPE } from "./constants";
 import { Subtype } from "./interfaces";
 import { getGISTypeDetails, getGISTypeModifier } from "./utils";
 import { SQL } from "pg-sql2";
@@ -76,10 +75,10 @@ const plugin: Plugin = builder => {
                 },
               },
               resolveType(value: any, _info?: GraphQLResolveInfo) {
-                const subtype = GIS_SUBTYPE[value.__gisType];
+                const typeModifierKey = value.__gisType;
                 const Type =
                   constructedTypes[type.id] &&
-                  constructedTypes[type.id][subtype];
+                  constructedTypes[type.id][typeModifierKey];
                 return Type;
               },
               description: `All ${type.name} types implement this interface`,
@@ -94,8 +93,12 @@ const plugin: Plugin = builder => {
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
         const typeDetails = getGISTypeDetails(typeModifier);
-        const { subtype } = typeDetails;
-        debug(`Getting type ${typeModifier} / ${subtype}`);
+        const { subtype, hasZ, hasM, srid } = typeDetails;
+        debug(
+          `Getting ${type.name} type ${
+            type.id
+          }|${typeModifier}|${subtype}|${hasZ}|${hasM}|${srid}`
+        );
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
         }
@@ -110,10 +113,38 @@ const plugin: Plugin = builder => {
           ) => {
             const params = [
               sql.literal("__gisType"),
-              sql.fragment`${sql.identifier(
+              /* The logic below resolves to a fragment like:
+               *
+               * select geometry_typmod_in(array[
+               *   postgis_type_name(
+               *     geometrytype('SRID=4326;POINTZ (1 1 1)'::geography(pointz,4326)),
+               *     st_coorddim('SRID=4326;POINTZ (1 1 1)'::geography(pointz,4326)::geometry) -- MUST cast to support geography!
+               *   )::text,
+               *   st_srid('SRID=4326;POINTZ (1 1 1)'::geography(pointz,4326))::text
+               * ]::cstring[]);
+               *  */
+              sql.fragment`(select ${sql.identifier(
                 POSTGIS.namespaceName || "public",
-                "geometrytype" // MUST be lowercase!
-              )}(${fragment})`,
+                "geometry_typmod_in" // MUST be lowercase!
+              )}(array[
+                ${sql.identifier(
+                  POSTGIS.namespaceName || "public",
+                  "postgis_type_name" // MUST be lowercase!
+                )}(
+                  ${sql.identifier(
+                    POSTGIS.namespaceName || "public",
+                    "geometrytype" // MUST be lowercase!
+                  )}(${fragment}),
+                  ${sql.identifier(
+                    POSTGIS.namespaceName || "public",
+                    "st_coorddim" // MUST be lowercase!
+                  )}(${fragment}::text)
+                ),
+                ${sql.identifier(
+                  POSTGIS.namespaceName || "public",
+                  "st_srid" // MUST be lowercase!
+                )}(${fragment})::text
+              ]::cstring[]))`,
               sql.literal("__geojson"),
               sql.fragment`${sql.identifier(
                 POSTGIS.namespaceName || "public",
@@ -125,19 +156,19 @@ const plugin: Plugin = builder => {
           ) end)`;
           };
         }
-        if (!constructedTypes[type.id][subtype]) {
+        if (!constructedTypes[type.id][typeModifierKey]) {
           if (subtype === 0) {
-            constructedTypes[type.id][subtype] = getGisInterface(type);
+            constructedTypes[type.id][typeModifierKey] = getGisInterface(type);
           } else {
             const jsonType = introspectionResultsByKind.type.find(
               (t: PgType) =>
                 t.name === "json" && t.namespaceName === "pg_catalog"
             );
 
-            constructedTypes[type.id][subtype] = newWithHooks(
+            constructedTypes[type.id][typeModifierKey] = newWithHooks(
               GraphQLObjectType,
               {
-                name: inflection.gisType(type, subtype),
+                name: inflection.gisType(type, subtype, hasZ, hasM, srid),
                 interfaces: [getGisInterface(type)],
                 fields: {
                   [geojsonFieldName]: {
@@ -161,7 +192,9 @@ const plugin: Plugin = builder => {
             );
           }
         }
-        return constructedTypes[type.id][subtype] || getGisInterface(type);
+        return (
+          constructedTypes[type.id][typeModifierKey] || getGisInterface(type)
+        );
       }
 
       debug(`Registering handler for ${GEOGRAPHY_TYPE.id}`);

@@ -1,5 +1,6 @@
 import { Plugin } from "graphile-build";
 import { GIS_SUBTYPE } from "./constants";
+import { getGISTypeModifier } from "./utils";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
@@ -18,9 +19,13 @@ const plugin: Plugin = builder => {
       getPostgisTypeByGeometryType,
       graphql: { GraphQLList },
     } = build;
+    const { hasZ, hasM, srid } = pgGISTypeDetails;
     const LineString = getPostgisTypeByGeometryType(
       pgGISType,
-      GIS_SUBTYPE.LineString
+      GIS_SUBTYPE.LineString,
+      hasZ,
+      hasM,
+      srid
     );
 
     return extend(fields, {
@@ -28,7 +33,12 @@ const plugin: Plugin = builder => {
         type: new GraphQLList(LineString),
         resolve(data: any) {
           return data.__geojson.coordinates.map((coord: any) => ({
-            __gisType: GIS_SUBTYPE.LineString,
+            __gisType: getGISTypeModifier(
+              GIS_SUBTYPE.LineString,
+              hasZ,
+              hasM,
+              srid
+            ),
             __geojson: {
               type: "LineString",
               coordinates: coord,

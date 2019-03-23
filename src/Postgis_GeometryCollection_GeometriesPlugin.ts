@@ -1,6 +1,7 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { GIS_SUBTYPE } from "./constants";
+import { getGISTypeModifier } from "./utils";
 
 const plugin: Plugin = builder => {
   builder.hook(
@@ -21,6 +22,7 @@ const plugin: Plugin = builder => {
         pgGISGraphQLInterfaceTypesByType,
         graphql: { GraphQLList },
       } = build;
+      const { hasZ, hasM, srid } = pgGISTypeDetails;
       const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id];
       if (!Interface) {
         debug("Unexpectedly couldn't find the interface");
@@ -33,7 +35,12 @@ const plugin: Plugin = builder => {
           resolve(data: any) {
             return data.__geojson.geometries.map((geom: any) => {
               return {
-                __gisType: GIS_SUBTYPE[geom.type],
+                __gisType: getGISTypeModifier(
+                  GIS_SUBTYPE[geom.type],
+                  hasZ,
+                  hasM,
+                  srid
+                ),
                 __geojson: geom,
               };
             });
