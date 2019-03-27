@@ -19,6 +19,14 @@ create table graphile_postgis.gis_debug (
   geog_multipolygon         geography(multipolygon),
   geog_geometrycollection   geography(geometrycollection),
 
+  geog_pointz               geography(pointz),
+  geog_linestringz          geography(linestringz),
+  geog_polygonz             geography(polygonz),
+  geog_multipointz          geography(multipointz),
+  geog_multilinestringz     geography(multilinestringz),
+  geog_multipolygonz        geography(multipolygonz),
+  geog_geometrycollectionz  geography(geometrycollectionz),
+
   geog_pointm               geography(pointm),
   geog_linestringm          geography(linestringm),
   geog_polygonm             geography(polygonm),
@@ -27,21 +35,13 @@ create table graphile_postgis.gis_debug (
   geog_multipolygonm        geography(multipolygonm),
   geog_geometrycollectionm  geography(geometrycollectionm),
 
-  -- geog_pointz               geography(pointz),
-  -- geog_linestringz          geography(linestringz),
-  -- geog_polygonz             geography(polygonz),
-  -- geog_multipointz          geography(multipointz),
-  -- geog_multilinestringz     geography(multilinestringz),
-  -- geog_multipolygonz        geography(multipolygonz),
-  -- geog_geometrycollectionz  geography(geometrycollectionz),
-
-  -- geog_pointzm              geography(pointzm),
-  -- geog_linestringzm         geography(linestringzm),
-  -- geog_polygonzm            geography(polygonzm),
-  -- geog_multipointzm         geography(multipointzm),
-  -- geog_multilinestringzm    geography(multilinestringzm),
-  -- geog_multipolygonzm       geography(multipolygonzm),
-  -- geog_geometrycollectionzm geography(geometrycollectionzm),
+  geog_pointzm              geography(pointzm),
+  geog_linestringzm         geography(linestringzm),
+  geog_polygonzm            geography(polygonzm),
+  geog_multipointzm         geography(multipointzm),
+  geog_multilinestringzm    geography(multilinestringzm),
+  geog_multipolygonzm       geography(multipolygonzm),
+  geog_geometrycollectionzm geography(geometrycollectionzm),
 
   geom                      geometry,
 
@@ -53,29 +53,29 @@ create table graphile_postgis.gis_debug (
   geom_multipolygon         geometry(multipolygon),
   geom_geometrycollection   geometry(geometrycollection),
 
+  geom_pointz               geometry(pointz),
+  geom_linestringz          geometry(linestringz),
+  geom_polygonz             geometry(polygonz),
+  geom_multipointz          geometry(multipointz),
+  geom_multilinestringz     geometry(multilinestringz),
+  geom_multipolygonz        geometry(multipolygonz),
+  geom_geometrycollectionz  geometry(geometrycollectionz),
+
   geom_pointm               geometry(pointm),
   geom_linestringm          geometry(linestringm),
   geom_polygonm             geometry(polygonm),
   geom_multipointm          geometry(multipointm),
   geom_multilinestringm     geometry(multilinestringm),
   geom_multipolygonm        geometry(multipolygonm),
-  geom_geometrycollectionm  geometry(geometrycollectionm)
+  geom_geometrycollectionm  geometry(geometrycollectionm),
 
-  -- geom_pointz               geometry(pointz),
-  -- geom_linestringz          geometry(linestringz),
-  -- geom_polygonz             geometry(polygonz),
-  -- geom_multipointz          geometry(multipointz),
-  -- geom_multilinestringz     geometry(multilinestringz),
-  -- geom_multipolygonz        geometry(multipolygonz),
-  -- geom_geometrycollectionz  geometry(geometrycollectionz),
-
-  -- geom_pointzm              geometry(pointzm),
-  -- geom_linestringzm         geometry(linestringzm),
-  -- geom_polygonzm            geometry(polygonzm),
-  -- geom_multipointzm         geometry(multipointzm),
-  -- geom_multilinestringzm    geometry(multilinestringzm),
-  -- geom_multipolygonzm       geometry(multipolygonzm),
-  -- geom_geometrycollectionzm geometry(geometrycollectionzm),
+  geom_pointzm              geometry(pointzm),
+  geom_linestringzm         geometry(linestringzm),
+  geom_polygonzm            geometry(polygonzm),
+  geom_multipointzm         geometry(multipointzm),
+  geom_multilinestringzm    geometry(multilinestringzm),
+  geom_multipolygonzm       geometry(multipolygonzm),
+  geom_geometrycollectionzm geometry(geometrycollectionzm)
 );
 
 insert into graphile_postgis.gis_debug (
