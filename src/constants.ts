@@ -1,10 +1,10 @@
 export const SUBTYPE_STRING_BY_SUBTYPE = {
   1: "point",
-  2: "linestring",
+  2: "line-string",
   3: "polygon",
-  4: "multipoint",
-  5: "multilinestring",
-  6: "multipolygon",
+  4: "multi-point",
+  5: "multi-line-string",
+  6: "multi-polygon",
   7: "geometry-collection",
 };
 

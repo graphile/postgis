@@ -113,82 +113,82 @@ interface GeographyInterface {
   geojson: GeoJSON
 }
 
-type GeographyLinestring implements GeographyInterface {
+type GeographyLineString implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPoint]
 }
 
-type GeographyLinestringM implements GeographyInterface {
+type GeographyLineStringM implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointM]
 }
 
-type GeographyLinestringZ implements GeographyInterface {
+type GeographyLineStringZ implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZ]
 }
 
-type GeographyLinestringZM implements GeographyInterface {
+type GeographyLineStringZM implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZM]
 }
 
-type GeographyMultilinestring implements GeographyInterface {
+type GeographyMultiLineString implements GeographyInterface {
   geojson: GeoJSON
-  lines: [GeographyLinestring]
+  lines: [GeographyLineString]
 }
 
-type GeographyMultilinestringM implements GeographyInterface {
+type GeographyMultiLineStringM implements GeographyInterface {
   geojson: GeoJSON
-  lines: [GeographyLinestringM]
+  lines: [GeographyLineStringM]
 }
 
-type GeographyMultilinestringZ implements GeographyInterface {
+type GeographyMultiLineStringZ implements GeographyInterface {
   geojson: GeoJSON
-  lines: [GeographyLinestringZ]
+  lines: [GeographyLineStringZ]
 }
 
-type GeographyMultilinestringZM implements GeographyInterface {
+type GeographyMultiLineStringZM implements GeographyInterface {
   geojson: GeoJSON
-  lines: [GeographyLinestringZM]
+  lines: [GeographyLineStringZM]
 }
 
-type GeographyMultipoint implements GeographyInterface {
+type GeographyMultiPoint implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPoint]
 }
 
-type GeographyMultipointM implements GeographyInterface {
+type GeographyMultiPointM implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointM]
 }
 
-type GeographyMultipointZ implements GeographyInterface {
+type GeographyMultiPointZ implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZ]
 }
 
-type GeographyMultipointZM implements GeographyInterface {
+type GeographyMultiPointZM implements GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZM]
 }
 
-type GeographyMultipolygon implements GeographyInterface {
+type GeographyMultiPolygon implements GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygon]
 }
 
-type GeographyMultipolygonM implements GeographyInterface {
+type GeographyMultiPolygonM implements GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonM]
 }
 
-type GeographyMultipolygonZ implements GeographyInterface {
+type GeographyMultiPolygonZ implements GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonZ]
 }
 
-type GeographyMultipolygonZM implements GeographyInterface {
+type GeographyMultiPolygonZM implements GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonZM]
 }
@@ -218,27 +218,27 @@ type GeographyPointZM implements GeographyInterface {
 }
 
 type GeographyPolygon implements GeographyInterface {
-  exterior: GeographyLinestring
+  exterior: GeographyLineString
   geojson: GeoJSON
-  interiors: [GeographyLinestring]
+  interiors: [GeographyLineString]
 }
 
 type GeographyPolygonM implements GeographyInterface {
-  exterior: GeographyLinestringM
+  exterior: GeographyLineStringM
   geojson: GeoJSON
-  interiors: [GeographyLinestringM]
+  interiors: [GeographyLineStringM]
 }
 
 type GeographyPolygonZ implements GeographyInterface {
-  exterior: GeographyLinestringZ
+  exterior: GeographyLineStringZ
   geojson: GeoJSON
-  interiors: [GeographyLinestringZ]
+  interiors: [GeographyLineStringZ]
 }
 
 type GeographyPolygonZM implements GeographyInterface {
-  exterior: GeographyLinestringZM
+  exterior: GeographyLineStringZM
   geojson: GeoJSON
-  interiors: [GeographyLinestringZM]
+  interiors: [GeographyLineStringZM]
 }
 
 \\"\\"\\"
@@ -272,82 +272,82 @@ interface GeometryInterface {
   geojson: GeoJSON
 }
 
-type GeometryLinestring implements GeometryInterface {
+type GeometryLineString implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPoint]
 }
 
-type GeometryLinestringM implements GeometryInterface {
+type GeometryLineStringM implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointM]
 }
 
-type GeometryLinestringZ implements GeometryInterface {
+type GeometryLineStringZ implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZ]
 }
 
-type GeometryLinestringZM implements GeometryInterface {
+type GeometryLineStringZM implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZM]
 }
 
-type GeometryMultilinestring implements GeometryInterface {
+type GeometryMultiLineString implements GeometryInterface {
   geojson: GeoJSON
-  lines: [GeometryLinestring]
+  lines: [GeometryLineString]
 }
 
-type GeometryMultilinestringM implements GeometryInterface {
+type GeometryMultiLineStringM implements GeometryInterface {
   geojson: GeoJSON
-  lines: [GeometryLinestringM]
+  lines: [GeometryLineStringM]
 }
 
-type GeometryMultilinestringZ implements GeometryInterface {
+type GeometryMultiLineStringZ implements GeometryInterface {
   geojson: GeoJSON
-  lines: [GeometryLinestringZ]
+  lines: [GeometryLineStringZ]
 }
 
-type GeometryMultilinestringZM implements GeometryInterface {
+type GeometryMultiLineStringZM implements GeometryInterface {
   geojson: GeoJSON
-  lines: [GeometryLinestringZM]
+  lines: [GeometryLineStringZM]
 }
 
-type GeometryMultipoint implements GeometryInterface {
+type GeometryMultiPoint implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPoint]
 }
 
-type GeometryMultipointM implements GeometryInterface {
+type GeometryMultiPointM implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointM]
 }
 
-type GeometryMultipointZ implements GeometryInterface {
+type GeometryMultiPointZ implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZ]
 }
 
-type GeometryMultipointZM implements GeometryInterface {
+type GeometryMultiPointZM implements GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZM]
 }
 
-type GeometryMultipolygon implements GeometryInterface {
+type GeometryMultiPolygon implements GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygon]
 }
 
-type GeometryMultipolygonM implements GeometryInterface {
+type GeometryMultiPolygonM implements GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonM]
 }
 
-type GeometryMultipolygonZ implements GeometryInterface {
+type GeometryMultiPolygonZ implements GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonZ]
 }
 
-type GeometryMultipolygonZM implements GeometryInterface {
+type GeometryMultiPolygonZM implements GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonZM]
 }
@@ -377,27 +377,27 @@ type GeometryPointZM implements GeometryInterface {
 }
 
 type GeometryPolygon implements GeometryInterface {
-  exterior: GeometryLinestring
+  exterior: GeometryLineString
   geojson: GeoJSON
-  interiors: [GeometryLinestring]
+  interiors: [GeometryLineString]
 }
 
 type GeometryPolygonM implements GeometryInterface {
-  exterior: GeometryLinestringM
+  exterior: GeometryLineStringM
   geojson: GeoJSON
-  interiors: [GeometryLinestringM]
+  interiors: [GeometryLineStringM]
 }
 
 type GeometryPolygonZ implements GeometryInterface {
-  exterior: GeometryLinestringZ
+  exterior: GeometryLineStringZ
   geojson: GeoJSON
-  interiors: [GeometryLinestringZ]
+  interiors: [GeometryLineStringZ]
 }
 
 type GeometryPolygonZM implements GeometryInterface {
-  exterior: GeometryLinestringZM
+  exterior: GeometryLineStringZM
   geojson: GeoJSON
-  interiors: [GeometryLinestringZM]
+  interiors: [GeometryLineStringZM]
 }
 
 type GisDebug implements Node {
@@ -406,22 +406,22 @@ type GisDebug implements Node {
   geogGeometrycollectionm: GeographyGeometryCollectionM
   geogGeometrycollectionz: GeographyGeometryCollectionZ
   geogGeometrycollectionzm: GeographyGeometryCollectionZM
-  geogLinestring: GeographyLinestring
-  geogLinestringm: GeographyLinestringM
-  geogLinestringz: GeographyLinestringZ
-  geogLinestringzm: GeographyLinestringZM
-  geogMultilinestring: GeographyMultilinestring
-  geogMultilinestringm: GeographyMultilinestringM
-  geogMultilinestringz: GeographyMultilinestringZ
-  geogMultilinestringzm: GeographyMultilinestringZM
-  geogMultipoint: GeographyMultipoint
-  geogMultipointm: GeographyMultipointM
-  geogMultipointz: GeographyMultipointZ
-  geogMultipointzm: GeographyMultipointZM
-  geogMultipolygon: GeographyMultipolygon
-  geogMultipolygonm: GeographyMultipolygonM
-  geogMultipolygonz: GeographyMultipolygonZ
-  geogMultipolygonzm: GeographyMultipolygonZM
+  geogLinestring: GeographyLineString
+  geogLinestringm: GeographyLineStringM
+  geogLinestringz: GeographyLineStringZ
+  geogLinestringzm: GeographyLineStringZM
+  geogMultilinestring: GeographyMultiLineString
+  geogMultilinestringm: GeographyMultiLineStringM
+  geogMultilinestringz: GeographyMultiLineStringZ
+  geogMultilinestringzm: GeographyMultiLineStringZM
+  geogMultipoint: GeographyMultiPoint
+  geogMultipointm: GeographyMultiPointM
+  geogMultipointz: GeographyMultiPointZ
+  geogMultipointzm: GeographyMultiPointZM
+  geogMultipolygon: GeographyMultiPolygon
+  geogMultipolygonm: GeographyMultiPolygonM
+  geogMultipolygonz: GeographyMultiPolygonZ
+  geogMultipolygonzm: GeographyMultiPolygonZM
   geogPoint: GeographyPoint
   geogPointm: GeographyPointM
   geogPointz: GeographyPointZ
@@ -435,22 +435,22 @@ type GisDebug implements Node {
   geomGeometrycollectionm: GeometryGeometryCollectionM
   geomGeometrycollectionz: GeometryGeometryCollectionZ
   geomGeometrycollectionzm: GeometryGeometryCollectionZM
-  geomLinestring: GeometryLinestring
-  geomLinestringm: GeometryLinestringM
-  geomLinestringz: GeometryLinestringZ
-  geomLinestringzm: GeometryLinestringZM
-  geomMultilinestring: GeometryMultilinestring
-  geomMultilinestringm: GeometryMultilinestringM
-  geomMultilinestringz: GeometryMultilinestringZ
-  geomMultilinestringzm: GeometryMultilinestringZM
-  geomMultipoint: GeometryMultipoint
-  geomMultipointm: GeometryMultipointM
-  geomMultipointz: GeometryMultipointZ
-  geomMultipointzm: GeometryMultipointZM
-  geomMultipolygon: GeometryMultipolygon
-  geomMultipolygonm: GeometryMultipolygonM
-  geomMultipolygonz: GeometryMultipolygonZ
-  geomMultipolygonzm: GeometryMultipolygonZM
+  geomLinestring: GeometryLineString
+  geomLinestringm: GeometryLineStringM
+  geomLinestringz: GeometryLineStringZ
+  geomLinestringzm: GeometryLineStringZM
+  geomMultilinestring: GeometryMultiLineString
+  geomMultilinestringm: GeometryMultiLineStringM
+  geomMultilinestringz: GeometryMultiLineStringZ
+  geomMultilinestringzm: GeometryMultiLineStringZM
+  geomMultipoint: GeometryMultiPoint
+  geomMultipointm: GeometryMultiPointM
+  geomMultipointz: GeometryMultiPointZ
+  geomMultipointzm: GeometryMultiPointZM
+  geomMultipolygon: GeometryMultiPolygon
+  geomMultipolygonm: GeometryMultiPolygonM
+  geomMultipolygonz: GeometryMultiPolygonZ
+  geomMultipolygonzm: GeometryMultiPolygonZM
   geomPoint: GeometryPoint
   geomPointm: GeometryPointM
   geomPointz: GeometryPointZ
