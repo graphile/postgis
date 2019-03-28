@@ -402,10 +402,14 @@ type GeometryPolygonZM implements GeometryInterface {
 
 type GisDebug implements Node {
   geog: GeographyInterface
+  geogGeometry: GeographyInterface
   geogGeometrycollection: GeographyGeometryCollection
   geogGeometrycollectionm: GeographyGeometryCollectionM
   geogGeometrycollectionz: GeographyGeometryCollectionZ
   geogGeometrycollectionzm: GeographyGeometryCollectionZM
+  geogGeometrym: GeographyInterface
+  geogGeometryz: GeographyInterface
+  geogGeometryzm: GeographyInterface
   geogLinestring: GeographyLineString
   geogLinestringm: GeographyLineStringM
   geogLinestringz: GeographyLineStringZ
@@ -431,10 +435,14 @@ type GisDebug implements Node {
   geogPolygonz: GeographyPolygonZ
   geogPolygonzm: GeographyPolygonZM
   geom: GeometryInterface
+  geomGeometry: GeometryInterface
   geomGeometrycollection: GeometryGeometryCollection
   geomGeometrycollectionm: GeometryGeometryCollectionM
   geomGeometrycollectionz: GeometryGeometryCollectionZ
   geomGeometrycollectionzm: GeometryGeometryCollectionZM
+  geomGeometrym: GeometryInterface
+  geomGeometryz: GeometryInterface
+  geomGeometryzm: GeometryInterface
   geomLinestring: GeometryLineString
   geomLinestringm: GeometryLineStringM
   geomLinestringz: GeometryLineStringZ
@@ -475,6 +483,9 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geog\` field.\\"\\"\\"
   geog: GeoJSON
 
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometry\` field.\\"\\"\\"
+  geogGeometry: GeoJSON
+
   \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollection\` field.\\"\\"\\"
   geogGeometrycollection: GeoJSON
 
@@ -492,6 +503,15 @@ input GisDebugCondition {
   Checks for equality with the object’s \`geogGeometrycollectionzm\` field.
   \\"\\"\\"
   geogGeometrycollectionzm: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometrym\` field.\\"\\"\\"
+  geogGeometrym: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometryz\` field.\\"\\"\\"
+  geogGeometryz: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometryzm\` field.\\"\\"\\"
+  geogGeometryzm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geogLinestring\` field.\\"\\"\\"
   geogLinestring: GeoJSON
@@ -568,6 +588,9 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geom\` field.\\"\\"\\"
   geom: GeoJSON
 
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometry\` field.\\"\\"\\"
+  geomGeometry: GeoJSON
+
   \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollection\` field.\\"\\"\\"
   geomGeometrycollection: GeoJSON
 
@@ -585,6 +608,15 @@ input GisDebugCondition {
   Checks for equality with the object’s \`geomGeometrycollectionzm\` field.
   \\"\\"\\"
   geomGeometrycollectionzm: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometrym\` field.\\"\\"\\"
+  geomGeometrym: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometryz\` field.\\"\\"\\"
+  geomGeometryz: GeoJSON
+
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometryzm\` field.\\"\\"\\"
+  geomGeometryzm: GeoJSON
 
   \\"\\"\\"Checks for equality with the object’s \`geomLinestring\` field.\\"\\"\\"
   geomLinestring: GeoJSON
@@ -665,10 +697,14 @@ input GisDebugCondition {
 \\"\\"\\"An input for mutations affecting \`GisDebug\`\\"\\"\\"
 input GisDebugInput {
   geog: GeoJSON
+  geogGeometry: GeoJSON
   geogGeometrycollection: GeoJSON
   geogGeometrycollectionm: GeoJSON
   geogGeometrycollectionz: GeoJSON
   geogGeometrycollectionzm: GeoJSON
+  geogGeometrym: GeoJSON
+  geogGeometryz: GeoJSON
+  geogGeometryzm: GeoJSON
   geogLinestring: GeoJSON
   geogLinestringm: GeoJSON
   geogLinestringz: GeoJSON
@@ -694,10 +730,14 @@ input GisDebugInput {
   geogPolygonz: GeoJSON
   geogPolygonzm: GeoJSON
   geom: GeoJSON
+  geomGeometry: GeoJSON
   geomGeometrycollection: GeoJSON
   geomGeometrycollectionm: GeoJSON
   geomGeometrycollectionz: GeoJSON
   geomGeometrycollectionzm: GeoJSON
+  geomGeometrym: GeoJSON
+  geomGeometryz: GeoJSON
+  geomGeometryzm: GeoJSON
   geomLinestring: GeoJSON
   geomLinestringm: GeoJSON
   geomLinestringz: GeoJSON
@@ -730,10 +770,14 @@ Represents an update to a \`GisDebug\`. Fields that are set will be updated.
 \\"\\"\\"
 input GisDebugPatch {
   geog: GeoJSON
+  geogGeometry: GeoJSON
   geogGeometrycollection: GeoJSON
   geogGeometrycollectionm: GeoJSON
   geogGeometrycollectionz: GeoJSON
   geogGeometrycollectionzm: GeoJSON
+  geogGeometrym: GeoJSON
+  geogGeometryz: GeoJSON
+  geogGeometryzm: GeoJSON
   geogLinestring: GeoJSON
   geogLinestringm: GeoJSON
   geogLinestringz: GeoJSON
@@ -759,10 +803,14 @@ input GisDebugPatch {
   geogPolygonz: GeoJSON
   geogPolygonzm: GeoJSON
   geom: GeoJSON
+  geomGeometry: GeoJSON
   geomGeometrycollection: GeoJSON
   geomGeometrycollectionm: GeoJSON
   geomGeometrycollectionz: GeoJSON
   geomGeometrycollectionzm: GeoJSON
+  geomGeometrym: GeoJSON
+  geomGeometryz: GeoJSON
+  geomGeometryzm: GeoJSON
   geomLinestring: GeoJSON
   geomLinestringm: GeoJSON
   geomLinestringz: GeoJSON
@@ -820,6 +868,8 @@ type GisDebugsEdge {
 enum GisDebugsOrderBy {
   GEOG_ASC
   GEOG_DESC
+  GEOG_GEOMETRY_ASC
+  GEOG_GEOMETRY_DESC
   GEOG_GEOMETRYCOLLECTION_ASC
   GEOG_GEOMETRYCOLLECTION_DESC
   GEOG_GEOMETRYCOLLECTIONM_ASC
@@ -828,6 +878,12 @@ enum GisDebugsOrderBy {
   GEOG_GEOMETRYCOLLECTIONZ_DESC
   GEOG_GEOMETRYCOLLECTIONZM_ASC
   GEOG_GEOMETRYCOLLECTIONZM_DESC
+  GEOG_GEOMETRYM_ASC
+  GEOG_GEOMETRYM_DESC
+  GEOG_GEOMETRYZ_ASC
+  GEOG_GEOMETRYZ_DESC
+  GEOG_GEOMETRYZM_ASC
+  GEOG_GEOMETRYZM_DESC
   GEOG_LINESTRING_ASC
   GEOG_LINESTRING_DESC
   GEOG_LINESTRINGM_ASC
@@ -878,6 +934,8 @@ enum GisDebugsOrderBy {
   GEOG_POLYGONZM_DESC
   GEOM_ASC
   GEOM_DESC
+  GEOM_GEOMETRY_ASC
+  GEOM_GEOMETRY_DESC
   GEOM_GEOMETRYCOLLECTION_ASC
   GEOM_GEOMETRYCOLLECTION_DESC
   GEOM_GEOMETRYCOLLECTIONM_ASC
@@ -886,6 +944,12 @@ enum GisDebugsOrderBy {
   GEOM_GEOMETRYCOLLECTIONZ_DESC
   GEOM_GEOMETRYCOLLECTIONZM_ASC
   GEOM_GEOMETRYCOLLECTIONZM_DESC
+  GEOM_GEOMETRYM_ASC
+  GEOM_GEOMETRYM_DESC
+  GEOM_GEOMETRYZ_ASC
+  GEOM_GEOMETRYZ_DESC
+  GEOM_GEOMETRYZM_ASC
+  GEOM_GEOMETRYZM_DESC
   GEOM_LINESTRING_ASC
   GEOM_LINESTRING_DESC
   GEOM_LINESTRINGM_ASC
