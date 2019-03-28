@@ -1,0 +1,17 @@
+query {
+  allGisDebugs {
+    nodes {
+      geogMultilinestringm {
+        geojson
+        lines {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+      }
+    }
+  }
+}
