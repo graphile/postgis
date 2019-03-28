@@ -1,0 +1,83 @@
+query {
+  allGisDebugs {
+    nodes {
+      geogGeometryz {
+        __typename
+        geojson
+        ... on GeographyPointZ {
+          geojson
+          latitude
+          longitude
+        }
+        ... on GeographyLineStringZ {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyPolygonZ {
+          exterior {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPointZ {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyMultiLineStringZ {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPolygonZ {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

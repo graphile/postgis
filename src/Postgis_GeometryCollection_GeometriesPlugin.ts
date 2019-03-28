@@ -1,7 +1,7 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { GIS_SUBTYPE } from "./constants";
-import { getGISTypeModifier } from "./utils";
+import { getGISTypeName } from "./utils";
 
 const plugin: Plugin = builder => {
   builder.hook(
@@ -22,8 +22,9 @@ const plugin: Plugin = builder => {
         pgGISGraphQLInterfaceTypesByType,
         graphql: { GraphQLList },
       } = build;
-      const { hasZ, hasM, srid } = pgGISTypeDetails;
-      const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id];
+      const { hasZ, hasM } = pgGISTypeDetails;
+      const zmflag = (hasZ ? 2 : 0) + (hasM ? 1 : 0); // Equivalent to ST_Zmflag: https://postgis.net/docs/ST_Zmflag.html
+      const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id][zmflag];
       if (!Interface) {
         debug("Unexpectedly couldn't find the interface");
         return fields;
@@ -35,12 +36,7 @@ const plugin: Plugin = builder => {
           resolve(data: any) {
             return data.__geojson.geometries.map((geom: any) => {
               return {
-                __gisType: getGISTypeModifier(
-                  GIS_SUBTYPE[geom.type],
-                  hasZ,
-                  hasM,
-                  srid
-                ),
+                __gisType: getGISTypeName(GIS_SUBTYPE[geom.type], hasZ, hasM),
                 __geojson: geom,
               };
             });

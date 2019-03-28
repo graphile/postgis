@@ -1,0 +1,302 @@
+query {
+  allGisDebugs {
+    nodes {
+      geog {
+        __typename
+        geojson
+        ... on GeographyPoint {
+          geojson
+          latitude
+          longitude
+        }
+        ... on GeographyLineString {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyPolygon {
+          exterior {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPoint {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyMultiLineString {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPolygon {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+        ... on GeographyPointZ {
+          geojson
+          latitude
+          longitude
+        }
+        ... on GeographyLineStringZ {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyPolygonZ {
+          exterior {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPointZ {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyMultiLineStringZ {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPolygonZ {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+        ... on GeographyPointM {
+          geojson
+          latitude
+          longitude
+        }
+        ... on GeographyLineStringM {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyPolygonM {
+          exterior {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPointM {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyMultiLineStringM {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPolygonM {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+        ... on GeographyPointZM {
+          geojson
+          latitude
+          longitude
+        }
+        ... on GeographyLineStringZM {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyPolygonZM {
+          exterior {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPointZM {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        ... on GeographyMultiLineStringZM {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              latitude
+              longitude
+            }
+          }
+        }
+        ... on GeographyMultiPolygonZM {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

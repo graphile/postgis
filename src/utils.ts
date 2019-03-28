@@ -1,4 +1,5 @@
 import { GISTypeDetails, Subtype } from "./interfaces";
+import { GIS_SUBTYPE_NAME } from "./constants";
 
 export const getGISTypeDetails = (modifier: number): GISTypeDetails => {
   const allZeroesHopefully = modifier >> 24;
@@ -56,4 +57,12 @@ export const getGISTypeModifier = (
     (hasZ ? 0x00000002 : 0) +
     (hasM ? 0x00000001 : 0)
   );
+};
+
+export const getGISTypeName = (
+  subtype: Subtype,
+  hasZ: boolean,
+  hasM: boolean
+): string => {
+  return `${GIS_SUBTYPE_NAME[subtype]}${hasZ ? "Z" : ""}${hasM ? "M" : ""}`;
 };

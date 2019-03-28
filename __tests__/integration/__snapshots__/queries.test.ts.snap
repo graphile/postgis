@@ -1,5 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`geog.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geog": Object {
+            "__typename": "GeographyGeometryCollection",
+            "geojson": "{\\"type\\":\\"GeometryCollection\\",\\"geometries\\":[{\\"type\\":\\"Point\\",\\"coordinates\\":[4,6]},{\\"type\\":\\"LineString\\",\\"coordinates\\":[[4,6],[7,10]]}]}",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometry": Object {
+            "__typename": "GeographyPoint",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometrym.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometrym": Object {
+            "__typename": "GeographyPointM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometryz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometryz": Object {
+            "__typename": "GeographyPointZ",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometryzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometryzm": Object {
+            "__typename": "GeographyPointZM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`geog_linestring.graphql 1`] = `
 Object {
   "data": Object {
@@ -1340,6 +1433,99 @@ Object {
                 ],
               },
             ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geom": Object {
+            "__typename": "GeometryGeometryCollection",
+            "geojson": "{\\"type\\":\\"GeometryCollection\\",\\"geometries\\":[{\\"type\\":\\"Point\\",\\"coordinates\\":[4,6]},{\\"type\\":\\"LineString\\",\\"coordinates\\":[[4,6],[7,10]]}]}",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometry": Object {
+            "__typename": "GeometryPoint",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometrym.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometrym": Object {
+            "__typename": "GeometryPointM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometryz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometryz": Object {
+            "__typename": "GeometryPointZ",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometryzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometryzm": Object {
+            "__typename": "GeometryPointZM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "x": 30,
+            "y": 10,
           },
         },
       ],
