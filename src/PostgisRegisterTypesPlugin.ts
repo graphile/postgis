@@ -1,7 +1,7 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { PgType } from "graphile-build-pg";
-import { GraphQLResolveInfo, GraphQLType } from "graphql";
+import { GraphQLResolveInfo, GraphQLType, GraphQLInt } from "graphql";
 import { Subtype } from "./interfaces";
 import { getGISTypeDetails, getGISTypeModifier, getGISTypeName } from "./utils";
 import { SQL } from "pg-sql2";
@@ -77,6 +77,10 @@ const plugin: Plugin = builder => {
                   type: GeoJSON,
                   description: "Converts the object to GeoJSON",
                 },
+                srid: {
+                  type: GraphQLInt,
+                  description: "Spatial reference identifier (SRID)",
+                },
               },
               resolveType(value: any, _info?: GraphQLResolveInfo) {
                 const Type =
@@ -112,6 +116,10 @@ const plugin: Plugin = builder => {
                 [geojsonFieldName]: {
                   type: GeoJSON,
                   description: "Converts the object to GeoJSON",
+                },
+                srid: {
+                  type: GraphQLInt,
+                  description: "Spatial reference identifier (SRID)",
                 },
               },
               resolveType(value: any, _info?: GraphQLResolveInfo) {
@@ -167,6 +175,11 @@ const plugin: Plugin = builder => {
                   "st_coorddim" // MUST be lowercase!
                 )}(${fragment}::text)
               )`,
+              sql.literal("__srid"),
+              sql.fragment`${sql.identifier(
+                POSTGIS.namespaceName || "public",
+                "st_srid" // MUST be lowercase!
+              )}(${fragment})`,
               sql.literal("__geojson"),
               sql.fragment`${sql.identifier(
                 POSTGIS.namespaceName || "public",
@@ -190,6 +203,10 @@ const plugin: Plugin = builder => {
               hasM
             );
           } else {
+            const intType = introspectionResultsByKind.type.find(
+              (t: PgType) =>
+                t.name === "int4" && t.namespaceName === "pg_catalog"
+            );
             const jsonType = introspectionResultsByKind.type.find(
               (t: PgType) =>
                 t.name === "json" && t.namespaceName === "pg_catalog"
@@ -213,6 +230,17 @@ const plugin: Plugin = builder => {
                       _resolveInfo: GraphQLResolveInfo
                     ) => {
                       return pg2gql(data.__geojson, jsonType);
+                    },
+                  },
+                  srid: {
+                    type: GraphQLInt,
+                    resolve: (
+                      data: any,
+                      _args: any,
+                      _context: any,
+                      _resolveInfo: GraphQLResolveInfo
+                    ) => {
+                      return pg2gql(data.__srid, intType);
                     },
                   },
                 },

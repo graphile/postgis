@@ -2881,3 +2881,1707 @@ Object {
   },
 }
 `;
+
+exports[`srid.geography.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geog": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometry": Object {
+            "srid": 4326,
+          },
+          "geogGeometrycollection": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionz": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionzm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrym": Object {
+            "srid": 4326,
+          },
+          "geogGeometryz": Object {
+            "srid": 4326,
+          },
+          "geogGeometryzm": Object {
+            "srid": 4326,
+          },
+          "geogLinestring": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringz": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringzm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestring": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringz": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringzm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipoint": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointz": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointzm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygon": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonz": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonzm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPoint": Object {
+            "srid": 4326,
+          },
+          "geogPointm": Object {
+            "srid": 4326,
+          },
+          "geogPointz": Object {
+            "srid": 4326,
+          },
+          "geogPointzm": Object {
+            "srid": 4326,
+          },
+          "geogPolygon": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonz": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonzm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`srid.geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geom": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometry": Object {
+            "srid": 0,
+          },
+          "geomGeometrycollection": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionz": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionzm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrym": Object {
+            "srid": 0,
+          },
+          "geomGeometryz": Object {
+            "srid": 0,
+          },
+          "geomGeometryzm": Object {
+            "srid": 0,
+          },
+          "geomLinestring": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringz": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringzm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestring": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringz": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringzm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipoint": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointz": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointzm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygon": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonz": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonzm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPoint": Object {
+            "srid": 0,
+          },
+          "geomPointm": Object {
+            "srid": 0,
+          },
+          "geomPointz": Object {
+            "srid": 0,
+          },
+          "geomPointzm": Object {
+            "srid": 0,
+          },
+          "geomPolygon": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonz": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonzm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+        },
+      ],
+    },
+  },
+}
+`;

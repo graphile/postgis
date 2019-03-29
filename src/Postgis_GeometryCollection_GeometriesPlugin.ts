@@ -37,6 +37,7 @@ const plugin: Plugin = builder => {
             return data.__geojson.geometries.map((geom: any) => {
               return {
                 __gisType: getGISTypeName(GIS_SUBTYPE[geom.type], hasZ, hasM),
+                __srid: data.__srid,
                 __geojson: geom,
               };
             });

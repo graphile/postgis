@@ -34,6 +34,7 @@ const plugin: Plugin = builder => {
         resolve(data: any) {
           return {
             __gisType: getGISTypeName(GIS_SUBTYPE.LineString, hasZ, hasM),
+            __srid: data.__srid,
             __geojson: {
               type: "LineString",
               coordinates: data.__geojson.coordinates[0],
@@ -46,6 +47,7 @@ const plugin: Plugin = builder => {
         resolve(data: any) {
           return data.__geojson.coordinates.slice(1).map((coord: any) => ({
             __gisType: getGISTypeName(GIS_SUBTYPE.LineString, hasZ, hasM),
+            __srid: data.__srid,
             __geojson: {
               type: "LineString",
               coordinates: coord,

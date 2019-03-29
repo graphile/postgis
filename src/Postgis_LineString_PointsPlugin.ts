@@ -1,6 +1,7 @@
 import { Plugin } from "graphile-build";
 import { GIS_SUBTYPE } from "./constants";
 import { getGISTypeName } from "./utils";
+import { __metadata } from "tslib";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
@@ -35,6 +36,7 @@ const plugin: Plugin = builder => {
           return data.__geojson.coordinates.map((coord: any) => {
             return {
               __gisType: getGISTypeName(GIS_SUBTYPE.Point, hasZ, hasM),
+              __srid: data.__srid,
               __geojson: {
                 type: "Point",
                 coordinates: coord,

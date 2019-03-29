@@ -1,0 +1,480 @@
+{
+  allGisDebugs {
+    nodes {
+      geog {
+        ...geogGeometry
+        ...geogGeometryz
+        ...geogGeometrym
+        ...geogGeometryzm
+      }
+      geogGeometry {
+        ...geogGeometry
+      }
+      geogGeometrycollection {
+        ...geogGeometrycollection
+      }
+      geogGeometrycollectionm {
+        ...geogGeometrycollectionm
+      }
+      geogGeometrycollectionz {
+        ...geogGeometrycollectionz
+      }
+      geogGeometrycollectionzm {
+        ...geogGeometrycollectionzm
+      }
+      geogGeometrym {
+        ...geogGeometrym
+      }
+      geogGeometryz {
+        ...geogGeometryz
+      }
+      geogGeometryzm {
+        ...geogGeometryzm
+      }
+      geogLinestring {
+        ...geogLinestring
+      }
+      geogLinestringm {
+        ...geogLinestringm
+      }
+      geogLinestringz {
+        ...geogLinestringz
+      }
+      geogLinestringzm {
+        ...geogLinestringzm
+      }
+      geogMultilinestring {
+        ...geogMultilinestring
+      }
+      geogMultilinestringm {
+        ...geogMultilinestringm
+      }
+      geogMultilinestringz {
+        ...geogMultilinestringz
+      }
+      geogMultilinestringzm {
+        ...geogMultilinestringzm
+      }
+      geogMultipoint {
+        ...geogMultipoint
+      }
+      geogMultipointm {
+        ...geogMultipointm
+      }
+      geogMultipointz {
+        ...geogMultipointz
+      }
+      geogMultipointzm {
+        ...geogMultipointzm
+      }
+      geogMultipolygon {
+        ...geogMultipolygon
+      }
+      geogMultipolygonm {
+        ...geogMultipolygonm
+      }
+      geogMultipolygonz {
+        ...geogMultipolygonz
+      }
+      geogMultipolygonzm {
+        ...geogMultipolygonzm
+      }
+      geogPoint {
+        ...geogPoint
+      }
+      geogPointm {
+        ...geogPointm
+      }
+      geogPointz {
+        ...geogPointz
+      }
+      geogPointzm {
+        ...geogPointzm
+      }
+      geogPolygon {
+        ...geogPolygon
+      }
+      geogPolygonm {
+        ...geogPolygonm
+      }
+      geogPolygonz {
+        ...geogPolygonz
+      }
+      geogPolygonzm {
+        ...geogPolygonzm
+      }
+    }
+  }
+}
+
+fragment geogPoint on GeographyPoint {
+  srid
+}
+
+fragment geogPointz on GeographyPointZ {
+  srid
+}
+
+fragment geogPointm on GeographyPointM {
+  srid
+}
+
+fragment geogPointzm on GeographyPointZM {
+  srid
+}
+
+fragment geogLinestring on GeographyLineString {
+  points {
+    ...geogPoint
+  }
+  srid
+}
+
+fragment geogLinestringz on GeographyLineStringZ {
+  points {
+    ...geogPointz
+  }
+  srid
+}
+fragment geogLinestringm on GeographyLineStringM {
+  points {
+    ...geogPointm
+  }
+  srid
+}
+fragment geogLinestringzm on GeographyLineStringZM {
+  points {
+    ...geogPointzm
+  }
+  srid
+}
+
+fragment geogPolygon on GeographyPolygon {
+  exterior {
+    ...geogLinestring
+  }
+  interiors {
+    ...geogLinestring
+  }
+  srid
+}
+fragment geogPolygonz on GeographyPolygonZ {
+  exterior {
+    ...geogLinestringz
+  }
+  interiors {
+    ...geogLinestringz
+  }
+  srid
+}
+fragment geogPolygonm on GeographyPolygonM {
+  exterior {
+    ...geogLinestringm
+  }
+  interiors {
+    ...geogLinestringm
+  }
+  srid
+}
+
+fragment geogPolygonzm on GeographyPolygonZM {
+  exterior {
+    ...geogLinestringzm
+  }
+  interiors {
+    ...geogLinestringzm
+  }
+  srid
+}
+
+fragment geogMultipoint on GeographyMultiPoint {
+  points {
+    ...geogPoint
+  }
+  srid
+}
+
+fragment geogMultipointz on GeographyMultiPointZ {
+  points {
+    ...geogPointz
+  }
+  srid
+}
+
+fragment geogMultipointm on GeographyMultiPointM {
+  points {
+    ...geogPointm
+  }
+  srid
+}
+
+fragment geogMultipointzm on GeographyMultiPointZM {
+  points {
+    ...geogPointzm
+  }
+  srid
+}
+
+fragment geogMultilinestring on GeographyMultiLineString {
+  lines {
+    ...geogLinestring
+  }
+  srid
+}
+
+fragment geogMultilinestringz on GeographyMultiLineStringZ {
+  lines {
+    ...geogLinestringz
+  }
+  srid
+}
+
+fragment geogMultilinestringm on GeographyMultiLineStringM {
+  lines {
+    ...geogLinestringm
+  }
+  srid
+}
+
+fragment geogMultilinestringzm on GeographyMultiLineStringZM {
+  lines {
+    ...geogLinestringzm
+  }
+  srid
+}
+
+fragment geogMultipolygon on GeographyMultiPolygon {
+  polygons {
+    ...geogPolygon
+  }
+  srid
+}
+
+fragment geogMultipolygonz on GeographyMultiPolygonZ {
+  polygons {
+    ...geogPolygonz
+  }
+  srid
+}
+
+fragment geogMultipolygonm on GeographyMultiPolygonM {
+  polygons {
+    ...geogPolygonm
+  }
+  srid
+}
+
+fragment geogMultipolygonzm on GeographyMultiPolygonZM {
+  polygons {
+    ...geogPolygonzm
+  }
+  srid
+}
+
+fragment geogGeometrycollection on GeographyGeometryCollection {
+  geometries {
+    ... on GeographyPoint {
+      ...geogPoint
+    }
+    ... on GeographyLineString {
+      ...geogLinestring
+    }
+    ... on GeographyPolygon {
+      ...geogPolygon
+    }
+    ... on GeographyMultiPoint {
+      ...geogMultipoint
+    }
+    ... on GeographyMultiLineString {
+      ...geogMultilinestring
+    }
+    ... on GeographyMultiPolygon {
+      ...geogMultipolygon
+    }
+    # Cannot spread fragment "geogGeometrycollection" within itself.
+    #... on GeographyGeometryCollection {
+    #  ...geogGeometrycollection
+    #}
+  }
+  srid
+}
+
+fragment geogGeometrycollectionz on GeographyGeometryCollectionZ {
+  geometries {
+    ... on GeographyPointZ {
+      ...geogPointz
+    }
+    ... on GeographyLineStringZ {
+      ...geogLinestringz
+    }
+    ... on GeographyPolygonZ {
+      ...geogPolygonz
+    }
+    ... on GeographyMultiPointZ {
+      ...geogMultipointz
+    }
+    ... on GeographyMultiLineStringZ {
+      ...geogMultilinestringz
+    }
+    ... on GeographyMultiPolygonZ {
+      ...geogMultipolygonz
+    }
+    # Cannot spread fragment "geogGeometrycollectionz" within itself.
+    #... on GeographyGeometryCollectionZ {
+    #  ...geogGeometrycollectionz
+    #}
+  }
+  srid
+}
+
+fragment geogGeometrycollectionm on GeographyGeometryCollectionM {
+  geometries {
+    ... on GeographyPointM {
+      ...geogPointm
+    }
+    ... on GeographyLineStringM {
+      ...geogLinestringm
+    }
+    ... on GeographyPolygonM {
+      ...geogPolygonm
+    }
+    ... on GeographyMultiPointM {
+      ...geogMultipointm
+    }
+    ... on GeographyMultiLineStringM {
+      ...geogMultilinestringm
+    }
+    ... on GeographyMultiPolygonM {
+      ...geogMultipolygonm
+    }
+    # Cannot spread fragment "geogGeometrycollectionm" within itself.
+    #... on GeographyGeometryCollectionM {
+    #  ...geogGeometrycollectionm
+    #}
+  }
+  srid
+}
+
+fragment geogGeometrycollectionzm on GeographyGeometryCollectionZM {
+  geometries {
+    ... on GeographyPointZM {
+      ...geogPointzm
+    }
+    ... on GeographyLineStringZM {
+      ...geogLinestringzm
+    }
+    ... on GeographyPolygonZM {
+      ...geogPolygonzm
+    }
+    ... on GeographyMultiPointZM {
+      ...geogMultipointzm
+    }
+    ... on GeographyMultiLineStringZM {
+      ...geogMultilinestringzm
+    }
+    ... on GeographyMultiPolygonZM {
+      ...geogMultipolygonzm
+    }
+    # Cannot spread fragment "geogGeometrycollectionm" within itself.
+    #... on GeographyGeometryCollectionZM {
+    #  ...geogGeometrycollectionzm
+    #}
+  }
+  srid
+}
+
+fragment geogGeometry on GeographyGeometry {
+  ... on GeographyPoint {
+    ...geogPoint
+  }
+  ... on GeographyLineString {
+    ...geogLinestring
+  }
+  ... on GeographyPolygon {
+    ...geogPolygon
+  }
+  ... on GeographyMultiPoint {
+    ...geogMultipoint
+  }
+  ... on GeographyMultiLineString {
+    ...geogMultilinestring
+  }
+  ... on GeographyMultiPolygon {
+    ...geogMultipolygon
+  }
+  ... on GeographyGeometryCollection {
+    ...geogGeometrycollection
+  }
+}
+
+fragment geogGeometryz on GeographyGeometryZ {
+  ... on GeographyPointZ {
+    ...geogPointz
+  }
+  ... on GeographyLineStringZ {
+    ...geogLinestringz
+  }
+  ... on GeographyPolygonZ {
+    ...geogPolygonz
+  }
+  ... on GeographyMultiPointZ {
+    ...geogMultipointz
+  }
+  ... on GeographyMultiLineStringZ {
+    ...geogMultilinestringz
+  }
+  ... on GeographyMultiPolygonZ {
+    ...geogMultipolygonz
+  }
+  ... on GeographyGeometryCollectionZ {
+    ...geogGeometrycollectionz
+  }
+}
+
+fragment geogGeometrym on GeographyGeometryM {
+  ... on GeographyPointM {
+    ...geogPointm
+  }
+  ... on GeographyLineStringM {
+    ...geogLinestringm
+  }
+  ... on GeographyPolygonM {
+    ...geogPolygonm
+  }
+  ... on GeographyMultiPointM {
+    ...geogMultipointm
+  }
+  ... on GeographyMultiLineStringM {
+    ...geogMultilinestringm
+  }
+  ... on GeographyMultiPolygonM {
+    ...geogMultipolygonm
+  }
+  ... on GeographyGeometryCollectionM {
+    ...geogGeometrycollectionm
+  }
+}
+
+fragment geogGeometryzm on GeographyGeometryZM {
+  ... on GeographyPointZM {
+    ...geogPointzm
+  }
+  ... on GeographyLineStringZM {
+    ...geogLinestringzm
+  }
+  ... on GeographyPolygonZM {
+    ...geogPolygonzm
+  }
+  ... on GeographyMultiPointZM {
+    ...geogMultipointzm
+  }
+  ... on GeographyMultiLineStringZM {
+    ...geogMultilinestringzm
+  }
+  ... on GeographyMultiPolygonZM {
+    ...geogMultipolygonzm
+  }
+  ... on GeographyGeometryCollectionZM {
+    ...geogGeometrycollectionzm
+  }
+}
