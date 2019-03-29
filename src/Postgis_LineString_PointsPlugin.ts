@@ -1,7 +1,6 @@
 import { Plugin } from "graphile-build";
 import { GIS_SUBTYPE } from "./constants";
 import { getGISTypeName } from "./utils";
-import { __metadata } from "tslib";
 
 const plugin: Plugin = builder => {
   builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
