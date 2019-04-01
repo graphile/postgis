@@ -7,8 +7,6 @@ create extension if not exists postgis with schema public;
 --insert into spatial_ref_sys (srid, auth_name, auth_srid, proj4text, srtext) values
 --  (4979, 'epsg', 4979, '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs ', 'GEOGCS["WGS 84",DATUM["World Geodetic System 1984",SPHEROID["WGS 84",6378137.0,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0.0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.017453292519943295],AXIS["Geodetic latitude",NORTH],AXIS["Geodetic longitude",EAST],AXIS["Ellipsoidal height",UP],AUTHORITY["EPSG","4979"]]');
 
-set search_path to graphile_postgis, public;
-
 create table graphile_postgis.gis_debug (
   id                        serial primary key,
 
@@ -298,3 +296,51 @@ insert into graphile_postgis.gis_debug (
   ST_GeometryFromText('MULTIPOLYGON ZM (((40 40 80 99, 20 45 80 99, 45 30 80 99, 40 40 80 99)), ((20 35 80 99, 10 30 80 99, 10 10 80 99, 30 5 80 99, 45 20 80 99, 20 35 80 99), (30 20 80 99, 20 15 80 99, 20 25 80 99, 30 20 80 99)))'),
   ST_GeometryFromText('GEOMETRYCOLLECTION ZM (POINT ZM (4 6 80 99),LINESTRING ZM (4 6 80 99,7 10 80 99))')
 );
+
+-- SCHEMA: graphile_postgis_minimal_unconstrained
+-- one geometry column with no constraints
+
+drop schema if exists graphile_postgis_minimal_unconstrained cascade;
+create schema graphile_postgis_minimal_unconstrained;
+create table graphile_postgis_minimal_unconstrained.foo (
+  id serial primary key,
+  geom geometry
+);
+insert into graphile_postgis_minimal_unconstrained.foo (geom) values
+  (GeomFromEWKT('SRID=27700;POINT (437300 115500)'));
+
+-- SCHEMA: graphile_postgis_minimal_dimensional
+-- one geometry column with a dimensional constraint
+
+drop schema if exists graphile_postgis_minimal_dimensional cascade;
+create schema graphile_postgis_minimal_dimensional;
+create table graphile_postgis_minimal_dimensional.foo (
+  id serial primary key,
+  geom_geometry geometry(geometry)
+);
+insert into graphile_postgis_minimal_dimensional.foo (geom_geometry) values
+  (GeomFromEWKT('SRID=27700;POINT (437300 115500)'));
+
+-- SCHEMA: graphile_postgis_minimal_type
+-- one geometry column with a type constraint
+
+drop schema if exists graphile_postgis_minimal_type cascade;
+create schema graphile_postgis_minimal_type;
+create table graphile_postgis_minimal_type.foo (
+  id serial primary key,
+  geom_point geometry(point)
+);
+insert into graphile_postgis_minimal_type.foo (geom_point) values
+  (GeomFromEWKT('SRID=27700;POINT (437300 115500)'));
+
+-- SCHEMA: graphile_postgis_minimal_type_and_srid
+-- one geometry column with a type constraint and an SRID constraint
+
+drop schema if exists graphile_postgis_minimal_type_and_srid cascade;
+create schema graphile_postgis_minimal_type_and_srid;
+create table graphile_postgis_minimal_type_and_srid.foo (
+  id serial primary key,
+  geom_point_27700 geometry(point,27700)
+);
+insert into graphile_postgis_minimal_type_and_srid.foo (geom_point_27700) values
+  (GeomFromEWKT('SRID=27700;POINT (437300 115500)'));
