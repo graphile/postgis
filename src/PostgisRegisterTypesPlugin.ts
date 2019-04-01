@@ -1,7 +1,7 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { PgType } from "graphile-build-pg";
-import { GraphQLResolveInfo, GraphQLType, GraphQLInt } from "graphql";
+import { GraphQLResolveInfo, GraphQLType, GraphQLNamedType } from "graphql";
 import { Subtype } from "./interfaces";
 import { getGISTypeDetails, getGISTypeModifier, getGISTypeName } from "./utils";
 import { SQL } from "pg-sql2";
@@ -30,6 +30,10 @@ const plugin: Plugin = builder => {
         const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(pgGISType.id, typeModifier);
       },
+      pgGISIncludedTypes: [],
+      pgGISIncludeType(Type: GraphQLNamedType) {
+        this.pgGISIncludedTypes.push(Type);
+      },
     });
   });
 
@@ -39,7 +43,7 @@ const plugin: Plugin = builder => {
       const {
         newWithHooks,
         pgIntrospectionResultsByKind: introspectionResultsByKind,
-        graphql: { GraphQLObjectType, GraphQLInterfaceType },
+        graphql: { GraphQLInt, GraphQLInterfaceType, GraphQLObjectType },
         pgRegisterGqlTypeByTypeId,
         pgRegisterGqlInputTypeByTypeId,
         pgTweaksByTypeIdAndModifer,
@@ -53,6 +57,7 @@ const plugin: Plugin = builder => {
         pgGISGeometryType: GEOMETRY_TYPE,
         pgGISGeographyType: GEOGRAPHY_TYPE,
         pgGISExtension: POSTGIS,
+        pgGISIncludeType: includeType,
       } = build;
       if (!GEOMETRY_TYPE || !GEOGRAPHY_TYPE) {
         return _;
@@ -94,6 +99,17 @@ const plugin: Plugin = builder => {
               isPgGISInterface: true,
             }
           );
+          // Force creation of all GraphQL types that could be resolved from this interface
+          const subtypes: Array<Subtype> = [1, 2, 3, 4, 5, 6, 7];
+          for (const subtype of subtypes) {
+            for (const hasZ of [false, true]) {
+              for (const hasM of [false, true]) {
+                const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, 0);
+                const Type = getGisType(type, typeModifier);
+                includeType(Type);
+              }
+            }
+          }
         }
         return _interfaces[type.id][zmflag];
       }
@@ -136,6 +152,13 @@ const plugin: Plugin = builder => {
               isPgGISDimensionInterface: true,
             }
           );
+          // Force creation of all GraphQL types that could be resolved from this interface
+          const subtypes: Array<Subtype> = [1, 2, 3, 4, 5, 6, 7];
+          for (const subtype of subtypes) {
+            const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, 0);
+            const Type = getGisType(type, typeModifier);
+            includeType(Type);
+          }
         }
         return _interfaces[type.id][zmflag];
       }
@@ -216,7 +239,7 @@ const plugin: Plugin = builder => {
               GraphQLObjectType,
               {
                 name: inflection.gisType(type, subtype, hasZ, hasM, srid),
-                interfaces: [
+                interfaces: () => [
                   getGisInterface(type),
                   getGisDimensionInterface(type, hasZ, hasM),
                 ],
@@ -300,6 +323,14 @@ const plugin: Plugin = builder => {
     ["PgTables"],
     ["PgTypes"]
   );
+
+  builder.hook("GraphQLSchema", (schema, build) => {
+    if (!schema.types) {
+      schema.types = [];
+    }
+    schema.types = [...schema.types, ...build.pgGISIncludedTypes];
+    return schema;
+  });
 };
 
 export default plugin;
