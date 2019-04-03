@@ -18,14 +18,8 @@ const plugin: Plugin = builder => {
       graphql: { GraphQLNonNull, GraphQLFloat },
       inflection,
     } = build;
-    const xFieldName = inflection.gisXFieldName(
-      pgGISType,
-      pgGISTypeDetails.srid
-    );
-    const yFieldName = inflection.gisYFieldName(
-      pgGISType,
-      pgGISTypeDetails.srid
-    );
+    const xFieldName = inflection.gisXFieldName(pgGISType);
+    const yFieldName = inflection.gisYFieldName(pgGISType);
     return extend(fields, {
       [xFieldName]: {
         type: new GraphQLNonNull(GraphQLFloat),

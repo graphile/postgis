@@ -37,11 +37,11 @@ const plugin: Plugin = builder => {
       geojsonFieldName() {
         return `geojson`;
       },
-      gisXFieldName(type: PgType, srid: number) {
-        return type.name === "geography" || srid === 4326 ? "longitude" : "x";
+      gisXFieldName(type: PgType) {
+        return type.name === "geography" ? "longitude" : "x";
       },
-      gisYFieldName(type: PgType, srid: number) {
-        return type.name === "geography" || srid === 4326 ? "latitude" : "y";
+      gisYFieldName(type: PgType) {
+        return type.name === "geography" ? "latitude" : "y";
       },
     };
   });
