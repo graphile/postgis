@@ -97,6 +97,8 @@ const plugin: Plugin = builder => {
             },
             {
               isPgGISInterface: true,
+              pgGisType: type,
+              pgGisZMFlag: zmflag,
             }
           );
           // Force creation of all GraphQL types that could be resolved from this interface
