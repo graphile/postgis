@@ -14,7 +14,7 @@ const plugin: Plugin = builder => {
             SUBTYPE_STRING_BY_SUBTYPE[subtype],
             hasZ ? "z" : null,
             hasM ? "m" : null,
-          ].join("-")
+          ].filter(_ => _).join("-")
         );
       },
       gisInterfaceName(type: PgType) {
