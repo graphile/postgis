@@ -168,13 +168,13 @@ interface GeometryGeometry {
   geojson: GeoJSON
 
   \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
-  srid: Int
+  srid: Int!
 }
 
 type GeometryGeometryCollection implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
   geometries: [GeometryGeometry]
-  srid: Int
+  srid: Int!
 }
 
 \\"\\"\\"All geometry types implement this interface\\"\\"\\"
@@ -183,36 +183,36 @@ interface GeometryInterface {
   geojson: GeoJSON
 
   \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
-  srid: Int
+  srid: Int!
 }
 
 type GeometryLineString implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
   points: [GeometryPoint]
-  srid: Int
+  srid: Int!
 }
 
 type GeometryMultiLineString implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
   lines: [GeometryLineString]
-  srid: Int
+  srid: Int!
 }
 
 type GeometryMultiPoint implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
   points: [GeometryPoint]
-  srid: Int
+  srid: Int!
 }
 
 type GeometryMultiPolygon implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
   polygons: [GeometryPolygon]
-  srid: Int
+  srid: Int!
 }
 
 type GeometryPoint implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
-  srid: Int
+  srid: Int!
   x: Float!
   y: Float!
 }
@@ -221,7 +221,7 @@ type GeometryPolygon implements GeometryInterface & GeometryGeometry {
   exterior: GeometryLineString
   geojson: GeoJSON
   interiors: [GeometryLineString]
-  srid: Int
+  srid: Int!
 }
 
 \\"\\"\\"

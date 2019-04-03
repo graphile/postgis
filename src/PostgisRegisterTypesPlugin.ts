@@ -43,7 +43,12 @@ const plugin: Plugin = builder => {
       const {
         newWithHooks,
         pgIntrospectionResultsByKind: introspectionResultsByKind,
-        graphql: { GraphQLInt, GraphQLInterfaceType, GraphQLObjectType },
+        graphql: {
+          GraphQLInt,
+          GraphQLNonNull,
+          GraphQLInterfaceType,
+          GraphQLObjectType,
+        },
         pgRegisterGqlTypeByTypeId,
         pgRegisterGqlInputTypeByTypeId,
         pgTweaksByTypeIdAndModifer,
@@ -83,7 +88,7 @@ const plugin: Plugin = builder => {
                   description: "Converts the object to GeoJSON",
                 },
                 srid: {
-                  type: GraphQLInt,
+                  type: new GraphQLNonNull(GraphQLInt),
                   description: "Spatial reference identifier (SRID)",
                 },
               },
@@ -136,7 +141,7 @@ const plugin: Plugin = builder => {
                   description: "Converts the object to GeoJSON",
                 },
                 srid: {
-                  type: GraphQLInt,
+                  type: new GraphQLNonNull(GraphQLInt),
                   description: "Spatial reference identifier (SRID)",
                 },
               },
@@ -260,7 +265,7 @@ const plugin: Plugin = builder => {
                     },
                   },
                   srid: {
-                    type: GraphQLInt,
+                    type: new GraphQLNonNull(GraphQLInt),
                     resolve: (
                       data: any,
                       _args: any,

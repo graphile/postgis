@@ -168,7 +168,7 @@ interface GeometryGeometry {
   geojson: GeoJSON
 
   \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
-  srid: Int
+  srid: Int!
 }
 
 \\"\\"\\"All geometry types implement this interface\\"\\"\\"
@@ -177,12 +177,12 @@ interface GeometryInterface {
   geojson: GeoJSON
 
   \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
-  srid: Int
+  srid: Int!
 }
 
 type GeometryPoint implements GeometryInterface & GeometryGeometry {
   geojson: GeoJSON
-  srid: Int
+  srid: Int!
   x: Float!
   y: Float!
 }
