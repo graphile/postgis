@@ -1,0 +1,480 @@
+{
+  allGisDebugs {
+    nodes {
+      geom {
+        ...geomGeometry
+        ...geomGeometryz
+        ...geomGeometrym
+        ...geomGeometryzm
+      }
+      geomGeometry {
+        ...geomGeometry
+      }
+      geomGeometrycollection {
+        ...geomGeometrycollection
+      }
+      geomGeometrycollectionm {
+        ...geomGeometrycollectionm
+      }
+      geomGeometrycollectionz {
+        ...geomGeometrycollectionz
+      }
+      geomGeometrycollectionzm {
+        ...geomGeometrycollectionzm
+      }
+      geomGeometrym {
+        ...geomGeometrym
+      }
+      geomGeometryz {
+        ...geomGeometryz
+      }
+      geomGeometryzm {
+        ...geomGeometryzm
+      }
+      geomLinestring {
+        ...geomLinestring
+      }
+      geomLinestringm {
+        ...geomLinestringm
+      }
+      geomLinestringz {
+        ...geomLinestringz
+      }
+      geomLinestringzm {
+        ...geomLinestringzm
+      }
+      geomMultilinestring {
+        ...geomMultilinestring
+      }
+      geomMultilinestringm {
+        ...geomMultilinestringm
+      }
+      geomMultilinestringz {
+        ...geomMultilinestringz
+      }
+      geomMultilinestringzm {
+        ...geomMultilinestringzm
+      }
+      geomMultipoint {
+        ...geomMultipoint
+      }
+      geomMultipointm {
+        ...geomMultipointm
+      }
+      geomMultipointz {
+        ...geomMultipointz
+      }
+      geomMultipointzm {
+        ...geomMultipointzm
+      }
+      geomMultipolygon {
+        ...geomMultipolygon
+      }
+      geomMultipolygonm {
+        ...geomMultipolygonm
+      }
+      geomMultipolygonz {
+        ...geomMultipolygonz
+      }
+      geomMultipolygonzm {
+        ...geomMultipolygonzm
+      }
+      geomPoint {
+        ...geomPoint
+      }
+      geomPointm {
+        ...geomPointm
+      }
+      geomPointz {
+        ...geomPointz
+      }
+      geomPointzm {
+        ...geomPointzm
+      }
+      geomPolygon {
+        ...geomPolygon
+      }
+      geomPolygonm {
+        ...geomPolygonm
+      }
+      geomPolygonz {
+        ...geomPolygonz
+      }
+      geomPolygonzm {
+        ...geomPolygonzm
+      }
+    }
+  }
+}
+
+fragment geomPoint on GeometryPoint {
+  srid
+}
+
+fragment geomPointz on GeometryPointZ {
+  srid
+}
+
+fragment geomPointm on GeometryPointM {
+  srid
+}
+
+fragment geomPointzm on GeometryPointZM {
+  srid
+}
+
+fragment geomLinestring on GeometryLineString {
+  points {
+    ...geomPoint
+  }
+  srid
+}
+
+fragment geomLinestringz on GeometryLineStringZ {
+  points {
+    ...geomPointz
+  }
+  srid
+}
+fragment geomLinestringm on GeometryLineStringM {
+  points {
+    ...geomPointm
+  }
+  srid
+}
+fragment geomLinestringzm on GeometryLineStringZM {
+  points {
+    ...geomPointzm
+  }
+  srid
+}
+
+fragment geomPolygon on GeometryPolygon {
+  exterior {
+    ...geomLinestring
+  }
+  interiors {
+    ...geomLinestring
+  }
+  srid
+}
+fragment geomPolygonz on GeometryPolygonZ {
+  exterior {
+    ...geomLinestringz
+  }
+  interiors {
+    ...geomLinestringz
+  }
+  srid
+}
+fragment geomPolygonm on GeometryPolygonM {
+  exterior {
+    ...geomLinestringm
+  }
+  interiors {
+    ...geomLinestringm
+  }
+  srid
+}
+
+fragment geomPolygonzm on GeometryPolygonZM {
+  exterior {
+    ...geomLinestringzm
+  }
+  interiors {
+    ...geomLinestringzm
+  }
+  srid
+}
+
+fragment geomMultipoint on GeometryMultiPoint {
+  points {
+    ...geomPoint
+  }
+  srid
+}
+
+fragment geomMultipointz on GeometryMultiPointZ {
+  points {
+    ...geomPointz
+  }
+  srid
+}
+
+fragment geomMultipointm on GeometryMultiPointM {
+  points {
+    ...geomPointm
+  }
+  srid
+}
+
+fragment geomMultipointzm on GeometryMultiPointZM {
+  points {
+    ...geomPointzm
+  }
+  srid
+}
+
+fragment geomMultilinestring on GeometryMultiLineString {
+  lines {
+    ...geomLinestring
+  }
+  srid
+}
+
+fragment geomMultilinestringz on GeometryMultiLineStringZ {
+  lines {
+    ...geomLinestringz
+  }
+  srid
+}
+
+fragment geomMultilinestringm on GeometryMultiLineStringM {
+  lines {
+    ...geomLinestringm
+  }
+  srid
+}
+
+fragment geomMultilinestringzm on GeometryMultiLineStringZM {
+  lines {
+    ...geomLinestringzm
+  }
+  srid
+}
+
+fragment geomMultipolygon on GeometryMultiPolygon {
+  polygons {
+    ...geomPolygon
+  }
+  srid
+}
+
+fragment geomMultipolygonz on GeometryMultiPolygonZ {
+  polygons {
+    ...geomPolygonz
+  }
+  srid
+}
+
+fragment geomMultipolygonm on GeometryMultiPolygonM {
+  polygons {
+    ...geomPolygonm
+  }
+  srid
+}
+
+fragment geomMultipolygonzm on GeometryMultiPolygonZM {
+  polygons {
+    ...geomPolygonzm
+  }
+  srid
+}
+
+fragment geomGeometrycollection on GeometryGeometryCollection {
+  geometries {
+    ... on GeometryPoint {
+      ...geomPoint
+    }
+    ... on GeometryLineString {
+      ...geomLinestring
+    }
+    ... on GeometryPolygon {
+      ...geomPolygon
+    }
+    ... on GeometryMultiPoint {
+      ...geomMultipoint
+    }
+    ... on GeometryMultiLineString {
+      ...geomMultilinestring
+    }
+    ... on GeometryMultiPolygon {
+      ...geomMultipolygon
+    }
+    # Cannot spread fragment "geomGeometrycollection" within itself.
+    #... on GeometryGeometryCollection {
+    #  ...geomGeometrycollection
+    #}
+  }
+  srid
+}
+
+fragment geomGeometrycollectionz on GeometryGeometryCollectionZ {
+  geometries {
+    ... on GeometryPointZ {
+      ...geomPointz
+    }
+    ... on GeometryLineStringZ {
+      ...geomLinestringz
+    }
+    ... on GeometryPolygonZ {
+      ...geomPolygonz
+    }
+    ... on GeometryMultiPointZ {
+      ...geomMultipointz
+    }
+    ... on GeometryMultiLineStringZ {
+      ...geomMultilinestringz
+    }
+    ... on GeometryMultiPolygonZ {
+      ...geomMultipolygonz
+    }
+    # Cannot spread fragment "geomGeometrycollectionz" within itself.
+    #... on GeometryGeometryCollectionZ {
+    #  ...geomGeometrycollectionz
+    #}
+  }
+  srid
+}
+
+fragment geomGeometrycollectionm on GeometryGeometryCollectionM {
+  geometries {
+    ... on GeometryPointM {
+      ...geomPointm
+    }
+    ... on GeometryLineStringM {
+      ...geomLinestringm
+    }
+    ... on GeometryPolygonM {
+      ...geomPolygonm
+    }
+    ... on GeometryMultiPointM {
+      ...geomMultipointm
+    }
+    ... on GeometryMultiLineStringM {
+      ...geomMultilinestringm
+    }
+    ... on GeometryMultiPolygonM {
+      ...geomMultipolygonm
+    }
+    # Cannot spread fragment "geomGeometrycollectionm" within itself.
+    #... on GeometryGeometryCollectionM {
+    #  ...geomGeometrycollectionm
+    #}
+  }
+  srid
+}
+
+fragment geomGeometrycollectionzm on GeometryGeometryCollectionZM {
+  geometries {
+    ... on GeometryPointZM {
+      ...geomPointzm
+    }
+    ... on GeometryLineStringZM {
+      ...geomLinestringzm
+    }
+    ... on GeometryPolygonZM {
+      ...geomPolygonzm
+    }
+    ... on GeometryMultiPointZM {
+      ...geomMultipointzm
+    }
+    ... on GeometryMultiLineStringZM {
+      ...geomMultilinestringzm
+    }
+    ... on GeometryMultiPolygonZM {
+      ...geomMultipolygonzm
+    }
+    # Cannot spread fragment "geomGeometrycollectionm" within itself.
+    #... on GeometryGeometryCollectionZM {
+    #  ...geomGeometrycollectionzm
+    #}
+  }
+  srid
+}
+
+fragment geomGeometry on GeometryGeometry {
+  ... on GeometryPoint {
+    ...geomPoint
+  }
+  ... on GeometryLineString {
+    ...geomLinestring
+  }
+  ... on GeometryPolygon {
+    ...geomPolygon
+  }
+  ... on GeometryMultiPoint {
+    ...geomMultipoint
+  }
+  ... on GeometryMultiLineString {
+    ...geomMultilinestring
+  }
+  ... on GeometryMultiPolygon {
+    ...geomMultipolygon
+  }
+  ... on GeometryGeometryCollection {
+    ...geomGeometrycollection
+  }
+}
+
+fragment geomGeometryz on GeometryGeometryZ {
+  ... on GeometryPointZ {
+    ...geomPointz
+  }
+  ... on GeometryLineStringZ {
+    ...geomLinestringz
+  }
+  ... on GeometryPolygonZ {
+    ...geomPolygonz
+  }
+  ... on GeometryMultiPointZ {
+    ...geomMultipointz
+  }
+  ... on GeometryMultiLineStringZ {
+    ...geomMultilinestringz
+  }
+  ... on GeometryMultiPolygonZ {
+    ...geomMultipolygonz
+  }
+  ... on GeometryGeometryCollectionZ {
+    ...geomGeometrycollectionz
+  }
+}
+
+fragment geomGeometrym on GeometryGeometryM {
+  ... on GeometryPointM {
+    ...geomPointm
+  }
+  ... on GeometryLineStringM {
+    ...geomLinestringm
+  }
+  ... on GeometryPolygonM {
+    ...geomPolygonm
+  }
+  ... on GeometryMultiPointM {
+    ...geomMultipointm
+  }
+  ... on GeometryMultiLineStringM {
+    ...geomMultilinestringm
+  }
+  ... on GeometryMultiPolygonM {
+    ...geomMultipolygonm
+  }
+  ... on GeometryGeometryCollectionM {
+    ...geomGeometrycollectionm
+  }
+}
+
+fragment geomGeometryzm on GeometryGeometryZM {
+  ... on GeometryPointZM {
+    ...geomPointzm
+  }
+  ... on GeometryLineStringZM {
+    ...geomLinestringzm
+  }
+  ... on GeometryPolygonZM {
+    ...geomPolygonzm
+  }
+  ... on GeometryMultiPointZM {
+    ...geomMultipointzm
+  }
+  ... on GeometryMultiLineStringZM {
+    ...geomMultilinestringzm
+  }
+  ... on GeometryMultiPolygonZM {
+    ...geomMultipolygonzm
+  }
+  ... on GeometryGeometryCollectionZM {
+    ...geomGeometrycollectionzm
+  }
+}

@@ -1,18 +1,20 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
-import {
-  SUBTYPE_BY_GEOJSON_TYPE,
-  SUBTYPE_BY_PG_GEOMETRY_TYPE,
-} from "./constants";
+import { GIS_SUBTYPE } from "./constants";
+import { getGISTypeName } from "./utils";
 
 const plugin: Plugin = builder => {
   builder.hook(
     "GraphQLObjectType:fields",
     function AddGeometriesToGeometryCollection(fields, build, context) {
       const {
-        scope: { isPgGISGeographyType, pgGISType, pgGISSubtype },
+        scope: { isPgGISType, pgGISType, pgGISTypeDetails },
       } = context;
-      if (!isPgGISGeographyType || pgGISSubtype !== 7) {
+      if (
+        !isPgGISType ||
+        !pgGISTypeDetails ||
+        pgGISTypeDetails.subtype !== GIS_SUBTYPE.GeometryCollection
+      ) {
         return fields;
       }
       const {
@@ -20,7 +22,9 @@ const plugin: Plugin = builder => {
         pgGISGraphQLInterfaceTypesByType,
         graphql: { GraphQLList },
       } = build;
-      const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id];
+      const { hasZ, hasM } = pgGISTypeDetails;
+      const zmflag = (hasZ ? 2 : 0) + (hasM ? 1 : 0); // Equivalent to ST_Zmflag: https://postgis.net/docs/ST_Zmflag.html
+      const Interface = pgGISGraphQLInterfaceTypesByType[pgGISType.id][zmflag];
       if (!Interface) {
         debug("Unexpectedly couldn't find the interface");
         return fields;
@@ -31,12 +35,9 @@ const plugin: Plugin = builder => {
           type: new GraphQLList(Interface),
           resolve(data: any) {
             return data.__geojson.geometries.map((geom: any) => {
-              const subtype = SUBTYPE_BY_GEOJSON_TYPE[geom.type];
-              const pgGeometryType = Object.keys(
-                SUBTYPE_BY_PG_GEOMETRY_TYPE
-              ).find(k => SUBTYPE_BY_PG_GEOMETRY_TYPE[k] === subtype);
               return {
-                __gisType: pgGeometryType,
+                __gisType: getGISTypeName(GIS_SUBTYPE[geom.type], hasZ, hasM),
+                __srid: data.__srid,
                 __geojson: geom,
               };
             });

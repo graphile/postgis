@@ -1,0 +1,11 @@
+query {
+  allGisDebugs {
+    nodes {
+      geogPointm {
+        geojson
+        latitude
+        longitude
+      }
+    }
+  }
+}

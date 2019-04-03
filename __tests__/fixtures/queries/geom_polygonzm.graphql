@@ -1,0 +1,25 @@
+query {
+  allGisDebugs {
+    nodes {
+      geogPolygonzm {
+        exterior {
+          geojson
+          points {
+            geojson
+            latitude
+            longitude
+          }
+        }
+        geojson
+        interiors {
+          geojson
+          points {
+            geojson
+            longitude
+            latitude
+          }
+        }
+      }
+    }
+  }
+}

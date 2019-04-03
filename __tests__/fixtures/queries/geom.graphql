@@ -1,0 +1,302 @@
+query {
+  allGisDebugs {
+    nodes {
+      geom {
+        __typename
+        geojson
+        ... on GeometryPoint {
+          geojson
+          x
+          y
+        }
+        ... on GeometryLineString {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryPolygon {
+          exterior {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPoint {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryMultiLineString {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPolygon {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+          }
+        }
+        ... on GeometryPointZ {
+          geojson
+          x
+          y
+        }
+        ... on GeometryLineStringZ {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryPolygonZ {
+          exterior {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPointZ {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryMultiLineStringZ {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPolygonZ {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+          }
+        }
+        ... on GeometryPointM {
+          geojson
+          x
+          y
+        }
+        ... on GeometryLineStringM {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryPolygonM {
+          exterior {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPointM {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryMultiLineStringM {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPolygonM {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+          }
+        }
+        ... on GeometryPointZM {
+          geojson
+          x
+          y
+        }
+        ... on GeometryLineStringZM {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryPolygonZM {
+          exterior {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+          geojson
+          interiors {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPointZM {
+          geojson
+          points {
+            geojson
+            x
+            y
+          }
+        }
+        ... on GeometryMultiLineStringZM {
+          geojson
+          lines {
+            geojson
+            points {
+              geojson
+              x
+              y
+            }
+          }
+        }
+        ... on GeometryMultiPolygonZM {
+          geojson
+          polygons {
+            exterior {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+            geojson
+            interiors {
+              geojson
+              points {
+                geojson
+                x
+                y
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

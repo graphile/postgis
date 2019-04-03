@@ -1,10 +1,7 @@
-import { SubtypeDetails, Subtype } from "./interfaces";
-import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants";
+import { GISTypeDetails, Subtype } from "./interfaces";
+import { GIS_SUBTYPE_NAME } from "./constants";
 
-export const getGisSubtypeDetails = (
-  isGeography: boolean,
-  modifier: number
-): SubtypeDetails => {
+export const getGISTypeDetails = (modifier: number): GISTypeDetails => {
   const allZeroesHopefully = modifier >> 24;
   if (allZeroesHopefully !== 0) {
     throw new Error("Unsupported PostGIS modifier");
@@ -20,14 +17,6 @@ export const getGisSubtypeDetails = (
   const hasZ = (modifier & 0x00000002) >> 1 === 1;
   const hasM = (modifier & 0x00000001) === 1;
 
-  if (isGeography && (srid !== 4326 && srid !== 0)) {
-    throw new Error(
-      `We only support SRID 4326 currently, saw something with SRID '${srid}'`
-    );
-  }
-  if (!isGeography && srid !== 0) {
-    throw new Error("Unexpected SRID with geometry type");
-  }
   if (
     subtype !== 0 &&
     subtype !== 1 &&
@@ -45,18 +34,17 @@ export const getGisSubtypeDetails = (
 
   return {
     subtype,
-    subtypeString: SUBTYPE_STRING_BY_SUBTYPE[subtype],
     hasZ,
     hasM,
     srid,
   };
 };
 
-export const getGisTypeModifier = (
+export const getGISTypeModifier = (
   subtype: Subtype,
   hasZ: boolean,
   hasM: boolean,
-  srid: number // We only support SRID 4326 currently
+  srid: number
 ): number => {
   // Ref: https://github.com/postgis/postgis/blob/2.5.2/liblwgeom/liblwgeom.h.in#L156-L173
   // #define TYPMOD_SET_SRID(typmod, srid) ((typmod) = (((typmod) & 0xE00000FF) | ((srid & 0x001FFFFF)<<8)))
@@ -69,4 +57,12 @@ export const getGisTypeModifier = (
     (hasZ ? 0x00000002 : 0) +
     (hasM ? 0x00000001 : 0)
   );
+};
+
+export const getGISTypeName = (
+  subtype: Subtype,
+  hasZ: boolean,
+  hasM: boolean
+): string => {
+  return `${GIS_SUBTYPE_NAME[subtype]}${hasZ ? "Z" : ""}${hasM ? "M" : ""}`;
 };

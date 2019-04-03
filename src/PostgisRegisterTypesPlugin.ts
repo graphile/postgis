@@ -1,10 +1,9 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
 import { PgType } from "graphile-build-pg";
-import { GraphQLResolveInfo, GraphQLType } from "graphql";
-import { SUBTYPE_BY_PG_GEOMETRY_TYPE } from "./constants";
+import { GraphQLResolveInfo, GraphQLType, GraphQLNamedType } from "graphql";
 import { Subtype } from "./interfaces";
-import { getGisSubtypeDetails, getGisTypeModifier } from "./utils";
+import { getGISTypeDetails, getGISTypeModifier, getGISTypeName } from "./utils";
 import { SQL } from "pg-sql2";
 import makeGeoJSONType from "./makeGeoJSONType";
 
@@ -25,11 +24,15 @@ const plugin: Plugin = builder => {
         pgGISType: PgType,
         subtype: Subtype,
         hasZ: boolean = false,
-        hasM: boolean = false
+        hasM: boolean = false,
+        srid: number = 0
       ) {
-        const srid = 4326; // We only support SRID 4326 currently
-        const typeModifier = getGisTypeModifier(subtype, hasZ, hasM, srid);
+        const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, srid);
         return this.pgGetGqlTypeByTypeIdAndModifier(pgGISType.id, typeModifier);
+      },
+      pgGISIncludedTypes: [],
+      pgGISIncludeType(Type: GraphQLNamedType) {
+        this.pgGISIncludedTypes.push(Type);
       },
     });
   });
@@ -40,7 +43,12 @@ const plugin: Plugin = builder => {
       const {
         newWithHooks,
         pgIntrospectionResultsByKind: introspectionResultsByKind,
-        graphql: { GraphQLObjectType, GraphQLInterfaceType },
+        graphql: {
+          GraphQLInt,
+          GraphQLNonNull,
+          GraphQLInterfaceType,
+          GraphQLObjectType,
+        },
         pgRegisterGqlTypeByTypeId,
         pgRegisterGqlInputTypeByTypeId,
         pgTweaksByTypeIdAndModifer,
@@ -54,6 +62,7 @@ const plugin: Plugin = builder => {
         pgGISGeometryType: GEOMETRY_TYPE,
         pgGISGeographyType: GEOGRAPHY_TYPE,
         pgGISExtension: POSTGIS,
+        pgGISIncludeType: includeType,
       } = build;
       if (!GEOMETRY_TYPE || !GEOGRAPHY_TYPE) {
         return _;
@@ -64,8 +73,12 @@ const plugin: Plugin = builder => {
       const geojsonFieldName = inflection.geojsonFieldName();
 
       function getGisInterface(type: PgType) {
+        const zmflag = -1; // no dimensional constraint; could be xy/xyz/xym/xyzm
         if (!_interfaces[type.id]) {
-          _interfaces[type.id] = newWithHooks(
+          _interfaces[type.id] = {};
+        }
+        if (!_interfaces[type.id][zmflag]) {
+          _interfaces[type.id][zmflag] = newWithHooks(
             GraphQLInterfaceType,
             {
               name: inflection.gisInterfaceName(type),
@@ -74,31 +87,99 @@ const plugin: Plugin = builder => {
                   type: GeoJSON,
                   description: "Converts the object to GeoJSON",
                 },
+                srid: {
+                  type: new GraphQLNonNull(GraphQLInt),
+                  description: "Spatial reference identifier (SRID)",
+                },
               },
               resolveType(value: any, _info?: GraphQLResolveInfo) {
-                const subtype = SUBTYPE_BY_PG_GEOMETRY_TYPE[value.__gisType];
                 const Type =
                   constructedTypes[type.id] &&
-                  constructedTypes[type.id][subtype];
+                  constructedTypes[type.id][value.__gisType];
                 return Type;
               },
-              description:
-                "All PostGIS geography types implement this interface",
+              description: `All ${type.name} types implement this interface`,
             },
             {
-              isPgGISGeographyInterface: true,
+              isPgGISInterface: true,
+              pgGISType: type,
+              pgGISZMFlag: zmflag,
             }
           );
+          // Force creation of all GraphQL types that could be resolved from this interface
+          const subtypes: Array<Subtype> = [1, 2, 3, 4, 5, 6, 7];
+          for (const subtype of subtypes) {
+            for (const hasZ of [false, true]) {
+              for (const hasM of [false, true]) {
+                const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, 0);
+                const Type = getGisType(type, typeModifier);
+                includeType(Type);
+              }
+            }
+          }
         }
-        return _interfaces[type.id];
+        return _interfaces[type.id][zmflag];
+      }
+      function getGisDimensionInterface(
+        type: PgType,
+        hasZ: boolean,
+        hasM: boolean
+      ) {
+        const zmflag = (hasZ ? 2 : 0) + (hasM ? 1 : 0); // Equivalent to ST_Zmflag: https://postgis.net/docs/ST_Zmflag.html
+        const coords = { 0: "XY", 1: "XYM", 2: "XYZ", 3: "XYZM" }[zmflag];
+        if (!_interfaces[type.id]) {
+          _interfaces[type.id] = {};
+        }
+        if (!_interfaces[type.id][zmflag]) {
+          _interfaces[type.id][zmflag] = newWithHooks(
+            GraphQLInterfaceType,
+            {
+              name: inflection.gisDimensionInterfaceName(type, hasZ, hasM),
+              fields: {
+                [geojsonFieldName]: {
+                  type: GeoJSON,
+                  description: "Converts the object to GeoJSON",
+                },
+                srid: {
+                  type: new GraphQLNonNull(GraphQLInt),
+                  description: "Spatial reference identifier (SRID)",
+                },
+              },
+              resolveType(value: any, _info?: GraphQLResolveInfo) {
+                const Type =
+                  constructedTypes[type.id] &&
+                  constructedTypes[type.id][value.__gisType];
+                return Type;
+              },
+              description: `All ${
+                type.name
+              } ${coords} types implement this interface`,
+            },
+            {
+              isPgGISDimensionInterface: true,
+              pgGISType: type,
+              pgGISZMFlag: zmflag,
+            }
+          );
+          // Force creation of all GraphQL types that could be resolved from this interface
+          const subtypes: Array<Subtype> = [1, 2, 3, 4, 5, 6, 7];
+          for (const subtype of subtypes) {
+            const typeModifier = getGISTypeModifier(subtype, hasZ, hasM, 0);
+            const Type = getGisType(type, typeModifier);
+            includeType(Type);
+          }
+        }
+        return _interfaces[type.id][zmflag];
       }
       function getGisType(type: PgType, typeModifier: number) {
         const typeId = type.id;
-        const { subtype, subtypeString } = getGisSubtypeDetails(
-          true,
-          typeModifier
+        const typeDetails = getGISTypeDetails(typeModifier);
+        const { subtype, hasZ, hasM, srid } = typeDetails;
+        debug(
+          `Getting ${type.name} type ${
+            type.id
+          }|${typeModifier}|${subtype}|${hasZ}|${hasM}|${srid}`
         );
-        debug(`Getting type ${typeModifier} / ${subtype} / ${subtypeString}`);
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};
         }
@@ -115,7 +196,21 @@ const plugin: Plugin = builder => {
               sql.literal("__gisType"),
               sql.fragment`${sql.identifier(
                 POSTGIS.namespaceName || "public",
-                "geometrytype" // MUST be lowercase!
+                "postgis_type_name" // MUST be lowercase!
+              )}(
+                ${sql.identifier(
+                  POSTGIS.namespaceName || "public",
+                  "geometrytype" // MUST be lowercase!
+                )}(${fragment}),
+                ${sql.identifier(
+                  POSTGIS.namespaceName || "public",
+                  "st_coorddim" // MUST be lowercase!
+                )}(${fragment}::text)
+              )`,
+              sql.literal("__srid"),
+              sql.fragment`${sql.identifier(
+                POSTGIS.namespaceName || "public",
+                "st_srid" // MUST be lowercase!
               )}(${fragment})`,
               sql.literal("__geojson"),
               sql.fragment`${sql.identifier(
@@ -128,20 +223,35 @@ const plugin: Plugin = builder => {
           ) end)`;
           };
         }
-        if (!constructedTypes[type.id][subtype]) {
-          if (subtype === 0) {
-            constructedTypes[type.id][subtype] = getGisInterface(type);
+        const gisTypeKey =
+          typeModifier != null ? getGISTypeName(subtype, hasZ, hasM) : -1;
+        if (!constructedTypes[type.id][gisTypeKey]) {
+          if (typeModifierKey === -1) {
+            constructedTypes[type.id][gisTypeKey] = getGisInterface(type);
+          } else if (subtype === 0) {
+            constructedTypes[type.id][gisTypeKey] = getGisDimensionInterface(
+              type,
+              hasZ,
+              hasM
+            );
           } else {
+            const intType = introspectionResultsByKind.type.find(
+              (t: PgType) =>
+                t.name === "int4" && t.namespaceName === "pg_catalog"
+            );
             const jsonType = introspectionResultsByKind.type.find(
               (t: PgType) =>
                 t.name === "json" && t.namespaceName === "pg_catalog"
             );
 
-            constructedTypes[type.id][subtype] = newWithHooks(
+            constructedTypes[type.id][gisTypeKey] = newWithHooks(
               GraphQLObjectType,
               {
-                name: inflection.gisType(type, subtype),
-                interfaces: [getGisInterface(type)],
+                name: inflection.gisType(type, subtype, hasZ, hasM, srid),
+                interfaces: () => [
+                  getGisInterface(type),
+                  getGisDimensionInterface(type, hasZ, hasM),
+                ],
                 fields: {
                   [geojsonFieldName]: {
                     type: GeoJSON,
@@ -154,17 +264,28 @@ const plugin: Plugin = builder => {
                       return pg2gql(data.__geojson, jsonType);
                     },
                   },
+                  srid: {
+                    type: new GraphQLNonNull(GraphQLInt),
+                    resolve: (
+                      data: any,
+                      _args: any,
+                      _context: any,
+                      _resolveInfo: GraphQLResolveInfo
+                    ) => {
+                      return pg2gql(data.__srid, intType);
+                    },
+                  },
                 },
               },
               {
-                isPgGISGeographyType: true,
+                isPgGISType: true,
                 pgGISType: type,
-                pgGISSubtype: subtype,
+                pgGISTypeDetails: typeDetails,
               }
             );
           }
         }
-        return constructedTypes[type.id][subtype] || getGisInterface(type);
+        return constructedTypes[type.id][gisTypeKey];
       }
 
       debug(`Registering handler for ${GEOGRAPHY_TYPE.id}`);
@@ -211,6 +332,14 @@ const plugin: Plugin = builder => {
     ["PgTables"],
     ["PgTypes"]
   );
+
+  builder.hook("GraphQLSchema", (schema, build) => {
+    if (!schema.types) {
+      schema.types = [];
+    }
+    schema.types = [...schema.types, ...build.pgGISIncludedTypes];
+    return schema;
+  });
 };
 
 export default plugin;

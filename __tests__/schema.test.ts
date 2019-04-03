@@ -10,12 +10,6 @@ const options = {
 
 test("prints a schema with this plugin", () =>
   withPgClient(async (client: pg.PoolClient) => {
-    const schema = await createPostGraphileSchema(
-      // TODO: remove the client type assertion
-      // once postgraphile-core is fixed
-      (client as unknown) as pg.Client,
-      schemas,
-      options
-    );
-    expect(printSchemaOrdered(schema)).toMatchSnapshot();
+    const gqlSchema = await createPostGraphileSchema(client, schemas, options);
+    expect(printSchemaOrdered(gqlSchema)).toMatchSnapshot();
   }));

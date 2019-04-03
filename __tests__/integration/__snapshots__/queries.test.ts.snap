@@ -1,0 +1,4587 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`geog.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geog": Object {
+            "__typename": "GeographyGeometryCollection",
+            "geojson": "{\\"type\\":\\"GeometryCollection\\",\\"geometries\\":[{\\"type\\":\\"Point\\",\\"coordinates\\":[4,6]},{\\"type\\":\\"LineString\\",\\"coordinates\\":[[4,6],[7,10]]}]}",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometry": Object {
+            "__typename": "GeographyPoint",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometrym.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometrym": Object {
+            "__typename": "GeographyPointM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometryz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometryz": Object {
+            "__typename": "GeographyPointZ",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_geometryzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogGeometryzm": Object {
+            "__typename": "GeographyPointZM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_linestring.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestring": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_linestringm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringm": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_linestringz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringz": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_linestringzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringzm": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multilinestring.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestring": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10],[20,20],[10,40]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[30,30],[40,20],[30,10]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multilinestringm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringm": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10],[20,20],[10,40]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[30,30],[40,20],[30,10]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multilinestringz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringz": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10,80],[20,20,80],[10,40,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multilinestringzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringzm": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10,80],[20,20,80],[10,40,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipoint.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipoint": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipointm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointm": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipointz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointz": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipointzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointzm": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipolygon.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygon": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[20,45],[45,30],[40,40]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40],[20,45],[45,30],[40,40]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20],[20,15],[20,25],[30,20]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipolygonm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonm": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[20,45],[45,30],[40,40]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40],[20,45],[45,30],[40,40]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20],[20,15],[20,25],[30,20]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipolygonz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonz": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_multipolygonzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonzm": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_point.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPoint": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_pointm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointm": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_pointz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointz": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_pointzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointzm": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_polygon.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygon": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10],[45,45],[15,40],[10,20],[35,10]],[[20,30],[35,35],[30,20],[20,30]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30],[35,35],[30,20],[20,30]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_polygonm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonm": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10],[45,45],[15,40],[10,20],[35,10]],[[20,30],[35,35],[30,20],[20,30]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30],[35,35],[30,20],[20,30]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_polygonz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonz": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]],[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geog_polygonzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonzm": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]],[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geom": Object {
+            "__typename": "GeometryGeometryCollection",
+            "geojson": "{\\"type\\":\\"GeometryCollection\\",\\"geometries\\":[{\\"type\\":\\"Point\\",\\"coordinates\\":[4,6]},{\\"type\\":\\"LineString\\",\\"coordinates\\":[[4,6],[7,10]]}]}",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometry": Object {
+            "__typename": "GeometryPoint",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometrym.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometrym": Object {
+            "__typename": "GeometryPointM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometryz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometryz": Object {
+            "__typename": "GeometryPointZ",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_geometryzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geomGeometryzm": Object {
+            "__typename": "GeometryPointZM",
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "x": 30,
+            "y": 10,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_linestring.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestring": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_linestringm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringm": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_linestringz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringz": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_linestringzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogLinestringzm": Object {
+            "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                "latitude": 30,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                "latitude": 40,
+                "longitude": 40,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multilinestring.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestring": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10],[20,20],[10,40]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[30,30],[40,20],[30,10]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multilinestringm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringm": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10],[20,20],[10,40]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[30,30],[40,20],[30,10]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multilinestringz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringz": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10,80],[20,20,80],[10,40,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multilinestringzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultilinestringzm": Object {
+            "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
+            "lines": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[10,10,80],[20,20,80],[10,40,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                    "latitude": 10,
+                    "longitude": 10,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                    "latitude": 20,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                    "latitude": 40,
+                    "longitude": 10,
+                  },
+                ],
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                    "latitude": 40,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
+                    "latitude": 30,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
+                    "latitude": 20,
+                    "longitude": 40,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                    "latitude": 10,
+                    "longitude": 30,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipoint.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipoint": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipointm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointm": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipointz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointz": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipointzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipointzm": Object {
+            "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
+            "points": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
+                "latitude": 40,
+                "longitude": 10,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
+                "latitude": 30,
+                "longitude": 40,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
+                "latitude": 20,
+                "longitude": 20,
+              },
+              Object {
+                "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+                "latitude": 10,
+                "longitude": 30,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipolygon.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygon": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[20,45],[45,30],[40,40]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40],[20,45],[45,30],[40,40]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20],[20,15],[20,25],[30,20]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipolygonm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonm": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40],[20,45],[45,30],[40,40]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40],[20,45],[45,30],[40,40]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20],[20,15],[20,25],[30,20]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipolygonz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonz": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_multipolygonzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogMultipolygonzm": Object {
+            "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
+                      "latitude": 45,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
+                      "latitude": 30,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
+                      "latitude": 40,
+                      "longitude": 40,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]]}",
+                "interiors": Array [],
+              },
+              Object {
+                "exterior": Object {
+                  "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]]}",
+                  "points": Array [
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
+                      "latitude": 30,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
+                      "latitude": 10,
+                      "longitude": 10,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
+                      "latitude": 5,
+                      "longitude": 30,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
+                      "latitude": 20,
+                      "longitude": 45,
+                    },
+                    Object {
+                      "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
+                      "latitude": 35,
+                      "longitude": 20,
+                    },
+                  ],
+                },
+                "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]}",
+                "interiors": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]}",
+                    "points": Array [
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
+                        "latitude": 15,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
+                        "latitude": 25,
+                        "longitude": 20,
+                      },
+                      Object {
+                        "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                        "latitude": 20,
+                        "longitude": 30,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_point.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPoint": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_pointm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointm": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_pointz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointz": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_pointzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPointzm": Object {
+            "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
+            "latitude": 10,
+            "longitude": 30,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_polygon.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygon": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10],[45,45],[15,40],[10,20],[35,10]],[[20,30],[35,35],[30,20],[20,30]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30],[35,35],[30,20],[20,30]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_polygonm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonm": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10],[45,45],[15,40],[10,20],[35,10]],[[20,30],[35,35],[30,20],[20,30]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30],[35,35],[30,20],[20,30]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_polygonz.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonz": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]],[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`geom_polygonzm.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geogPolygonzm": Object {
+            "exterior": Object {
+              "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
+              "points": Array [
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
+                  "latitude": 45,
+                  "longitude": 45,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
+                  "latitude": 40,
+                  "longitude": 15,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
+                  "latitude": 20,
+                  "longitude": 10,
+                },
+                Object {
+                  "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
+                  "latitude": 10,
+                  "longitude": 35,
+                },
+              ],
+            },
+            "geojson": "{\\"type\\":\\"Polygon\\",\\"coordinates\\":[[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]],[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]]}",
+            "interiors": Array [
+              Object {
+                "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[20,30,80],[35,35,80],[30,20,80],[20,30,80]]}",
+                "points": Array [
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
+                    "latitude": 35,
+                    "longitude": 35,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
+                    "latitude": 20,
+                    "longitude": 30,
+                  },
+                  Object {
+                    "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
+                    "latitude": 30,
+                    "longitude": 20,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`srid.geography.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geog": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometry": Object {
+            "srid": 4326,
+          },
+          "geogGeometrycollection": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionz": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrycollectionzm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogGeometrym": Object {
+            "srid": 4326,
+          },
+          "geogGeometryz": Object {
+            "srid": 4326,
+          },
+          "geogGeometryzm": Object {
+            "srid": 4326,
+          },
+          "geogLinestring": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringz": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogLinestringzm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestring": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringz": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultilinestringzm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipoint": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointz": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipointzm": Object {
+            "points": Array [
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+              Object {
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygon": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonz": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogMultipolygonzm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [],
+                "srid": 4326,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                    Object {
+                      "srid": 4326,
+                    },
+                  ],
+                  "srid": 4326,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                      Object {
+                        "srid": 4326,
+                      },
+                    ],
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPoint": Object {
+            "srid": 4326,
+          },
+          "geogPointm": Object {
+            "srid": 4326,
+          },
+          "geogPointz": Object {
+            "srid": 4326,
+          },
+          "geogPointzm": Object {
+            "srid": 4326,
+          },
+          "geogPolygon": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonz": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+          "geogPolygonzm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+                Object {
+                  "srid": 4326,
+                },
+              ],
+              "srid": 4326,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                  Object {
+                    "srid": 4326,
+                  },
+                ],
+                "srid": 4326,
+              },
+            ],
+            "srid": 4326,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`srid.geometry.graphql 1`] = `
+Object {
+  "data": Object {
+    "allGisDebugs": Object {
+      "nodes": Array [
+        Object {
+          "geom": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometry": Object {
+            "srid": 0,
+          },
+          "geomGeometrycollection": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionz": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrycollectionzm": Object {
+            "geometries": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomGeometrym": Object {
+            "srid": 0,
+          },
+          "geomGeometryz": Object {
+            "srid": 0,
+          },
+          "geomGeometryzm": Object {
+            "srid": 0,
+          },
+          "geomLinestring": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringz": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomLinestringzm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestring": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringz": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultilinestringzm": Object {
+            "lines": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipoint": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointz": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipointzm": Object {
+            "points": Array [
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+              Object {
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygon": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonz": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomMultipolygonzm": Object {
+            "polygons": Array [
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [],
+                "srid": 0,
+              },
+              Object {
+                "exterior": Object {
+                  "points": Array [
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                    Object {
+                      "srid": 0,
+                    },
+                  ],
+                  "srid": 0,
+                },
+                "interiors": Array [
+                  Object {
+                    "points": Array [
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                      Object {
+                        "srid": 0,
+                      },
+                    ],
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPoint": Object {
+            "srid": 0,
+          },
+          "geomPointm": Object {
+            "srid": 0,
+          },
+          "geomPointz": Object {
+            "srid": 0,
+          },
+          "geomPointzm": Object {
+            "srid": 0,
+          },
+          "geomPolygon": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonz": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+          "geomPolygonzm": Object {
+            "exterior": Object {
+              "points": Array [
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+                Object {
+                  "srid": 0,
+                },
+              ],
+              "srid": 0,
+            },
+            "interiors": Array [
+              Object {
+                "points": Array [
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                  Object {
+                    "srid": 0,
+                  },
+                ],
+                "srid": 0,
+              },
+            ],
+            "srid": 0,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
