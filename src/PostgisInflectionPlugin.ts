@@ -14,7 +14,9 @@ const plugin: Plugin = builder => {
             SUBTYPE_STRING_BY_SUBTYPE[subtype],
             hasZ ? "z" : null,
             hasM ? "m" : null,
-          ].filter(_ => _).join("-")
+          ]
+            .filter(_ => _)
+            .join("-")
         );
       },
       gisInterfaceName(type: PgType) {
@@ -27,7 +29,9 @@ const plugin: Plugin = builder => {
             SUBTYPE_STRING_BY_SUBTYPE[0],
             hasZ ? "z" : null,
             hasM ? "m" : null,
-          ].filter(_ => _).join("-")
+          ]
+            .filter(_ => _)
+            .join("-")
         );
       },
       geojsonFieldName() {
