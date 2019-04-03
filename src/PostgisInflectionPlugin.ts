@@ -27,7 +27,7 @@ const plugin: Plugin = builder => {
             SUBTYPE_STRING_BY_SUBTYPE[0],
             hasZ ? "z" : null,
             hasM ? "m" : null,
-          ].join("-")
+          ].filter(_ => _).join("-")
         );
       },
       geojsonFieldName() {
