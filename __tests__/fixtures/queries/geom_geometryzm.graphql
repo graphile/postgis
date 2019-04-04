@@ -31,6 +31,7 @@ fragment geomPointzm on GeometryPointZM {
   geojson
   x
   y
+  z
 }
 
 fragment geomLinestringzm on GeometryLineStringZM {

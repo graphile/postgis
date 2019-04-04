@@ -12,6 +12,7 @@ fragment geogPointz on GeographyPointZ {
   geojson
   latitude
   longitude
+  height
 }
 
 fragment geogLinestringz on GeographyLineStringZ {
