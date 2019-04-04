@@ -1,22 +1,22 @@
 query {
   allGisDebugs {
     nodes {
-      geogMultipolygonz {
+      geomMultipolygonz {
         geojson
         polygons {
           exterior {
             geojson
             points {
               geojson
-              latitude
-              longitude
+              x
+              y
             }
           }
           interiors {
             points {
               geojson
-              latitude
-              longitude
+              x
+              y
             }
             geojson
           }

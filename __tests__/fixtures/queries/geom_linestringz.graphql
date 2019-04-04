@@ -1,12 +1,12 @@
 query {
   allGisDebugs {
     nodes {
-      geogLinestringz {
+      geomLinestringz {
         geojson
         points {
           geojson
-          latitude
-          longitude
+          x
+          y
         }
       }
     }

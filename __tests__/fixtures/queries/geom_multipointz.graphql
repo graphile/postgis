@@ -1,12 +1,12 @@
 query {
   allGisDebugs {
     nodes {
-      geogMultipointz {
+      geomMultipointz {
         geojson
         points {
           geojson
-          latitude
-          longitude
+          x
+          y
         }
       }
     }

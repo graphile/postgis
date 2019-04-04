@@ -1,13 +1,13 @@
 query {
   allGisDebugs {
     nodes {
-      geogPolygonm {
+      geomPolygonm {
         exterior {
           geojson
           points {
             geojson
-            latitude
-            longitude
+            x
+            y
           }
         }
         geojson
@@ -15,8 +15,8 @@ query {
           geojson
           points {
             geojson
-            longitude
-            latitude
+            x
+            y
           }
         }
       }
