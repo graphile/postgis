@@ -2,13 +2,21 @@ query {
   allGisDebugs {
     nodes {
       geomMultipointzm {
-        geojson
-        points {
-          geojson
-          x
-          y
-        }
+        ...geomMultipointzm
       }
     }
+  }
+}
+
+fragment geomPointzm on GeometryPointZM {
+  geojson
+  x
+  y
+}
+
+fragment geomMultipointzm on GeometryMultiPointZM {
+  geojson
+  points {
+    ...geomPointzm
   }
 }

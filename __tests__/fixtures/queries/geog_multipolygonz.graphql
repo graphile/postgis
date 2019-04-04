@@ -2,27 +2,38 @@ query {
   allGisDebugs {
     nodes {
       geogMultipolygonz {
-        geojson
-        polygons {
-          exterior {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
-          interiors {
-            points {
-              geojson
-              latitude
-              longitude
-            }
-            geojson
-          }
-          geojson
-        }
+        ...geogMultipolygonz
       }
     }
+  }
+}
+
+fragment geogPointz on GeographyPointZ {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestringz on GeographyLineStringZ {
+  geojson
+  points {
+    ...geogPointz
+  }
+}
+
+fragment geogPolygonz on GeographyPolygonZ {
+  exterior {
+    ...geogLinestringz
+  }
+  geojson
+  interiors {
+    ...geogLinestringz
+  }
+}
+
+fragment geogMultipolygonz on GeographyMultiPolygonZ {
+  geojson
+  polygons {
+    ...geogPolygonz
   }
 }

@@ -5,298 +5,254 @@ query {
         __typename
         geojson
         ... on GeographyPoint {
-          geojson
-          latitude
-          longitude
+          ...geogPoint
         }
         ... on GeographyLineString {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogLinestring
         }
         ... on GeographyPolygon {
-          exterior {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
-          geojson
-          interiors {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogPolygon
         }
         ... on GeographyMultiPoint {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogMultipoint
         }
         ... on GeographyMultiLineString {
-          geojson
-          lines {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogMultilinestring
         }
         ... on GeographyMultiPolygon {
-          geojson
-          polygons {
-            exterior {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-            geojson
-            interiors {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-          }
+          ...geogMultipolygon
         }
         ... on GeographyPointZ {
-          geojson
-          latitude
-          longitude
+          ...geogPointz
         }
         ... on GeographyLineStringZ {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogLinestringz
         }
         ... on GeographyPolygonZ {
-          exterior {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
-          geojson
-          interiors {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogPolygonz
         }
         ... on GeographyMultiPointZ {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogMultipointz
         }
         ... on GeographyMultiLineStringZ {
-          geojson
-          lines {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogMultilinestringz
         }
         ... on GeographyMultiPolygonZ {
-          geojson
-          polygons {
-            exterior {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-            geojson
-            interiors {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-          }
+          ...geogMultipolygonz
         }
         ... on GeographyPointM {
-          geojson
-          latitude
-          longitude
+          ...geogPointm
         }
         ... on GeographyLineStringM {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogLinestringm
         }
         ... on GeographyPolygonM {
-          exterior {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
-          geojson
-          interiors {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogPolygonm
         }
         ... on GeographyMultiPointM {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogMultipointm
         }
         ... on GeographyMultiLineStringM {
-          geojson
-          lines {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogMultilinestringm
         }
         ... on GeographyMultiPolygonM {
-          geojson
-          polygons {
-            exterior {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-            geojson
-            interiors {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-          }
+          ...geogMultipolygonm
         }
         ... on GeographyPointZM {
-          geojson
-          latitude
-          longitude
+          ...geogPointzm
         }
         ... on GeographyLineStringZM {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogLinestringzm
         }
         ... on GeographyPolygonZM {
-          exterior {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
-          geojson
-          interiors {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogPolygonzm
         }
         ... on GeographyMultiPointZM {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
+          ...geogMultipointzm
         }
         ... on GeographyMultiLineStringZM {
-          geojson
-          lines {
-            geojson
-            points {
-              geojson
-              latitude
-              longitude
-            }
-          }
+          ...geogMultilinestringzm
         }
         ... on GeographyMultiPolygonZM {
-          geojson
-          polygons {
-            exterior {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-            geojson
-            interiors {
-              geojson
-              points {
-                geojson
-                latitude
-                longitude
-              }
-            }
-          }
+          ...geogMultipolygonzm
         }
       }
     }
+  }
+}
+
+fragment geogPoint on GeographyPoint {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestring on GeographyLineString {
+  geojson
+  points {
+    ...geogPoint
+  }
+}
+
+fragment geogPolygon on GeographyPolygon {
+  exterior {
+    ...geogLinestring
+  }
+  geojson
+  interiors {
+    ...geogLinestring
+  }
+}
+
+fragment geogMultipoint on GeographyMultiPoint {
+  geojson
+  points {
+    ...geogPoint
+  }
+}
+
+fragment geogMultilinestring on GeographyMultiLineString {
+  geojson
+  lines {
+    ...geogLinestring
+  }
+}
+
+fragment geogMultipolygon on GeographyMultiPolygon {
+  geojson
+  polygons {
+    ...geogPolygon
+  }
+}
+
+fragment geogPointm on GeographyPointM {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestringm on GeographyLineStringM {
+  geojson
+  points {
+    ...geogPointm
+  }
+}
+
+fragment geogPolygonm on GeographyPolygonM {
+  exterior {
+    ...geogLinestringm
+  }
+  geojson
+  interiors {
+    ...geogLinestringm
+  }
+}
+
+fragment geogMultipointm on GeographyMultiPointM {
+  geojson
+  points {
+    ...geogPointm
+  }
+}
+
+fragment geogMultilinestringm on GeographyMultiLineStringM {
+  geojson
+  lines {
+    ...geogLinestringm
+  }
+}
+
+fragment geogMultipolygonm on GeographyMultiPolygonM {
+  geojson
+  polygons {
+    ...geogPolygonm
+  }
+}
+
+fragment geogPointz on GeographyPointZ {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestringz on GeographyLineStringZ {
+  geojson
+  points {
+    ...geogPointz
+  }
+}
+
+fragment geogPolygonz on GeographyPolygonZ {
+  exterior {
+    ...geogLinestringz
+  }
+  geojson
+  interiors {
+    ...geogLinestringz
+  }
+}
+
+fragment geogMultipointz on GeographyMultiPointZ {
+  geojson
+  points {
+    ...geogPointz
+  }
+}
+
+fragment geogMultilinestringz on GeographyMultiLineStringZ {
+  geojson
+  lines {
+    ...geogLinestringz
+  }
+}
+
+fragment geogMultipolygonz on GeographyMultiPolygonZ {
+  geojson
+  polygons {
+    ...geogPolygonz
+  }
+}
+
+fragment geogPointzm on GeographyPointZM {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestringzm on GeographyLineStringZM {
+  geojson
+  points {
+    ...geogPointzm
+  }
+}
+
+fragment geogPolygonzm on GeographyPolygonZM {
+  exterior {
+    ...geogLinestringzm
+  }
+  geojson
+  interiors {
+    ...geogLinestringzm
+  }
+}
+
+fragment geogMultipointzm on GeographyMultiPointZM {
+  geojson
+  points {
+    ...geogPointzm
+  }
+}
+
+fragment geogMultilinestringzm on GeographyMultiLineStringZM {
+  geojson
+  lines {
+    ...geogLinestringzm
+  }
+}
+
+fragment geogMultipolygonzm on GeographyMultiPolygonZM {
+  geojson
+  polygons {
+    ...geogPolygonzm
   }
 }

@@ -2,16 +2,28 @@ query {
   allGisDebugs {
     nodes {
       geogMultilinestringz {
-        geojson
-        lines {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
-        }
+        ...geogMultilinestringz
       }
     }
+  }
+}
+
+fragment geogPointz on GeographyPointZ {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestringz on GeographyLineStringZ {
+  geojson
+  points {
+    ...geogPointz
+  }
+}
+
+fragment geogMultilinestringz on GeographyMultiLineStringZ {
+  geojson
+  lines {
+    ...geogLinestringz
   }
 }

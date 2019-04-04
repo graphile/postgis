@@ -2,13 +2,21 @@ query {
   allGisDebugs {
     nodes {
       geomLinestringz {
-        geojson
-        points {
-          geojson
-          x
-          y
-        }
+        ...geomLinestringz
       }
     }
+  }
+}
+
+fragment geomPointz on GeometryPointZ {
+  geojson
+  x
+  y
+}
+
+fragment geomLinestringz on GeometryLineStringZ {
+  geojson
+  points {
+    ...geomPointz
   }
 }
