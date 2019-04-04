@@ -1,14 +1,14 @@
 query {
   allGisDebugs {
     nodes {
-      geogMultilinestringzm {
+      geomMultilinestringzm {
         geojson
         lines {
           geojson
           points {
             geojson
-            latitude
-            longitude
+            x
+            y
           }
         }
       }

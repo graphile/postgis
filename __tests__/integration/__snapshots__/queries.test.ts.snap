@@ -1540,23 +1540,23 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogLinestring": Object {
+          "geomLinestring": Object {
             "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
-                "latitude": 30,
-                "longitude": 10,
+                "x": 10,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                "latitude": 40,
-                "longitude": 40,
+                "x": 40,
+                "y": 40,
               },
             ],
           },
@@ -1573,23 +1573,23 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogLinestringm": Object {
+          "geomLinestringm": Object {
             "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10],[10,30],[40,40]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
-                "latitude": 30,
-                "longitude": 10,
+                "x": 10,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                "latitude": 40,
-                "longitude": 40,
+                "x": 40,
+                "y": 40,
               },
             ],
           },
@@ -1606,23 +1606,23 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogLinestringz": Object {
+          "geomLinestringz": Object {
             "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
-                "latitude": 30,
-                "longitude": 10,
+                "x": 10,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                "latitude": 40,
-                "longitude": 40,
+                "x": 40,
+                "y": 40,
               },
             ],
           },
@@ -1639,23 +1639,23 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogLinestringzm": Object {
+          "geomLinestringzm": Object {
             "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[30,10,80],[10,30,80],[40,40,80]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
-                "latitude": 30,
-                "longitude": 10,
+                "x": 10,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                "latitude": 40,
-                "longitude": 40,
+                "x": 40,
+                "y": 40,
               },
             ],
           },
@@ -1672,7 +1672,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultilinestring": Object {
+          "geomMultilinestring": Object {
             "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
             "lines": Array [
               Object {
@@ -1680,18 +1680,18 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
-                    "latitude": 10,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 10,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
-                    "latitude": 20,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
-                    "latitude": 40,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 40,
                   },
                 ],
               },
@@ -1700,23 +1700,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                    "latitude": 40,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 40,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
-                    "latitude": 30,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
-                    "latitude": 20,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                    "latitude": 10,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 10,
                   },
                 ],
               },
@@ -1735,7 +1735,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultilinestringm": Object {
+          "geomMultilinestringm": Object {
             "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10],[20,20],[10,40]],[[40,40],[30,30],[40,20],[30,10]]]}",
             "lines": Array [
               Object {
@@ -1743,18 +1743,18 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
-                    "latitude": 10,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 10,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
-                    "latitude": 20,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
-                    "latitude": 40,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 40,
                   },
                 ],
               },
@@ -1763,23 +1763,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                    "latitude": 40,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 40,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30]}",
-                    "latitude": 30,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20]}",
-                    "latitude": 20,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                    "latitude": 10,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 10,
                   },
                 ],
               },
@@ -1798,7 +1798,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultilinestringz": Object {
+          "geomMultilinestringz": Object {
             "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
             "lines": Array [
               Object {
@@ -1806,18 +1806,18 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
-                    "latitude": 10,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 10,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
-                    "latitude": 20,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
-                    "latitude": 40,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 40,
                   },
                 ],
               },
@@ -1826,23 +1826,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                    "latitude": 40,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 40,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
-                    "latitude": 30,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
-                    "latitude": 20,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                    "latitude": 10,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 10,
                   },
                 ],
               },
@@ -1861,7 +1861,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultilinestringzm": Object {
+          "geomMultilinestringzm": Object {
             "geojson": "{\\"type\\":\\"MultiLineString\\",\\"coordinates\\":[[[10,10,80],[20,20,80],[10,40,80]],[[40,40,80],[30,30,80],[40,20,80],[30,10,80]]]}",
             "lines": Array [
               Object {
@@ -1869,18 +1869,18 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
-                    "latitude": 10,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 10,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
-                    "latitude": 20,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
-                    "latitude": 40,
-                    "longitude": 10,
+                    "x": 10,
+                    "y": 40,
                   },
                 ],
               },
@@ -1889,23 +1889,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                    "latitude": 40,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 40,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,30,80]}",
-                    "latitude": 30,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,20,80]}",
-                    "latitude": 20,
-                    "longitude": 40,
+                    "x": 40,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                    "latitude": 10,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 10,
                   },
                 ],
               },
@@ -1924,28 +1924,28 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipoint": Object {
+          "geomMultipoint": Object {
             "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
-                "latitude": 40,
-                "longitude": 10,
+                "x": 10,
+                "y": 40,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
-                "latitude": 30,
-                "longitude": 40,
+                "x": 40,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
-                "latitude": 20,
-                "longitude": 20,
+                "x": 20,
+                "y": 20,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
             ],
           },
@@ -1962,28 +1962,28 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipointm": Object {
+          "geomMultipointm": Object {
             "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40],[40,30],[20,20],[30,10]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40]}",
-                "latitude": 40,
-                "longitude": 10,
+                "x": 10,
+                "y": 40,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30]}",
-                "latitude": 30,
-                "longitude": 40,
+                "x": 40,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20]}",
-                "latitude": 20,
-                "longitude": 20,
+                "x": 20,
+                "y": 20,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
             ],
           },
@@ -2000,28 +2000,28 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipointz": Object {
+          "geomMultipointz": Object {
             "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
-                "latitude": 40,
-                "longitude": 10,
+                "x": 10,
+                "y": 40,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
-                "latitude": 30,
-                "longitude": 40,
+                "x": 40,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
-                "latitude": 20,
-                "longitude": 20,
+                "x": 20,
+                "y": 20,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
             ],
           },
@@ -2038,28 +2038,28 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipointzm": Object {
+          "geomMultipointzm": Object {
             "geojson": "{\\"type\\":\\"MultiPoint\\",\\"coordinates\\":[[10,40,80],[40,30,80],[20,20,80],[30,10,80]]}",
             "points": Array [
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,40,80]}",
-                "latitude": 40,
-                "longitude": 10,
+                "x": 10,
+                "y": 40,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,30,80]}",
-                "latitude": 30,
-                "longitude": 40,
+                "x": 40,
+                "y": 30,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,20,80]}",
-                "latitude": 20,
-                "longitude": 20,
+                "x": 20,
+                "y": 20,
               },
               Object {
                 "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-                "latitude": 10,
-                "longitude": 30,
+                "x": 30,
+                "y": 10,
               },
             ],
           },
@@ -2076,7 +2076,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipolygon": Object {
+          "geomMultipolygon": Object {
             "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
             "polygons": Array [
               Object {
@@ -2085,23 +2085,23 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
-                      "latitude": 45,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 45,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
-                      "latitude": 30,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                   ],
                 },
@@ -2114,33 +2114,33 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
-                      "latitude": 30,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
-                      "latitude": 10,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 10,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
-                      "latitude": 5,
-                      "longitude": 30,
+                      "x": 30,
+                      "y": 5,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
-                      "latitude": 20,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 20,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                   ],
                 },
@@ -2151,23 +2151,23 @@ Object {
                     "points": Array [
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
-                        "latitude": 15,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 15,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
-                        "latitude": 25,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 25,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                     ],
                   },
@@ -2188,7 +2188,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipolygonm": Object {
+          "geomMultipolygonm": Object {
             "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40],[20,45],[45,30],[40,40]]],[[[20,35],[10,30],[10,10],[30,5],[45,20],[20,35]],[[30,20],[20,15],[20,25],[30,20]]]]}",
             "polygons": Array [
               Object {
@@ -2197,23 +2197,23 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45]}",
-                      "latitude": 45,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 45,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30]}",
-                      "latitude": 30,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                   ],
                 },
@@ -2226,33 +2226,33 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30]}",
-                      "latitude": 30,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10]}",
-                      "latitude": 10,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 10,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5]}",
-                      "latitude": 5,
-                      "longitude": 30,
+                      "x": 30,
+                      "y": 5,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20]}",
-                      "latitude": 20,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 20,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                   ],
                 },
@@ -2263,23 +2263,23 @@ Object {
                     "points": Array [
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15]}",
-                        "latitude": 15,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 15,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25]}",
-                        "latitude": 25,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 25,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                     ],
                   },
@@ -2300,7 +2300,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipolygonz": Object {
+          "geomMultipolygonz": Object {
             "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
             "polygons": Array [
               Object {
@@ -2309,23 +2309,23 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
-                      "latitude": 45,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 45,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
-                      "latitude": 30,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                   ],
                 },
@@ -2338,33 +2338,33 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
-                      "latitude": 30,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
-                      "latitude": 10,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 10,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
-                      "latitude": 5,
-                      "longitude": 30,
+                      "x": 30,
+                      "y": 5,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
-                      "latitude": 20,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 20,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                   ],
                 },
@@ -2375,23 +2375,23 @@ Object {
                     "points": Array [
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
-                        "latitude": 15,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 15,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
-                        "latitude": 25,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 25,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                     ],
                   },
@@ -2412,7 +2412,7 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogMultipolygonzm": Object {
+          "geomMultipolygonzm": Object {
             "geojson": "{\\"type\\":\\"MultiPolygon\\",\\"coordinates\\":[[[[40,40,80],[20,45,80],[45,30,80],[40,40,80]]],[[[20,35,80],[10,30,80],[10,10,80],[30,5,80],[45,20,80],[20,35,80]],[[30,20,80],[20,15,80],[20,25,80],[30,20,80]]]]}",
             "polygons": Array [
               Object {
@@ -2421,23 +2421,23 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,45,80]}",
-                      "latitude": 45,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 45,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,30,80]}",
-                      "latitude": 30,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[40,40,80]}",
-                      "latitude": 40,
-                      "longitude": 40,
+                      "x": 40,
+                      "y": 40,
                     },
                   ],
                 },
@@ -2450,33 +2450,33 @@ Object {
                   "points": Array [
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,30,80]}",
-                      "latitude": 30,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 30,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,10,80]}",
-                      "latitude": 10,
-                      "longitude": 10,
+                      "x": 10,
+                      "y": 10,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,5,80]}",
-                      "latitude": 5,
-                      "longitude": 30,
+                      "x": 30,
+                      "y": 5,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,20,80]}",
-                      "latitude": 20,
-                      "longitude": 45,
+                      "x": 45,
+                      "y": 20,
                     },
                     Object {
                       "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,35,80]}",
-                      "latitude": 35,
-                      "longitude": 20,
+                      "x": 20,
+                      "y": 35,
                     },
                   ],
                 },
@@ -2487,23 +2487,23 @@ Object {
                     "points": Array [
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,15,80]}",
-                        "latitude": 15,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 15,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,25,80]}",
-                        "latitude": 25,
-                        "longitude": 20,
+                        "x": 20,
+                        "y": 25,
                       },
                       Object {
                         "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                        "latitude": 20,
-                        "longitude": 30,
+                        "x": 30,
+                        "y": 20,
                       },
                     ],
                   },
@@ -2524,10 +2524,10 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPoint": Object {
+          "geomPoint": Object {
             "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-            "latitude": 10,
-            "longitude": 30,
+            "x": 30,
+            "y": 10,
           },
         },
       ],
@@ -2542,10 +2542,10 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPointm": Object {
+          "geomPointm": Object {
             "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10]}",
-            "latitude": 10,
-            "longitude": 30,
+            "x": 30,
+            "y": 10,
           },
         },
       ],
@@ -2560,10 +2560,10 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPointz": Object {
+          "geomPointz": Object {
             "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-            "latitude": 10,
-            "longitude": 30,
+            "x": 30,
+            "y": 10,
           },
         },
       ],
@@ -2578,10 +2578,10 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPointzm": Object {
+          "geomPointzm": Object {
             "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,10,80]}",
-            "latitude": 10,
-            "longitude": 30,
+            "x": 30,
+            "y": 10,
           },
         },
       ],
@@ -2596,34 +2596,34 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPolygon": Object {
+          "geomPolygon": Object {
             "exterior": Object {
               "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
               "points": Array [
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
-                  "latitude": 45,
-                  "longitude": 45,
+                  "x": 45,
+                  "y": 45,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
-                  "latitude": 40,
-                  "longitude": 15,
+                  "x": 15,
+                  "y": 40,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
-                  "latitude": 20,
-                  "longitude": 10,
+                  "x": 10,
+                  "y": 20,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
               ],
             },
@@ -2634,23 +2634,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
-                    "latitude": 35,
-                    "longitude": 35,
+                    "x": 35,
+                    "y": 35,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                    "latitude": 20,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                 ],
               },
@@ -2669,34 +2669,34 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPolygonm": Object {
+          "geomPolygonm": Object {
             "exterior": Object {
               "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10],[45,45],[15,40],[10,20],[35,10]]}",
               "points": Array [
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45]}",
-                  "latitude": 45,
-                  "longitude": 45,
+                  "x": 45,
+                  "y": 45,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40]}",
-                  "latitude": 40,
-                  "longitude": 15,
+                  "x": 15,
+                  "y": 40,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20]}",
-                  "latitude": 20,
-                  "longitude": 10,
+                  "x": 10,
+                  "y": 20,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
               ],
             },
@@ -2707,23 +2707,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35]}",
-                    "latitude": 35,
-                    "longitude": 35,
+                    "x": 35,
+                    "y": 35,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20]}",
-                    "latitude": 20,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                 ],
               },
@@ -2742,34 +2742,34 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPolygonz": Object {
+          "geomPolygonz": Object {
             "exterior": Object {
               "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
               "points": Array [
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
-                  "latitude": 45,
-                  "longitude": 45,
+                  "x": 45,
+                  "y": 45,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
-                  "latitude": 40,
-                  "longitude": 15,
+                  "x": 15,
+                  "y": 40,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
-                  "latitude": 20,
-                  "longitude": 10,
+                  "x": 10,
+                  "y": 20,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
               ],
             },
@@ -2780,23 +2780,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
-                    "latitude": 35,
-                    "longitude": 35,
+                    "x": 35,
+                    "y": 35,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                    "latitude": 20,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                 ],
               },
@@ -2815,34 +2815,34 @@ Object {
     "allGisDebugs": Object {
       "nodes": Array [
         Object {
-          "geogPolygonzm": Object {
+          "geomPolygonzm": Object {
             "exterior": Object {
               "geojson": "{\\"type\\":\\"LineString\\",\\"coordinates\\":[[35,10,80],[45,45,80],[15,40,80],[10,20,80],[35,10,80]]}",
               "points": Array [
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[45,45,80]}",
-                  "latitude": 45,
-                  "longitude": 45,
+                  "x": 45,
+                  "y": 45,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[15,40,80]}",
-                  "latitude": 40,
-                  "longitude": 15,
+                  "x": 15,
+                  "y": 40,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[10,20,80]}",
-                  "latitude": 20,
-                  "longitude": 10,
+                  "x": 10,
+                  "y": 20,
                 },
                 Object {
                   "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,10,80]}",
-                  "latitude": 10,
-                  "longitude": 35,
+                  "x": 35,
+                  "y": 10,
                 },
               ],
             },
@@ -2853,23 +2853,23 @@ Object {
                 "points": Array [
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[35,35,80]}",
-                    "latitude": 35,
-                    "longitude": 35,
+                    "x": 35,
+                    "y": 35,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[30,20,80]}",
-                    "latitude": 20,
-                    "longitude": 30,
+                    "x": 30,
+                    "y": 20,
                   },
                   Object {
                     "geojson": "{\\"type\\":\\"Point\\",\\"coordinates\\":[20,30,80]}",
-                    "latitude": 30,
-                    "longitude": 20,
+                    "x": 20,
+                    "y": 30,
                   },
                 ],
               },
