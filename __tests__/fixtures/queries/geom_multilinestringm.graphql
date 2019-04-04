@@ -2,16 +2,28 @@ query {
   allGisDebugs {
     nodes {
       geomMultilinestringm {
-        geojson
-        lines {
-          geojson
-          points {
-            geojson
-            x
-            y
-          }
-        }
+        ...geomMultilinestringm
       }
     }
+  }
+}
+
+fragment geomPointm on GeometryPointM {
+  geojson
+  x
+  y
+}
+
+fragment geomLinestringm on GeometryLineStringM {
+  geojson
+  points {
+    ...geomPointm
+  }
+}
+
+fragment geomMultilinestringm on GeometryMultiLineStringM {
+  geojson
+  lines {
+    ...geomLinestringm
   }
 }

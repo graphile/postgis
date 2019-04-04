@@ -2,24 +2,31 @@ query {
   allGisDebugs {
     nodes {
       geomPolygonzm {
-        exterior {
-          geojson
-          points {
-            geojson
-            x
-            y
-          }
-        }
-        geojson
-        interiors {
-          geojson
-          points {
-            geojson
-            x
-            y
-          }
-        }
+        ...geomPolygonzm
       }
     }
+  }
+}
+
+fragment geomPointzm on GeometryPointZM {
+  geojson
+  x
+  y
+}
+
+fragment geomLinestringzm on GeometryLineStringZM {
+  geojson
+  points {
+    ...geomPointzm
+  }
+}
+
+fragment geomPolygonzm on GeometryPolygonZM {
+  exterior {
+    ...geomLinestringzm
+  }
+  geojson
+  interiors {
+    ...geomLinestringzm
   }
 }

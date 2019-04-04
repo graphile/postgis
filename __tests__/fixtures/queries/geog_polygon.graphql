@@ -2,24 +2,31 @@ query {
   allGisDebugs {
     nodes {
       geogPolygon {
-        exterior {
-          geojson
-          points {
-            geojson
-            latitude
-            longitude
-          }
-        }
-        geojson
-        interiors {
-          geojson
-          points {
-            geojson
-            longitude
-            latitude
-          }
-        }
+        ...geogPolygon
       }
     }
+  }
+}
+
+fragment geogPoint on GeographyPoint {
+  geojson
+  latitude
+  longitude
+}
+
+fragment geogLinestring on GeographyLineString {
+  geojson
+  points {
+    ...geogPoint
+  }
+}
+
+fragment geogPolygon on GeographyPolygon {
+  exterior {
+    ...geogLinestring
+  }
+  geojson
+  interiors {
+    ...geogLinestring
   }
 }
