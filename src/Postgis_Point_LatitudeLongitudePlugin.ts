@@ -20,6 +20,7 @@ const plugin: Plugin = builder => {
     } = build;
     const xFieldName = inflection.gisXFieldName(pgGISType);
     const yFieldName = inflection.gisYFieldName(pgGISType);
+    const zFieldName = inflection.gisZFieldName(pgGISType);
     return extend(fields, {
       [xFieldName]: {
         type: new GraphQLNonNull(GraphQLFloat),
@@ -33,6 +34,16 @@ const plugin: Plugin = builder => {
           return data.__geojson.coordinates[1];
         },
       },
+      ...(pgGISTypeDetails.hasZ
+        ? {
+            [zFieldName]: {
+              type: new GraphQLNonNull(GraphQLFloat),
+              resolve(data: any) {
+                return data.__geojson.coordinates[2];
+              },
+            },
+          }
+        : {}),
     });
   });
 };

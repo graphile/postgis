@@ -43,6 +43,9 @@ const plugin: Plugin = builder => {
       gisYFieldName(type: PgType) {
         return type.name === "geography" ? "latitude" : "y";
       },
+      gisZFieldName(type: PgType) {
+        return type.name === "geography" ? "height" : "z";
+      },
     };
   });
 };
