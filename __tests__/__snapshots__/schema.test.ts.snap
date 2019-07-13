@@ -623,14 +623,10 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollection\` field.\\"\\"\\"
   geogGeometrycollection: GeoJSON
 
-  \\"\\"\\"
-  Checks for equality with the object’s \`geogGeometrycollectionm\` field.
-  \\"\\"\\"
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollectionm\` field.\\"\\"\\"
   geogGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"
-  Checks for equality with the object’s \`geogGeometrycollectionz\` field.
-  \\"\\"\\"
+  \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollectionz\` field.\\"\\"\\"
   geogGeometrycollectionz: GeoJSON
 
   \\"\\"\\"
@@ -728,14 +724,10 @@ input GisDebugCondition {
   \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollection\` field.\\"\\"\\"
   geomGeometrycollection: GeoJSON
 
-  \\"\\"\\"
-  Checks for equality with the object’s \`geomGeometrycollectionm\` field.
-  \\"\\"\\"
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollectionm\` field.\\"\\"\\"
   geomGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"
-  Checks for equality with the object’s \`geomGeometrycollectionz\` field.
-  \\"\\"\\"
+  \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollectionz\` field.\\"\\"\\"
   geomGeometrycollectionz: GeoJSON
 
   \\"\\"\\"
