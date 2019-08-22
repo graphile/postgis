@@ -151,9 +151,7 @@ const plugin: Plugin = builder => {
                   constructedTypes[type.id][value.__gisType];
                 return Type;
               },
-              description: `All ${
-                type.name
-              } ${coords} types implement this interface`,
+              description: `All ${type.name} ${coords} types implement this interface`,
             },
             {
               isPgGISDimensionInterface: true,
@@ -176,9 +174,7 @@ const plugin: Plugin = builder => {
         const typeDetails = getGISTypeDetails(typeModifier);
         const { subtype, hasZ, hasM, srid } = typeDetails;
         debug(
-          `Getting ${type.name} type ${
-            type.id
-          }|${typeModifier}|${subtype}|${hasZ}|${hasM}|${srid}`
+          `Getting ${type.name} type ${type.id}|${typeModifier}|${subtype}|${hasZ}|${hasM}|${srid}`
         );
         if (!constructedTypes[type.id]) {
           constructedTypes[type.id] = {};

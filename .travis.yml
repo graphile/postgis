@@ -44,3 +44,7 @@ matrix:
         - PGVERSION=10
       sudo: false
       dist: trusty
+    - name: "Lint"
+      addons: skip
+      before_script: skip
+      script: yarn lint
