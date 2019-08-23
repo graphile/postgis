@@ -32,10 +32,10 @@
   },
   "homepage": "https://github.com/graphile/postgis#readme",
   "peerDependencies": {
-    "graphile-build": "^4.4.4",
-    "graphile-build-pg": "^4.4.4",
+    "graphile-build": "^4.3.0",
+    "graphile-build-pg": "^4.3.0",
     "graphql": ">=0.6 <15",
-    "pg-sql2": "^4.4.3"
+    "pg-sql2": ">=2.2.1 <5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
