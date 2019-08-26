@@ -23,7 +23,7 @@ Work is ongoing, here's the plan:
       `geography(LINESTRING)` and `geography(POLYGON)` columns
 - [x] Create/update/null support for `geography(POINT)` columns
 - [x] Create/update/null support for `geography(LINESTRING)` and `geography(POLYGON)` columns
-- [ ] Integration with `postgraphile-plugin-connection-filter` to enable PostGIS specific filtering
+- [x] Integration with `postgraphile-plugin-connection-filter` to enable PostGIS specific filtering (via [postgraphile-plugin-connection-filter-postgis](https://github.com/mattbretl/postgraphile-plugin-connection-filter-postgis/))
 - [ ] Read-only support for computed attributes on
       `geography(LINESTRING)` and `geography(POLYGON)`, such as `area`,
       `length`, `perimeter`, and `centroid` - currently possible by adding a plugin and consuming the GeoJSON directly.
