@@ -173,6 +173,7 @@ fragment geogPointz on GeographyPointZ {
   geojson
   latitude
   longitude
+  height
 }
 
 fragment geogLinestringz on GeographyLineStringZ {
@@ -217,6 +218,7 @@ fragment geogPointzm on GeographyPointZM {
   geojson
   latitude
   longitude
+  height
 }
 
 fragment geogLinestringzm on GeographyLineStringZM {

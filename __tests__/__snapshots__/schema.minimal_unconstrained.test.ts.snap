@@ -346,6 +346,7 @@ type GeometryPointZ implements GeometryInterface & GeometryGeometryZ {
   srid: Int!
   x: Float!
   y: Float!
+  z: Float!
 }
 
 type GeometryPointZM implements GeometryInterface & GeometryGeometryZM {
@@ -353,6 +354,7 @@ type GeometryPointZM implements GeometryInterface & GeometryGeometryZM {
   srid: Int!
   x: Float!
   y: Float!
+  z: Float!
 }
 
 type GeometryPolygon implements GeometryInterface & GeometryGeometry {

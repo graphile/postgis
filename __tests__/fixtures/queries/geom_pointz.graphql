@@ -12,4 +12,5 @@ fragment geomPointz on GeometryPointZ {
   geojson
   x
   y
+  z
 }

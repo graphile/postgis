@@ -12,4 +12,5 @@ fragment geogPointz on GeographyPointZ {
   geojson
   latitude
   longitude
+  height
 }

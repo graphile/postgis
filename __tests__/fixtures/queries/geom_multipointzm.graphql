@@ -12,6 +12,7 @@ fragment geomPointzm on GeometryPointZM {
   geojson
   x
   y
+  z
 }
 
 fragment geomMultipointzm on GeometryMultiPointZM {
