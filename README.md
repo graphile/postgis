@@ -78,7 +78,7 @@ mutation ($id: UUID!, $geomPoint: GeoJSON!) {
     input: {
       id: "0116254a-0146-11ea-8418-4f89d6596247",
       dataPatch: {
-        geomPoint: {
+        geomPoint: $geomPoint
           type: "Point"
           coordinates: [8.5, 47.5]
         }
