@@ -59,7 +59,7 @@ CREATE TABLE data (
 
 In **queries** `geom_point` is represented as type `GeometryPoint`. Example:
 ```graphql
-allDatas {
+{ allDatas {
   nodes {
     geomPoint {
       geojson
