@@ -50,6 +50,7 @@ postgraphile --append-plugins @graphile/postgis
 #### Querying and mutating
 
 Using this table as example:
+
 ```sql
 CREATE TABLE data (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v1mc(),
@@ -58,29 +59,31 @@ CREATE TABLE data (
 ```
 
 In **queries** `geom_point` is represented as type `GeometryPoint`. Example:
+
 ```graphql
-{ allDatas {
-  nodes {
-    geomPoint {
-      geojson
-      srid
-      x
-      y
+query {
+  allDatas {
+    nodes {
+      geomPoint {
+        geojson
+        srid
+        x
+        y
+      }
     }
   }
 }
 ```
 
 In **mutations** `geom_point` is represented as type `GeoJSON`. Example:
+
 ```graphql
 mutation ($id: UUID!, $geomPoint: GeoJSON!) {
   updateDataById(
     input: {
-      id: "0116254a-0146-11ea-8418-4f89d6596247",
+      id: $id,
       dataPatch: {
         geomPoint: $geomPoint
-          type: "Point"
-          coordinates: [8.5, 47.5]
         }
       }
     }
@@ -100,28 +103,23 @@ with these variables:
 }
 ```
 
-Beware of the fact that since 2016 the `GeoJSON` spec expects the coordinates to be of SRID 4326/WGS84 (see https://tools.ietf.org/html/rfc7946#section-4). So adding a `crs` field to the GeoJSON is deprecated.
+Beware of the fact that since 2016 the `GeoJSON` spec expects the coordinates to be of SRID 4326/WGS84 (see https://tools.ietf.org/html/rfc7946#section-4). So adding a `crs` field to the GeoJSON is deprecated. Thus since v3 PostGIS will be happy to receive above GeoJSON.
 
-Thus since v3 PostGIS will be happy to receive above GeoJSON. **In earlier versions PostGIS expects a SRID to be passed**. Example:
-```graphql
-mutation {
-  updateDataById(
-    input: {
-      id: "0116254a-0146-11ea-8418-4f89d6596247",
-      dataPatch: {
-        geomPoint: {
-          type: "Point"
-          coordinates: [8.5, 47.5],
-          crs: {
-            type: "name",
-            properties: {
-              name: "urn:ogc:def:crs:EPSG::4326"
-            }
-          }
-        }
+**In earlier versions PostGIS expects a SRID to be passed**. So the variables would be:
+
+```json
+{
+  "id": "0116254a-0146-11ea-8418-4f89d6596247",
+  "geomPoint": {
+    "type": "Point",
+    "coordinates": [8.5, 47.5],
+    "crs": {
+      "type": "name",
+      "properties": {
+        "name": "urn:ogc:def:crs:EPSG::4326"
       }
     }
-  ) { ... }
+  }
 }
 ```
 
