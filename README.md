@@ -84,7 +84,6 @@ mutation ($id: UUID!, $geomPoint: GeoJSON!) {
       id: $id,
       dataPatch: {
         geomPoint: $geomPoint
-        }
       }
     }
   ) { ... }
