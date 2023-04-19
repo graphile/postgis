@@ -1,7 +1,8 @@
 import * as pg from "pg";
-import { withPgClient, printSchemaOrdered } from "./helpers";
+import { withPgClient } from "./helpers";
 import { createPostGraphileSchema } from "postgraphile-core";
 import PostgisPlugin from "../src/index";
+import { lexicographicSortSchema } from "graphql";
 
 const schemas = ["graphile_postgis_minimal_unconstrained"];
 const options = {
@@ -11,5 +12,5 @@ const options = {
 test("prints a schema with this plugin", () =>
   withPgClient(async (client: pg.PoolClient) => {
     const gqlSchema = await createPostGraphileSchema(client, schemas, options);
-    expect(printSchemaOrdered(gqlSchema)).toMatchSnapshot();
+    expect(lexicographicSortSchema(gqlSchema)).toMatchSnapshot();
   }));

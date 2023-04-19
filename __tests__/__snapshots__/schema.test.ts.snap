@@ -1,280 +1,272 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`prints a schema with this plugin 1`] = `
-"\\"\\"\\"All input for the create \`GisDebug\` mutation.\\"\\"\\"
+"""All input for the create \`GisDebug\` mutation."""
 input CreateGisDebugInput {
-  \\"\\"\\"
+  """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"The \`GisDebug\` to be created by this mutation.\\"\\"\\"
+  """The \`GisDebug\` to be created by this mutation."""
   gisDebug: GisDebugInput!
 }
 
-\\"\\"\\"The output of our create \`GisDebug\` mutation.\\"\\"\\"
+"""The output of our create \`GisDebug\` mutation."""
 type CreateGisDebugPayload {
-  \\"\\"\\"
+  """
   The exact same \`clientMutationId\` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"The \`GisDebug\` that was created by this mutation.\\"\\"\\"
+  """The \`GisDebug\` that was created by this mutation."""
   gisDebug: GisDebug
 
-  \\"\\"\\"An edge for our \`GisDebug\`. May be used by Relay 1.\\"\\"\\"
+  """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
-    \\"\\"\\"The method to use when ordering \`GisDebug\`.\\"\\"\\"
+    """The method to use when ordering \`GisDebug\`."""
     orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
-  \\"\\"\\"
+  """
   Our root query field type. Allows us to run any query from our mutation payload.
-  \\"\\"\\"
+  """
   query: Query
 }
 
-\\"\\"\\"A location in a connection that can be used for resuming pagination.\\"\\"\\"
+"""A location in a connection that can be used for resuming pagination."""
 scalar Cursor
 
-\\"\\"\\"All input for the \`deleteGisDebugById\` mutation.\\"\\"\\"
+"""All input for the \`deleteGisDebugById\` mutation."""
 input DeleteGisDebugByIdInput {
-  \\"\\"\\"
+  """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
-  \\"\\"\\"
+  """
   clientMutationId: String
   id: Int!
 }
 
-\\"\\"\\"All input for the \`deleteGisDebug\` mutation.\\"\\"\\"
+"""All input for the \`deleteGisDebug\` mutation."""
 input DeleteGisDebugInput {
-  \\"\\"\\"
+  """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"
+  """
   The globally unique \`ID\` which will identify a single \`GisDebug\` to be deleted.
-  \\"\\"\\"
+  """
   nodeId: ID!
 }
 
-\\"\\"\\"The output of our delete \`GisDebug\` mutation.\\"\\"\\"
+"""The output of our delete \`GisDebug\` mutation."""
 type DeleteGisDebugPayload {
-  \\"\\"\\"
+  """
   The exact same \`clientMutationId\` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
-  \\"\\"\\"
+  """
   clientMutationId: String
   deletedGisDebugId: ID
 
-  \\"\\"\\"The \`GisDebug\` that was deleted by this mutation.\\"\\"\\"
+  """The \`GisDebug\` that was deleted by this mutation."""
   gisDebug: GisDebug
 
-  \\"\\"\\"An edge for our \`GisDebug\`. May be used by Relay 1.\\"\\"\\"
+  """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
-    \\"\\"\\"The method to use when ordering \`GisDebug\`.\\"\\"\\"
+    """The method to use when ordering \`GisDebug\`."""
     orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
-  \\"\\"\\"
+  """
   Our root query field type. Allows us to run any query from our mutation payload.
-  \\"\\"\\"
+  """
   query: Query
 }
 
-\\"\\"\\"All geography XY types implement this interface\\"\\"\\"
+"""All geography XY types implement this interface"""
 interface GeographyGeometry {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-type GeographyGeometryCollection implements GeographyInterface & GeographyGeometry {
+type GeographyGeometryCollection implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   geometries: [GeographyGeometry]
   srid: Int!
 }
 
-type GeographyGeometryCollectionM implements GeographyInterface & GeographyGeometryM {
+type GeographyGeometryCollectionM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   geometries: [GeographyGeometryM]
   srid: Int!
 }
 
-type GeographyGeometryCollectionZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyGeometryCollectionZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   geometries: [GeographyGeometryZ]
   srid: Int!
 }
 
-type GeographyGeometryCollectionZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyGeometryCollectionZM implements GeographyGeometryZM & GeographyInterface {
   geojson: GeoJSON
   geometries: [GeographyGeometryZM]
   srid: Int!
 }
 
-\\"\\"\\"All geography XYM types implement this interface\\"\\"\\"
+"""All geography XYM types implement this interface"""
 interface GeographyGeometryM {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geography XYZ types implement this interface\\"\\"\\"
+"""All geography XYZ types implement this interface"""
 interface GeographyGeometryZ {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geography XYZM types implement this interface\\"\\"\\"
+"""All geography XYZM types implement this interface"""
 interface GeographyGeometryZM {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geography types implement this interface\\"\\"\\"
+"""All geography types implement this interface"""
 interface GeographyInterface {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-type GeographyLineString implements GeographyInterface & GeographyGeometry {
+type GeographyLineString implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPoint]
   srid: Int!
 }
 
-type GeographyLineStringM implements GeographyInterface & GeographyGeometryM {
+type GeographyLineStringM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointM]
   srid: Int!
 }
 
-type GeographyLineStringZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyLineStringZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZ]
   srid: Int!
 }
 
-type GeographyLineStringZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyLineStringZM implements GeographyGeometryZM & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZM]
   srid: Int!
 }
 
-type GeographyMultiLineString implements GeographyInterface & GeographyGeometry {
+type GeographyMultiLineString implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   lines: [GeographyLineString]
   srid: Int!
 }
 
-type GeographyMultiLineStringM implements GeographyInterface & GeographyGeometryM {
+type GeographyMultiLineStringM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   lines: [GeographyLineStringM]
   srid: Int!
 }
 
-type GeographyMultiLineStringZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyMultiLineStringZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   lines: [GeographyLineStringZ]
   srid: Int!
 }
 
-type GeographyMultiLineStringZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyMultiLineStringZM implements GeographyGeometryZM & GeographyInterface {
   geojson: GeoJSON
   lines: [GeographyLineStringZM]
   srid: Int!
 }
 
-type GeographyMultiPoint implements GeographyInterface & GeographyGeometry {
+type GeographyMultiPoint implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPoint]
   srid: Int!
 }
 
-type GeographyMultiPointM implements GeographyInterface & GeographyGeometryM {
+type GeographyMultiPointM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointM]
   srid: Int!
 }
 
-type GeographyMultiPointZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyMultiPointZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZ]
   srid: Int!
 }
 
-type GeographyMultiPointZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyMultiPointZM implements GeographyGeometryZM & GeographyInterface {
   geojson: GeoJSON
   points: [GeographyPointZM]
   srid: Int!
 }
 
-type GeographyMultiPolygon implements GeographyInterface & GeographyGeometry {
+type GeographyMultiPolygon implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygon]
   srid: Int!
 }
 
-type GeographyMultiPolygonM implements GeographyInterface & GeographyGeometryM {
+type GeographyMultiPolygonM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonM]
   srid: Int!
 }
 
-type GeographyMultiPolygonZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyMultiPolygonZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonZ]
   srid: Int!
 }
 
-type GeographyMultiPolygonZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyMultiPolygonZM implements GeographyGeometryZM & GeographyInterface {
   geojson: GeoJSON
   polygons: [GeographyPolygonZM]
   srid: Int!
 }
 
-type GeographyPoint implements GeographyInterface & GeographyGeometry {
+type GeographyPoint implements GeographyGeometry & GeographyInterface {
   geojson: GeoJSON
   latitude: Float!
   longitude: Float!
   srid: Int!
 }
 
-type GeographyPointM implements GeographyInterface & GeographyGeometryM {
+type GeographyPointM implements GeographyGeometryM & GeographyInterface {
   geojson: GeoJSON
   latitude: Float!
   longitude: Float!
   srid: Int!
 }
 
-type GeographyPointZ implements GeographyInterface & GeographyGeometryZ {
-  geojson: GeoJSON
-  height: Float!
-  latitude: Float!
-  longitude: Float!
-  srid: Int!
-}
-
-type GeographyPointZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyPointZ implements GeographyGeometryZ & GeographyInterface {
   geojson: GeoJSON
   height: Float!
   latitude: Float!
@@ -282,227 +274,227 @@ type GeographyPointZM implements GeographyInterface & GeographyGeometryZM {
   srid: Int!
 }
 
-type GeographyPolygon implements GeographyInterface & GeographyGeometry {
+type GeographyPointZM implements GeographyGeometryZM & GeographyInterface {
+  geojson: GeoJSON
+  height: Float!
+  latitude: Float!
+  longitude: Float!
+  srid: Int!
+}
+
+type GeographyPolygon implements GeographyGeometry & GeographyInterface {
   exterior: GeographyLineString
   geojson: GeoJSON
   interiors: [GeographyLineString]
   srid: Int!
 }
 
-type GeographyPolygonM implements GeographyInterface & GeographyGeometryM {
+type GeographyPolygonM implements GeographyGeometryM & GeographyInterface {
   exterior: GeographyLineStringM
   geojson: GeoJSON
   interiors: [GeographyLineStringM]
   srid: Int!
 }
 
-type GeographyPolygonZ implements GeographyInterface & GeographyGeometryZ {
+type GeographyPolygonZ implements GeographyGeometryZ & GeographyInterface {
   exterior: GeographyLineStringZ
   geojson: GeoJSON
   interiors: [GeographyLineStringZ]
   srid: Int!
 }
 
-type GeographyPolygonZM implements GeographyInterface & GeographyGeometryZM {
+type GeographyPolygonZM implements GeographyGeometryZM & GeographyInterface {
   exterior: GeographyLineStringZM
   geojson: GeoJSON
   interiors: [GeographyLineStringZM]
   srid: Int!
 }
 
-\\"\\"\\"
+"""
 The \`GeoJSON\` scalar type represents GeoJSON values as specified by[RFC 7946](https://tools.ietf.org/html/rfc7946).
-\\"\\"\\"
+"""
 scalar GeoJSON
 
-\\"\\"\\"All geometry XY types implement this interface\\"\\"\\"
+"""All geometry XY types implement this interface"""
 interface GeometryGeometry {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-type GeometryGeometryCollection implements GeometryInterface & GeometryGeometry {
+type GeometryGeometryCollection implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   geometries: [GeometryGeometry]
   srid: Int!
 }
 
-type GeometryGeometryCollectionM implements GeometryInterface & GeometryGeometryM {
+type GeometryGeometryCollectionM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   geometries: [GeometryGeometryM]
   srid: Int!
 }
 
-type GeometryGeometryCollectionZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryGeometryCollectionZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   geometries: [GeometryGeometryZ]
   srid: Int!
 }
 
-type GeometryGeometryCollectionZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryGeometryCollectionZM implements GeometryGeometryZM & GeometryInterface {
   geojson: GeoJSON
   geometries: [GeometryGeometryZM]
   srid: Int!
 }
 
-\\"\\"\\"All geometry XYM types implement this interface\\"\\"\\"
+"""All geometry XYM types implement this interface"""
 interface GeometryGeometryM {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geometry XYZ types implement this interface\\"\\"\\"
+"""All geometry XYZ types implement this interface"""
 interface GeometryGeometryZ {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geometry XYZM types implement this interface\\"\\"\\"
+"""All geometry XYZM types implement this interface"""
 interface GeometryGeometryZM {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-\\"\\"\\"All geometry types implement this interface\\"\\"\\"
+"""All geometry types implement this interface"""
 interface GeometryInterface {
-  \\"\\"\\"Converts the object to GeoJSON\\"\\"\\"
+  """Converts the object to GeoJSON"""
   geojson: GeoJSON
 
-  \\"\\"\\"Spatial reference identifier (SRID)\\"\\"\\"
+  """Spatial reference identifier (SRID)"""
   srid: Int!
 }
 
-type GeometryLineString implements GeometryInterface & GeometryGeometry {
+type GeometryLineString implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPoint]
   srid: Int!
 }
 
-type GeometryLineStringM implements GeometryInterface & GeometryGeometryM {
+type GeometryLineStringM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointM]
   srid: Int!
 }
 
-type GeometryLineStringZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryLineStringZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZ]
   srid: Int!
 }
 
-type GeometryLineStringZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryLineStringZM implements GeometryGeometryZM & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZM]
   srid: Int!
 }
 
-type GeometryMultiLineString implements GeometryInterface & GeometryGeometry {
+type GeometryMultiLineString implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   lines: [GeometryLineString]
   srid: Int!
 }
 
-type GeometryMultiLineStringM implements GeometryInterface & GeometryGeometryM {
+type GeometryMultiLineStringM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   lines: [GeometryLineStringM]
   srid: Int!
 }
 
-type GeometryMultiLineStringZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryMultiLineStringZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   lines: [GeometryLineStringZ]
   srid: Int!
 }
 
-type GeometryMultiLineStringZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryMultiLineStringZM implements GeometryGeometryZM & GeometryInterface {
   geojson: GeoJSON
   lines: [GeometryLineStringZM]
   srid: Int!
 }
 
-type GeometryMultiPoint implements GeometryInterface & GeometryGeometry {
+type GeometryMultiPoint implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPoint]
   srid: Int!
 }
 
-type GeometryMultiPointM implements GeometryInterface & GeometryGeometryM {
+type GeometryMultiPointM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointM]
   srid: Int!
 }
 
-type GeometryMultiPointZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryMultiPointZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZ]
   srid: Int!
 }
 
-type GeometryMultiPointZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryMultiPointZM implements GeometryGeometryZM & GeometryInterface {
   geojson: GeoJSON
   points: [GeometryPointZM]
   srid: Int!
 }
 
-type GeometryMultiPolygon implements GeometryInterface & GeometryGeometry {
+type GeometryMultiPolygon implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygon]
   srid: Int!
 }
 
-type GeometryMultiPolygonM implements GeometryInterface & GeometryGeometryM {
+type GeometryMultiPolygonM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonM]
   srid: Int!
 }
 
-type GeometryMultiPolygonZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryMultiPolygonZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonZ]
   srid: Int!
 }
 
-type GeometryMultiPolygonZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryMultiPolygonZM implements GeometryGeometryZM & GeometryInterface {
   geojson: GeoJSON
   polygons: [GeometryPolygonZM]
   srid: Int!
 }
 
-type GeometryPoint implements GeometryInterface & GeometryGeometry {
+type GeometryPoint implements GeometryGeometry & GeometryInterface {
   geojson: GeoJSON
   srid: Int!
   x: Float!
   y: Float!
 }
 
-type GeometryPointM implements GeometryInterface & GeometryGeometryM {
+type GeometryPointM implements GeometryGeometryM & GeometryInterface {
   geojson: GeoJSON
   srid: Int!
   x: Float!
   y: Float!
 }
 
-type GeometryPointZ implements GeometryInterface & GeometryGeometryZ {
-  geojson: GeoJSON
-  srid: Int!
-  x: Float!
-  y: Float!
-  z: Float!
-}
-
-type GeometryPointZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryPointZ implements GeometryGeometryZ & GeometryInterface {
   geojson: GeoJSON
   srid: Int!
   x: Float!
@@ -510,28 +502,36 @@ type GeometryPointZM implements GeometryInterface & GeometryGeometryZM {
   z: Float!
 }
 
-type GeometryPolygon implements GeometryInterface & GeometryGeometry {
+type GeometryPointZM implements GeometryGeometryZM & GeometryInterface {
+  geojson: GeoJSON
+  srid: Int!
+  x: Float!
+  y: Float!
+  z: Float!
+}
+
+type GeometryPolygon implements GeometryGeometry & GeometryInterface {
   exterior: GeometryLineString
   geojson: GeoJSON
   interiors: [GeometryLineString]
   srid: Int!
 }
 
-type GeometryPolygonM implements GeometryInterface & GeometryGeometryM {
+type GeometryPolygonM implements GeometryGeometryM & GeometryInterface {
   exterior: GeometryLineStringM
   geojson: GeoJSON
   interiors: [GeometryLineStringM]
   srid: Int!
 }
 
-type GeometryPolygonZ implements GeometryInterface & GeometryGeometryZ {
+type GeometryPolygonZ implements GeometryGeometryZ & GeometryInterface {
   exterior: GeometryLineStringZ
   geojson: GeoJSON
   interiors: [GeometryLineStringZ]
   srid: Int!
 }
 
-type GeometryPolygonZM implements GeometryInterface & GeometryGeometryZM {
+type GeometryPolygonZM implements GeometryGeometryZM & GeometryInterface {
   exterior: GeometryLineStringZM
   geojson: GeoJSON
   interiors: [GeometryLineStringZM]
@@ -607,224 +607,224 @@ type GisDebug implements Node {
   geomPolygonzm: GeometryPolygonZM
   id: Int!
 
-  \\"\\"\\"
+  """
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  \\"\\"\\"
+  """
   nodeId: ID!
 }
 
-\\"\\"\\"
+"""
 A condition to be used against \`GisDebug\` object types. All fields are tested
 for equality and combined with a logical ‘and.’
-\\"\\"\\"
+"""
 input GisDebugCondition {
-  \\"\\"\\"Checks for equality with the object’s \`geog\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geog\` field."""
   geog: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometry\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometry\` field."""
   geogGeometry: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollection\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometrycollection\` field."""
   geogGeometrycollection: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollectionm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometrycollectionm\` field."""
   geogGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometrycollectionz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometrycollectionz\` field."""
   geogGeometrycollectionz: GeoJSON
 
-  \\"\\"\\"
+  """
   Checks for equality with the object’s \`geogGeometrycollectionzm\` field.
-  \\"\\"\\"
+  """
   geogGeometrycollectionzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometrym\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometrym\` field."""
   geogGeometrym: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometryz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometryz\` field."""
   geogGeometryz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogGeometryzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogGeometryzm\` field."""
   geogGeometryzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestring\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogLinestring\` field."""
   geogLinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestringm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogLinestringm\` field."""
   geogLinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestringz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogLinestringz\` field."""
   geogLinestringz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogLinestringzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogLinestringzm\` field."""
   geogLinestringzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestring\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultilinestring\` field."""
   geogMultilinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestringm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultilinestringm\` field."""
   geogMultilinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestringz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultilinestringz\` field."""
   geogMultilinestringz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultilinestringzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultilinestringzm\` field."""
   geogMultilinestringzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipoint\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipoint\` field."""
   geogMultipoint: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipointm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipointm\` field."""
   geogMultipointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipointz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipointz\` field."""
   geogMultipointz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipointzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipointzm\` field."""
   geogMultipointzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygon\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipolygon\` field."""
   geogMultipolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygonm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipolygonm\` field."""
   geogMultipolygonm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygonz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipolygonz\` field."""
   geogMultipolygonz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogMultipolygonzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogMultipolygonzm\` field."""
   geogMultipolygonzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPoint\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPoint\` field."""
   geogPoint: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPointm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPointm\` field."""
   geogPointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPointz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPointz\` field."""
   geogPointz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPointzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPointzm\` field."""
   geogPointzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPolygon\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPolygon\` field."""
   geogPolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPolygonm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPolygonm\` field."""
   geogPolygonm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPolygonz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPolygonz\` field."""
   geogPolygonz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geogPolygonzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geogPolygonzm\` field."""
   geogPolygonzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geom\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geom\` field."""
   geom: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometry\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometry\` field."""
   geomGeometry: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollection\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometrycollection\` field."""
   geomGeometrycollection: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollectionm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometrycollectionm\` field."""
   geomGeometrycollectionm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometrycollectionz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometrycollectionz\` field."""
   geomGeometrycollectionz: GeoJSON
 
-  \\"\\"\\"
+  """
   Checks for equality with the object’s \`geomGeometrycollectionzm\` field.
-  \\"\\"\\"
+  """
   geomGeometrycollectionzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometrym\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometrym\` field."""
   geomGeometrym: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometryz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometryz\` field."""
   geomGeometryz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomGeometryzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomGeometryzm\` field."""
   geomGeometryzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestring\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomLinestring\` field."""
   geomLinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestringm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomLinestringm\` field."""
   geomLinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestringz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomLinestringz\` field."""
   geomLinestringz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomLinestringzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomLinestringzm\` field."""
   geomLinestringzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestring\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultilinestring\` field."""
   geomMultilinestring: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestringm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultilinestringm\` field."""
   geomMultilinestringm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestringz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultilinestringz\` field."""
   geomMultilinestringz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultilinestringzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultilinestringzm\` field."""
   geomMultilinestringzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipoint\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipoint\` field."""
   geomMultipoint: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipointm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipointm\` field."""
   geomMultipointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipointz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipointz\` field."""
   geomMultipointz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipointzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipointzm\` field."""
   geomMultipointzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygon\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipolygon\` field."""
   geomMultipolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygonm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipolygonm\` field."""
   geomMultipolygonm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygonz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipolygonz\` field."""
   geomMultipolygonz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomMultipolygonzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomMultipolygonzm\` field."""
   geomMultipolygonzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPoint\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPoint\` field."""
   geomPoint: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPointm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPointm\` field."""
   geomPointm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPointz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPointz\` field."""
   geomPointz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPointzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPointzm\` field."""
   geomPointzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPolygon\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPolygon\` field."""
   geomPolygon: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPolygonm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPolygonm\` field."""
   geomPolygonm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPolygonz\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPolygonz\` field."""
   geomPolygonz: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`geomPolygonzm\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`geomPolygonzm\` field."""
   geomPolygonzm: GeoJSON
 
-  \\"\\"\\"Checks for equality with the object’s \`id\` field.\\"\\"\\"
+  """Checks for equality with the object’s \`id\` field."""
   id: Int
 }
 
-\\"\\"\\"An input for mutations affecting \`GisDebug\`\\"\\"\\"
+"""An input for mutations affecting \`GisDebug\`"""
 input GisDebugInput {
   geog: GeoJSON
   geogGeometry: GeoJSON
@@ -895,9 +895,9 @@ input GisDebugInput {
   id: Int
 }
 
-\\"\\"\\"
+"""
 Represents an update to a \`GisDebug\`. Fields that are set will be updated.
-\\"\\"\\"
+"""
 input GisDebugPatch {
   geog: GeoJSON
   geogGeometry: GeoJSON
@@ -968,33 +968,33 @@ input GisDebugPatch {
   id: Int
 }
 
-\\"\\"\\"A connection to a list of \`GisDebug\` values.\\"\\"\\"
+"""A connection to a list of \`GisDebug\` values."""
 type GisDebugsConnection {
-  \\"\\"\\"
+  """
   A list of edges which contains the \`GisDebug\` and cursor to aid in pagination.
-  \\"\\"\\"
+  """
   edges: [GisDebugsEdge!]!
 
-  \\"\\"\\"A list of \`GisDebug\` objects.\\"\\"\\"
+  """A list of \`GisDebug\` objects."""
   nodes: [GisDebug]!
 
-  \\"\\"\\"Information to aid in pagination.\\"\\"\\"
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  \\"\\"\\"The count of *all* \`GisDebug\` you could get from the connection.\\"\\"\\"
+  """The count of *all* \`GisDebug\` you could get from the connection."""
   totalCount: Int!
 }
 
-\\"\\"\\"A \`GisDebug\` edge in the connection.\\"\\"\\"
+"""A \`GisDebug\` edge in the connection."""
 type GisDebugsEdge {
-  \\"\\"\\"A cursor for use in pagination.\\"\\"\\"
+  """A cursor for use in pagination."""
   cursor: Cursor
 
-  \\"\\"\\"The \`GisDebug\` at the end of the edge.\\"\\"\\"
+  """The \`GisDebug\` at the end of the edge."""
   node: GisDebug
 }
 
-\\"\\"\\"Methods to use when ordering \`GisDebug\`.\\"\\"\\"
+"""Methods to use when ordering \`GisDebug\`."""
 enum GisDebugsOrderBy {
   GEOG_ASC
   GEOG_DESC
@@ -1135,185 +1135,185 @@ enum GisDebugsOrderBy {
   PRIMARY_KEY_DESC
 }
 
-\\"\\"\\"
+"""
 The root mutation type which contains root level fields which mutate data.
-\\"\\"\\"
+"""
 type Mutation {
-  \\"\\"\\"Creates a single \`GisDebug\`.\\"\\"\\"
+  """Creates a single \`GisDebug\`."""
   createGisDebug(
-    \\"\\"\\"
+    """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    \\"\\"\\"
+    """
     input: CreateGisDebugInput!
   ): CreateGisDebugPayload
 
-  \\"\\"\\"Deletes a single \`GisDebug\` using its globally unique id.\\"\\"\\"
+  """Deletes a single \`GisDebug\` using its globally unique id."""
   deleteGisDebug(
-    \\"\\"\\"
+    """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    \\"\\"\\"
+    """
     input: DeleteGisDebugInput!
   ): DeleteGisDebugPayload
 
-  \\"\\"\\"Deletes a single \`GisDebug\` using a unique key.\\"\\"\\"
+  """Deletes a single \`GisDebug\` using a unique key."""
   deleteGisDebugById(
-    \\"\\"\\"
+    """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    \\"\\"\\"
+    """
     input: DeleteGisDebugByIdInput!
   ): DeleteGisDebugPayload
 
-  \\"\\"\\"Updates a single \`GisDebug\` using its globally unique id and a patch.\\"\\"\\"
+  """Updates a single \`GisDebug\` using its globally unique id and a patch."""
   updateGisDebug(
-    \\"\\"\\"
+    """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    \\"\\"\\"
+    """
     input: UpdateGisDebugInput!
   ): UpdateGisDebugPayload
 
-  \\"\\"\\"Updates a single \`GisDebug\` using a unique key and a patch.\\"\\"\\"
+  """Updates a single \`GisDebug\` using a unique key and a patch."""
   updateGisDebugById(
-    \\"\\"\\"
+    """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    \\"\\"\\"
+    """
     input: UpdateGisDebugByIdInput!
   ): UpdateGisDebugPayload
 }
 
-\\"\\"\\"An object with a globally unique \`ID\`.\\"\\"\\"
+"""An object with a globally unique \`ID\`."""
 interface Node {
-  \\"\\"\\"
+  """
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  \\"\\"\\"
+  """
   nodeId: ID!
 }
 
-\\"\\"\\"Information about pagination in a connection.\\"\\"\\"
+"""Information about pagination in a connection."""
 type PageInfo {
-  \\"\\"\\"When paginating forwards, the cursor to continue.\\"\\"\\"
+  """When paginating forwards, the cursor to continue."""
   endCursor: Cursor
 
-  \\"\\"\\"When paginating forwards, are there more items?\\"\\"\\"
+  """When paginating forwards, are there more items?"""
   hasNextPage: Boolean!
 
-  \\"\\"\\"When paginating backwards, are there more items?\\"\\"\\"
+  """When paginating backwards, are there more items?"""
   hasPreviousPage: Boolean!
 
-  \\"\\"\\"When paginating backwards, the cursor to continue.\\"\\"\\"
+  """When paginating backwards, the cursor to continue."""
   startCursor: Cursor
 }
 
-\\"\\"\\"The root query type which gives access points into the data universe.\\"\\"\\"
+"""The root query type which gives access points into the data universe."""
 type Query implements Node {
-  \\"\\"\\"Reads and enables pagination through a set of \`GisDebug\`.\\"\\"\\"
+  """Reads and enables pagination through a set of \`GisDebug\`."""
   allGisDebugs(
-    \\"\\"\\"Read all values in the set after (below) this cursor.\\"\\"\\"
+    """Read all values in the set after (below) this cursor."""
     after: Cursor
 
-    \\"\\"\\"Read all values in the set before (above) this cursor.\\"\\"\\"
+    """Read all values in the set before (above) this cursor."""
     before: Cursor
 
-    \\"\\"\\"
+    """
     A condition to be used in determining which values should be returned by the collection.
-    \\"\\"\\"
+    """
     condition: GisDebugCondition
 
-    \\"\\"\\"Only read the first \`n\` values of the set.\\"\\"\\"
+    """Only read the first \`n\` values of the set."""
     first: Int
 
-    \\"\\"\\"Only read the last \`n\` values of the set.\\"\\"\\"
+    """Only read the last \`n\` values of the set."""
     last: Int
 
-    \\"\\"\\"
+    """
     Skip the first \`n\` values from our \`after\` cursor, an alternative to cursor
     based pagination. May not be used with \`last\`.
-    \\"\\"\\"
+    """
     offset: Int
 
-    \\"\\"\\"The method to use when ordering \`GisDebug\`.\\"\\"\\"
+    """The method to use when ordering \`GisDebug\`."""
     orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
   ): GisDebugsConnection
 
-  \\"\\"\\"Reads a single \`GisDebug\` using its globally unique \`ID\`.\\"\\"\\"
+  """Reads a single \`GisDebug\` using its globally unique \`ID\`."""
   gisDebug(
-    \\"\\"\\"The globally unique \`ID\` to be used in selecting a single \`GisDebug\`.\\"\\"\\"
+    """The globally unique \`ID\` to be used in selecting a single \`GisDebug\`."""
     nodeId: ID!
   ): GisDebug
   gisDebugById(id: Int!): GisDebug
 
-  \\"\\"\\"Fetches an object given its globally unique \`ID\`.\\"\\"\\"
+  """Fetches an object given its globally unique \`ID\`."""
   node(
-    \\"\\"\\"The globally unique \`ID\`.\\"\\"\\"
+    """The globally unique \`ID\`."""
     nodeId: ID!
   ): Node
 
-  \\"\\"\\"
+  """
   The root query type must be a \`Node\` to work well with Relay 1 mutations. This just resolves to \`query\`.
-  \\"\\"\\"
+  """
   nodeId: ID!
 
-  \\"\\"\\"
+  """
   Exposes the root query type nested one level down. This is helpful for Relay 1
   which can only query top level fields if they are in a particular form.
-  \\"\\"\\"
+  """
   query: Query!
 }
 
-\\"\\"\\"All input for the \`updateGisDebugById\` mutation.\\"\\"\\"
+"""All input for the \`updateGisDebugById\` mutation."""
 input UpdateGisDebugByIdInput {
-  \\"\\"\\"
+  """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"
+  """
   An object where the defined keys will be set on the \`GisDebug\` being updated.
-  \\"\\"\\"
+  """
   gisDebugPatch: GisDebugPatch!
   id: Int!
 }
 
-\\"\\"\\"All input for the \`updateGisDebug\` mutation.\\"\\"\\"
+"""All input for the \`updateGisDebug\` mutation."""
 input UpdateGisDebugInput {
-  \\"\\"\\"
+  """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"
+  """
   An object where the defined keys will be set on the \`GisDebug\` being updated.
-  \\"\\"\\"
+  """
   gisDebugPatch: GisDebugPatch!
 
-  \\"\\"\\"
+  """
   The globally unique \`ID\` which will identify a single \`GisDebug\` to be updated.
-  \\"\\"\\"
+  """
   nodeId: ID!
 }
 
-\\"\\"\\"The output of our update \`GisDebug\` mutation.\\"\\"\\"
+"""The output of our update \`GisDebug\` mutation."""
 type UpdateGisDebugPayload {
-  \\"\\"\\"
+  """
   The exact same \`clientMutationId\` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
-  \\"\\"\\"
+  """
   clientMutationId: String
 
-  \\"\\"\\"The \`GisDebug\` that was updated by this mutation.\\"\\"\\"
+  """The \`GisDebug\` that was updated by this mutation."""
   gisDebug: GisDebug
 
-  \\"\\"\\"An edge for our \`GisDebug\`. May be used by Relay 1.\\"\\"\\"
+  """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
-    \\"\\"\\"The method to use when ordering \`GisDebug\`.\\"\\"\\"
+    """The method to use when ordering \`GisDebug\`."""
     orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
-  \\"\\"\\"
+  """
   Our root query field type. Allows us to run any query from our mutation payload.
-  \\"\\"\\"
+  """
   query: Query
 }
-"
+
 `;
