@@ -2742,6 +2742,11 @@ jest-runtime@^26.6.3:
     strip-bom "^4.0.0"
     yargs "^15.4.1"
 
+jest-serializer-graphql-schema@^5.0.0-1.1:
+  version "5.0.0-1.1"
+  resolved "https://registry.yarnpkg.com/jest-serializer-graphql-schema/-/jest-serializer-graphql-schema-5.0.0-1.1.tgz#f702dfe77fea1d72d20b11f52fddd3d98bcc2a16"
+  integrity sha512-4a+6C78u3NUgtYM3XhvlZ/JABNuTSEbyowUeOUsHpJrR03Jtg8TwjDo/8gvknPv4KyELzz5/OTHQ0e1LXBN8RQ==
+
 jest-serializer@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-serializer/-/jest-serializer-26.6.2.tgz#d139aafd46957d3a448f3a6cdabe2919ba0742d1"

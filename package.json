@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
+    "jest-serializer-graphql-schema": "^5.0.0-1.1",
     "tslib": "^1.10.0"
   },
   "resolutions": {
