@@ -7,7 +7,7 @@
     "allowJs": false,
     "target": "es2017",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "sourceMap": true,
     "pretty": true,
     "importHelpers": true,
