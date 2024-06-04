@@ -4,7 +4,7 @@ import * as pg from "pg";
 import { promisify } from "util";
 import { GraphQLSchema, graphql } from "graphql";
 import { withPgClient, withPgPool } from "../helpers";
-import PostgisPlugin from "../../src/index";
+import PostgisPreset from "../../src/index";
 import { makeSchema } from "graphile-build";
 import { makePgService } from "postgraphile/adaptors/pg";
 
@@ -20,7 +20,7 @@ let gqlSchema: GraphQLSchema;
 beforeAll(async () => {
   await withPgPool(async (pool: pg.Pool) => {
     gqlSchema = await makeSchema({
-      extends: [PostgisPlugin],
+      extends: [PostgisPreset],
       pgServices: [
         makePgService({
           pool,
