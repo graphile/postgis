@@ -1,5 +1,5 @@
 import * as pg from "pg";
-import { makePostGraphileSchema, withPgPool } from "./helpers";
+import { makePostGraphileSchema, withPgPool } from "./helpers.js";
 import { lexicographicSortSchema } from "graphql";
 
 const schemas = ["graphile_postgis_minimal_dimensional"];
