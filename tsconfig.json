@@ -1,10 +1,6 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "declarationDir": "./dist",
-    "outDir": "./dist",
-    "declaration": true,
     "allowJs": false,
     "sourceMap": true,
     "pretty": true,
