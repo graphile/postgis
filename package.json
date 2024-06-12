@@ -38,6 +38,7 @@
     "pg-sql2": ">=2.2.1 <5"
   },
   "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
     "@types/debug": "^4.1.5",
     "@types/jest": "^26.0.22",
     "concurrently": "^6.0.2",
