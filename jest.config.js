@@ -6,4 +6,5 @@ module.exports = {
   testRegex: "(/__tests__/.*\\.(test|spec))\\.[tj]sx?$",
   moduleFileExtensions: ["ts", "js", "json"],
   snapshotSerializers: ["jest-serializer-graphql-schema"],
+  testEnvironment: 'jest-environment-node'
 };

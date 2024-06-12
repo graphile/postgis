@@ -1,23 +1,58 @@
 import { Plugin } from "graphile-build";
 import debug from "./debug";
-import { PgType } from "graphile-build-pg";
 import { GraphQLResolveInfo, GraphQLType, GraphQLNamedType } from "graphql";
-import { Subtype } from "./interfaces";
-import { getGISTypeDetails, getGISTypeModifier, getGISTypeName } from "./utils";
+import { Subtype } from "./interfaces.js";
+import {
+  getGISTypeDetails,
+  getGISTypeModifier,
+  getGISTypeName,
+} from "./utils.js";
 import { SQL } from "pg-sql2";
-import makeGeoJSONType from "./makeGeoJSONType";
+import makeGeoJSONType from "./makeGeoJSONType.js";
+import { version } from "./version.js";
 
 function identity<T>(input: T): T {
   return input;
 }
 
-const plugin: Plugin = builder => {
-  builder.hook("build", build => {
-    const GeoJSON = makeGeoJSONType(
-      build.graphql,
-      build.inflection.builtin("GeoJSON")
-    );
-    build.addType(GeoJSON);
+declare global {
+  namespace GraphileBuild {
+    interface ScopeScalar {
+      /**
+       * Set to true for the GeoJSON type.
+       */
+      isGeoJSONType?: boolean;
+    }
+  }
+}
+
+export const PostgisRegisterTypesPlugin: GraphileConfig.Plugin = {
+  name: "PostgisRegisterTypesPlugin",
+  version,
+
+  schema: {
+    hooks: {
+      init(_, build, _context) {
+        const { graphql } = build;
+        const name = build.inflection.builtin("GeoJSON");
+        build.registerScalarType(
+          name,
+          {
+            isGeoJSONType: true,
+          },
+          () => {
+            return makeGeoJSONType(graphql, name);
+          },
+          "Adding GeoJSON type"
+        );
+        return _;
+      },
+    },
+  },
+};
+
+/*
+
 
     return build.extend(build, {
       getPostgisTypeByGeometryType(
@@ -339,3 +374,4 @@ const plugin: Plugin = builder => {
 };
 
 export default plugin;
+*/

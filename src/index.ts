@@ -1,4 +1,3 @@
-import { Plugin } from "graphile-build";
 import PostgisVersionPlugin from "./PostgisVersionPlugin";
 import PostgisInflectionPlugin from "./PostgisInflectionPlugin";
 import PostgisExtensionDetectionPlugin from "./PostgisExtensionDetectionPlugin";
@@ -11,7 +10,7 @@ import Postgis_MultiPoint_PointsPlugin from "./Postgis_MultiPoint_PointsPlugin";
 import Postgis_MultiLineString_LineStringsPlugin from "./Postgis_MultiLineString_LineStringsPlugin";
 import Postgis_MultiPolygon_PolygonsPlugin from "./Postgis_MultiPolygon_PolygonsPlugin";
 
-const PostgisPlugin: Plugin = async (builder, options) => {
+const PostgisPreset: GraphileConfig.Preset = async (builder, options) => {
   await PostgisVersionPlugin(builder, options);
   await PostgisInflectionPlugin(builder, options);
   await PostgisExtensionDetectionPlugin(builder, options);
@@ -38,4 +37,4 @@ const PostgisPlugin: Plugin = async (builder, options) => {
   // Enhancing the `GeometryCollection` type:
   await Postgis_GeometryCollection_GeometriesPlugin(builder, options);
 };
-export default PostgisPlugin;
+export default PostgisPreset;

@@ -3,9 +3,10 @@ import * as path from "path";
 import * as pg from "pg";
 import { promisify } from "util";
 import { GraphQLSchema, graphql } from "graphql";
-import { withPgClient } from "../helpers";
-import { createPostGraphileSchema } from "postgraphile-core";
-import PostgisPlugin from "../../src/index";
+import { withPgClient, withPgPool } from "../helpers";
+import PostgisPreset from "../../src/index";
+import { makeSchema } from "graphile-build";
+import { makePgService } from "postgraphile/adaptors/pg";
 
 const readFile = promisify(fs.readFile);
 
@@ -13,15 +14,20 @@ const queriesDir = `${__dirname}/../fixtures/queries`;
 const queryFileNames = fs.readdirSync(queriesDir);
 
 const schemas = ["graphile_postgis"];
-const options = {
-  appendPlugins: [PostgisPlugin],
-};
 
 let gqlSchema: GraphQLSchema;
 
 beforeAll(async () => {
-  await withPgClient(async (client: pg.PoolClient) => {
-    gqlSchema = await createPostGraphileSchema(client, schemas, options);
+  await withPgPool(async (pool: pg.Pool) => {
+    gqlSchema = await makeSchema({
+      extends: [PostgisPreset],
+      pgServices: [
+        makePgService({
+          pool,
+          schemas,
+        }),
+      ],
+    }).then(it => it.schema);
   });
 });
 
