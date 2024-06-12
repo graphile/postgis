@@ -16,6 +16,5 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "preserveWatchOutput": true
-  },
-  "include": ["src/**/*"]
+  }
 }
