@@ -1,4 +1,9 @@
 import * as pg from "pg";
+import PostgisPreset from "../src";
+import { makeSchema } from "graphile-build";
+import { makePgService } from "postgraphile/adaptors/pg";
+import { PostGraphileAmberPreset } from "postgraphile/presets/amber";
+import { makeV4Preset } from "postgraphile/presets/v4";
 
 export async function withPgPool<T = any>(
   cb: (pool: pg.Pool) => Promise<T>
@@ -37,5 +42,17 @@ export async function withTransaction<T = any>(
     } finally {
       await client.query(closeCommand);
     }
+  });
+}
+
+export async function makePostGraphileSchema(pool: pg.Pool, schemas: string[]) {
+  return await makeSchema({
+    extends: [PostGraphileAmberPreset, makeV4Preset({}), PostgisPreset],
+    pgServices: [
+      makePgService({
+        pool,
+        schemas,
+      }),
+    ],
   });
 }
