@@ -46,7 +46,7 @@
     "jest": "^26.6.3",
     "nodemon": "^1.19.1",
     "postgraphile": "^5.0.0-beta.26",
-    "prettier": "1.18.2",
+    "prettier": "^3.3.2",
     "ts-jest": "^26.5.4",
     "typescript": "^5.4.5"
   },
