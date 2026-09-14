@@ -110,7 +110,7 @@ exports[`functions.geometry.graphql 1`] = `
         ],
         "type": "Point",
       },
-      "srid": 0,
+      "srid": 4326,
     },
     "echoNull": null,
     "pointBare": {
@@ -8930,7 +8930,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "Point",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "geomMultipolygon": {
           "geojson": {
@@ -9004,7 +9004,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "MultiPolygon",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "id": 9001,
       },
@@ -9050,7 +9050,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "MultiPolygon",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "geomMultipolygon": {
           "geojson": {
@@ -9078,7 +9078,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "MultiPolygon",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "id": 9001,
       },
@@ -9123,7 +9123,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "MultiPolygon",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "geomMultipolygon": {
           "geojson": {
@@ -9151,7 +9151,7 @@ exports[`mutation.gis_debug.graphql 1`] = `
             ],
             "type": "MultiPolygon",
           },
-          "srid": 0,
+          "srid": 4326,
         },
         "id": 9001,
       },

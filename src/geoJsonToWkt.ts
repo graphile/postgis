@@ -43,21 +43,7 @@ function multiPolygonBody(coordinates: number[][][][]): string {
   return `(${coordinates.map(polygonBody).join(", ")})`;
 }
 
-/**
- * Converts a GeoJSON geometry object into WKT/EWKT text that PostGIS's
- * `geometry_in`/`geography_in` will accept, for use as the SQL parameter
- * value when writing a geometry/geography column. Non-object values (e.g.
- * an already-WKT string, or null) are passed through unchanged.
- */
-export function geoJsonToWkt(value: unknown): SQLRawValue {
-  if (value == null || typeof value !== "object") {
-    return value as SQLRawValue;
-  }
-  const geometry = value as GeoJSONGeometry;
-  if (typeof geometry.type !== "string") {
-    return value as unknown as SQLRawValue;
-  }
-
+function toWktBody(geometry: GeoJSONGeometry): string {
   switch (geometry.type) {
     case "Point":
       return `POINT${dimSuffix(geometry.coordinates!)}${pointBody(
@@ -85,9 +71,33 @@ export function geoJsonToWkt(value: unknown): SQLRawValue {
       )}${multiPolygonBody(geometry.coordinates as number[][][][])}`;
     case "GeometryCollection":
       return `GEOMETRYCOLLECTION(${(geometry.geometries ?? [])
-        .map((g) => String(geoJsonToWkt(g)))
+        .map(toWktBody)
         .join(", ")})`;
     default:
       throw new Error(`Unsupported GeoJSON type: ${geometry.type}`);
   }
+}
+
+/**
+ * Converts a GeoJSON geometry object into EWKT text that PostGIS's
+ * `geometry_in`/`geography_in` will accept, for use as the SQL parameter
+ * value when writing a geometry/geography column. Non-object values (e.g.
+ * an already-WKT string, or null) are passed through unchanged.
+ *
+ * `srid` defaults to 4326 (WGS 84) per RFC 7946, which mandates that GeoJSON
+ * coordinates are always WGS 84 regardless of any `crs` member. Callers
+ * writing into a column constrained to a different SRID must pass that SRID
+ * explicitly, since PostGIS rejects a typmod cast whose EWKT SRID conflicts
+ * with the column's.
+ */
+export function geoJsonToWkt(value: unknown, srid = 4326): SQLRawValue {
+  if (value == null || typeof value !== "object") {
+    return value as SQLRawValue;
+  }
+  const geometry = value as GeoJSONGeometry;
+  if (typeof geometry.type !== "string") {
+    return value as unknown as SQLRawValue;
+  }
+
+  return `SRID=${srid};${toWktBody(geometry)}`;
 }

@@ -110,6 +110,7 @@ export const PostgisRegisterTypesPlugin: GraphileConfig.Plugin = {
         if (numericModifier === -1) {
           return;
         }
+        const { srid } = getGISTypeDetails(numericModifier);
         // Register a codec for this specific type modifier (shared by every
         // column that uses it) so its PostGIS GraphQL output type can be set
         // directly on the codec below, instead of generating a generic field
@@ -121,6 +122,9 @@ export const PostgisRegisterTypesPlugin: GraphileConfig.Plugin = {
             typeModifier: numericModifier,
           }),
           baseCodec,
+          // A typmod SRID of 0 means the column doesn't constrain the SRID,
+          // so GeoJSON input still falls back to the RFC 7946 default below.
+          toPg: (value) => geoJsonToWkt(value, srid || 4326),
           extensions: {
             ...baseCodec.extensions,
             postgisTypeModifier: numericModifier,
