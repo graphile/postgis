@@ -42,7 +42,6 @@
   },
   "homepage": "https://github.com/graphile/postgis#readme",
   "devDependencies": {
-    "@dataplan/pg": "1.2.0-aardvark.next-20260910230054",
     "@tsconfig/node20": "^20.1.4",
     "@types/debug": "^4.1.5",
     "@types/jest": "^30.0.0",
@@ -57,7 +56,6 @@
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@dataplan/pg": ">=1.2.0-aardvark.next-20260811203155",
     "postgraphile": ">=5.2.0-aardvark.next-20260811203155"
   },
   "dependencies": {

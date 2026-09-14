@@ -1,4 +1,4 @@
-import type { SQLRawValue } from "pg-sql2";
+import type { SQLRawValue } from "postgraphile/@dataplan/pg/pg-sql2";
 import type { GeoJSONCoordinates, GeoJSONGeometry } from "./types.ts";
 
 // PostGIS's `geometry_in` happens to lenient-parse GeoJSON text directly (an

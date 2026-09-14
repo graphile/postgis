@@ -1,4 +1,4 @@
-import type { PgCodec } from "@dataplan/pg";
+import type { PgCodec } from "postgraphile/@dataplan/pg";
 import debug from "./debug.ts";
 import { version } from "./version.ts";
 

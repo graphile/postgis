@@ -1,6 +1,5 @@
-import { sql } from "@dataplan/pg";
-import type { PgCodec, PgCodecWithAttributes } from "@dataplan/pg";
-import type { SQL } from "pg-sql2";
+import type { PgCodec, PgCodecWithAttributes } from "postgraphile/@dataplan/pg";
+import type { SQL } from "postgraphile/@dataplan/pg/pg-sql2";
 import type { GraphQLInterfaceType } from "graphql";
 import { access } from "postgraphile/grafast";
 import type { Step } from "postgraphile/grafast";
@@ -49,11 +48,12 @@ export const PostgisRegisterTypesPlugin: GraphileConfig.Plugin = {
 
   gather: {
     hooks: {
-      async pgCodecs_findPgCodec(_info, event) {
+      async pgCodecs_findPgCodec(info, event) {
         if (event.pgCodec) return; // Another plugin already handled this
         const { pgType } = event;
         const typeName = pgType.typname;
         if (typeName === "geometry" || typeName === "geography") {
+          const { sql } = info.lib.dataplanPg;
           const namespace = pgType.getNamespace();
           const schemaName = namespace?.nspname ?? "public";
           const extSchema = sql.identifier(schemaName);

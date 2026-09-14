@@ -278,7 +278,7 @@
     chalk "^4.1.2"
     tslib "^2.8.1"
 
-"@dataplan/pg@1.2.0-aardvark.next-20260910230054", "@dataplan/pg@^1.2.0-aardvark.next-20260910230054":
+"@dataplan/pg@^1.2.0-aardvark.next-20260910230054":
   version "1.2.0-aardvark.next-20260910230054"
   resolved "https://registry.yarnpkg.com/@dataplan/pg/-/pg-1.2.0-aardvark.next-20260910230054.tgz#5b5bbf6f230fca2500ad7aa7c5cc03fa99f0c863"
   integrity sha512-UIv4ff27WNe2sx5uks9dD83ap5B0lEjvebW0ZqmFqEWTt6RaPpcV47w1V9V3qX+rwVh9uBVKfqa2EJRK9jgroQ==
