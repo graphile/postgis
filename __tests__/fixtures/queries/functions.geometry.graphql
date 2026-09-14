@@ -1,0 +1,60 @@
+query {
+  pointTypmod {
+    __typename
+    srid
+    geojson
+  }
+  pointBare {
+    __typename
+    srid
+    geojson
+  }
+  pointGeog {
+    __typename
+    srid
+    geojson
+    ... on GeographyPoint {
+      latitude
+      longitude
+    }
+  }
+  echoInline: echoGeom(g: { type: "Point", coordinates: [30, 10] }) {
+    __typename
+    srid
+    geojson
+  }
+  echoNull: echoGeom(g: null) {
+    __typename
+    srid
+    geojson
+  }
+  allMixedGeoms {
+    nodes {
+      id
+      geom {
+        __typename
+        geojson
+        srid
+        ... on GeometryPoint {
+          x
+          y
+        }
+        ... on GeometryMultiPolygon {
+          polygons {
+            exterior {
+              points {
+                x
+                y
+              }
+            }
+          }
+        }
+      }
+      center {
+        __typename
+        srid
+        geojson
+      }
+    }
+  }
+}

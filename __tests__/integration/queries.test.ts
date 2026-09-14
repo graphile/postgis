@@ -2,27 +2,34 @@ import * as fs from "fs";
 import * as path from "path";
 import * as pg from "pg";
 import { promisify } from "util";
-import { GraphQLSchema, graphql } from "graphql";
-import { withPgClient } from "../helpers";
-import { createPostGraphileSchema } from "postgraphile-core";
-import PostgisPlugin from "../../src/index";
+import type { GraphQLSchema } from "postgraphile/graphql";
+import { grafast } from "postgraphile/grafast";
+import { makePostGraphileSchema } from "../helpers";
 
 const readFile = promisify(fs.readFile);
 
 const queriesDir = `${__dirname}/../fixtures/queries`;
-const queryFileNames = fs.readdirSync(queriesDir);
+const queryFileNames = fs
+  .readdirSync(queriesDir)
+  .filter((fileName) => fileName.endsWith(".graphql"));
 
-const schemas = ["graphile_postgis"];
-const options = {
-  appendPlugins: [PostgisPlugin],
-};
+const schemas = ["graphile_postgis", "graphile_postgis_mixed"];
 
-let gqlSchema: GraphQLSchema;
+let pool: pg.Pool;
+let schema: GraphQLSchema;
+let resolvedPreset: GraphileConfig.ResolvedPreset;
 
 beforeAll(async () => {
-  await withPgClient(async (client: pg.PoolClient) => {
-    gqlSchema = await createPostGraphileSchema(client, schemas, options);
+  pool = new pg.Pool({
+    connectionString: process.env.TEST_DATABASE_URL,
   });
+  const result = await makePostGraphileSchema(pool, schemas);
+  schema = result.schema;
+  resolvedPreset = result.resolvedPreset;
+});
+
+afterAll(async () => {
+  await pool.end();
 });
 
 for (const queryFileName of queryFileNames) {
@@ -31,9 +38,20 @@ for (const queryFileName of queryFileNames) {
       path.resolve(queriesDir, queryFileName),
       "utf8"
     );
-    const result = await withPgClient(async (client: pg.PoolClient) =>
-      graphql(gqlSchema, query, null, { pgClient: client })
+    const variablesPath = path.resolve(
+      queriesDir,
+      queryFileName.replace(/\.graphql$/, ".variables.json")
     );
+    const variableValues = fs.existsSync(variablesPath)
+      ? JSON.parse(await readFile(variablesPath, "utf8"))
+      : undefined;
+    const result = await grafast({
+      schema,
+      source: query,
+      variableValues,
+      resolvedPreset,
+      requestContext: {},
+    });
     expect(result).toMatchSnapshot();
   });
 }

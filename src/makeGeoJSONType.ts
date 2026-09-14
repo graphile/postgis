@@ -1,4 +1,4 @@
-import * as GraphQL from "graphql";
+import * as GraphQL from "postgraphile/graphql";
 type Maybe<T> = null | undefined | T;
 
 // This file is based on
@@ -27,10 +27,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-export default function makeGeoJSONType(graphql: any, name = "GeoJSON") {
+
+export default function makeGeoJSONType(
+  graphql: Pick<typeof GraphQL, "Kind">,
+  name = "GeoJSON"
+): Omit<GraphQL.GraphQLScalarTypeConfig<any, any>, "name"> {
   const Kind: typeof GraphQL.Kind = graphql.Kind;
-  const GraphQLScalarType: typeof GraphQL.GraphQLScalarType =
-    graphql.GraphQLScalarType;
 
   function identity<T>(value: T): T {
     return value;
@@ -38,8 +40,8 @@ export default function makeGeoJSONType(graphql: any, name = "GeoJSON") {
 
   function parseLiteral(
     ast: GraphQL.ValueNode,
-    variables: Maybe<{ [key: string]: any }>
-  ): any {
+    variables: Maybe<{ [key: string]: unknown }>
+  ): unknown {
     switch (ast.kind) {
       case Kind.STRING:
       case Kind.BOOLEAN:
@@ -50,14 +52,14 @@ export default function makeGeoJSONType(graphql: any, name = "GeoJSON") {
         return parseFloat(ast.value);
       case Kind.OBJECT: {
         const value = Object.create(null);
-        ast.fields.forEach(field => {
+        ast.fields.forEach((field) => {
           value[field.name.value] = parseLiteral(field.value, variables);
         });
 
         return value;
       }
       case Kind.LIST:
-        return ast.values.map(n => parseLiteral(n, variables));
+        return ast.values.map((n) => parseLiteral(n, variables));
       case Kind.NULL:
         return null;
       case Kind.VARIABLE: {
@@ -69,13 +71,12 @@ export default function makeGeoJSONType(graphql: any, name = "GeoJSON") {
     }
   }
 
-  return new GraphQLScalarType({
-    name,
+  return {
     description:
       `The \`${name}\` scalar type represents GeoJSON values as specified by` +
       "[RFC 7946](https://tools.ietf.org/html/rfc7946).",
     serialize: identity,
     parseValue: identity,
     parseLiteral,
-  });
+  };
 }

@@ -1,0 +1,26 @@
+query {
+  allMixedGeoms {
+    nodes {
+      id
+      geom {
+        __typename
+        geojson
+        srid
+        ... on GeometryPoint {
+          x
+          y
+        }
+        ... on GeometryMultiPolygon {
+          polygons {
+            exterior {
+              points {
+                x
+                y
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

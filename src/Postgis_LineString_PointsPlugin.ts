@@ -1,50 +1,73 @@
-import { Plugin } from "graphile-build";
-import { GIS_SUBTYPE } from "./constants";
-import { getGISTypeName } from "./utils";
+import type { GraphQLOutputType } from "postgraphile/graphql";
+import type { Step } from "postgraphile/grafast";
+import { lambda } from "postgraphile/grafast";
+import type { PostGISResolvedData } from "./types.ts";
+import { GIS_SUBTYPE } from "./constants.ts";
+import { getGISTypeName } from "./utils.ts";
+import { version } from "./version.ts";
 
-const plugin: Plugin = builder => {
-  builder.hook("GraphQLObjectType:fields", (fields, build, context) => {
-    const {
-      scope: { isPgGISType, pgGISType, pgGISTypeDetails },
-    } = context;
-    if (
-      !isPgGISType ||
-      !pgGISTypeDetails ||
-      pgGISTypeDetails.subtype !== GIS_SUBTYPE.LineString
-    ) {
-      return fields;
-    }
-    const {
-      extend,
-      getPostgisTypeByGeometryType,
-      graphql: { GraphQLList },
-    } = build;
-    const { hasZ, hasM, srid } = pgGISTypeDetails;
-    const Point = getPostgisTypeByGeometryType(
-      pgGISType,
-      GIS_SUBTYPE.Point,
-      hasZ,
-      hasM,
-      srid
-    );
+export const Postgis_LineString_PointsPlugin: GraphileConfig.Plugin = {
+  name: "Postgis_LineString_PointsPlugin",
+  description: "Enhancing the `LineString` type",
+  version,
 
-    return extend(fields, {
-      points: {
-        type: new GraphQLList(Point),
-        resolve(data: any) {
-          return data.__geojson.coordinates.map((coord: any) => {
-            return {
-              __gisType: getGISTypeName(GIS_SUBTYPE.Point, hasZ, hasM),
-              __srid: data.__srid,
-              __geojson: {
-                type: "Point",
-                coordinates: coord,
+  schema: {
+    hooks: {
+      GraphQLObjectType_fields(fields, build, context) {
+        const {
+          scope: { isPgGISType, pgGISTypeName, pgGISTypeDetails },
+        } = context;
+        if (
+          !isPgGISType ||
+          !pgGISTypeDetails ||
+          pgGISTypeDetails.subtype !== GIS_SUBTYPE.LineString
+        ) {
+          return fields;
+        }
+        const {
+          extend,
+          getPostgisTypeByGeometryType,
+          graphql: { GraphQLList },
+        } = build;
+        const { hasZ, hasM, srid } = pgGISTypeDetails;
+        const pointTypeName = getPostgisTypeByGeometryType(
+          pgGISTypeName!,
+          GIS_SUBTYPE.Point,
+          hasZ,
+          hasM,
+          srid
+        );
+        const Point = pointTypeName
+          ? (build.getTypeByName(pointTypeName) as GraphQLOutputType)
+          : null;
+        if (!Point) return fields;
+
+        return extend(
+          fields,
+          {
+            points: {
+              type: new GraphQLList(Point),
+              plan($data: Step<PostGISResolvedData>) {
+                return lambda($data, (data) =>
+                  (data.__geojson.coordinates as number[][]).map((coord) => {
+                    return {
+                      __gisType: getGISTypeName(GIS_SUBTYPE.Point, hasZ, hasM),
+                      __srid: data.__srid,
+                      __geojson: {
+                        type: "Point",
+                        coordinates: coord,
+                      },
+                    };
+                  })
+                );
               },
-            };
-          });
-        },
+            },
+          },
+          "PostGIS LineString points field"
+        );
       },
-    });
-  });
+    },
+  },
 };
-export default plugin;
+
+export default Postgis_LineString_PointsPlugin;

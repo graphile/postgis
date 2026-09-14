@@ -1,40 +1,61 @@
-import { Plugin } from "graphile-build";
-import { PgExtension, PgType } from "graphile-build-pg";
-import debug from "./debug";
+import type { PgCodec } from "postgraphile/@dataplan/pg";
+import debug from "./debug.ts";
+import { version } from "./version.ts";
 
-const plugin: Plugin = builder => {
-  builder.hook("build", build => {
-    const { pgIntrospectionResultsByKind: introspectionResultsByKind } = build;
-    const pgGISExtension = introspectionResultsByKind.extension.find(
-      (e: PgExtension) => e.name === "postgis"
-    );
-    // Check we have the postgis extension
-    if (!pgGISExtension) {
-      debug("PostGIS extension not found in database; skipping");
-      return build;
+declare global {
+  namespace GraphileBuild {
+    interface Build {
+      pgGISGeometryCodec: PgCodec | null;
+      pgGISGeographyCodec: PgCodec | null;
+      pgGISExtensionSchema: string | null;
     }
-    // Extract the geography and geometry types
-    const pgGISGeometryType = introspectionResultsByKind.type.find(
-      (t: PgType) =>
-        t.name === "geometry" && t.namespaceId === pgGISExtension.namespaceId
-    );
-    const pgGISGeographyType = introspectionResultsByKind.type.find(
-      (t: PgType) =>
-        t.name === "geography" && t.namespaceId === pgGISExtension.namespaceId
-    );
-    if (!pgGISGeographyType || !pgGISGeometryType) {
-      throw new Error(
-        "PostGIS is installed, but we couldn't find the geometry/geography types!"
-      );
-    }
-    return build.extend(build, {
-      pgGISGraphQLTypesByTypeAndSubtype: {},
-      pgGISGraphQLInterfaceTypesByType: {},
-      pgGISGeometryType,
-      pgGISGeographyType,
-      pgGISExtension,
-    });
-  });
+  }
+}
+
+export const PostgisExtensionDetectionPlugin: GraphileConfig.Plugin = {
+  name: "PostgisExtensionDetectionPlugin",
+  version,
+
+  schema: {
+    hooks: {
+      build(build) {
+        // Find the geometry and geography codecs
+        let pgGISGeometryCodec: PgCodec | null = null;
+        let pgGISGeographyCodec: PgCodec | null = null;
+        let pgGISExtensionSchema: string | null = null;
+
+        for (const [_name, codec] of Object.entries(build.pgCodecs || {})) {
+          const c = codec as PgCodec;
+          if (c.name === "geometry" && c.extensions?.pg) {
+            pgGISGeometryCodec = c;
+            if (!pgGISExtensionSchema) {
+              pgGISExtensionSchema = c.extensions.pg.schemaName;
+            }
+          }
+          if (c.name === "geography" && c.extensions?.pg) {
+            pgGISGeographyCodec = c;
+            if (!pgGISExtensionSchema) {
+              pgGISExtensionSchema = c.extensions.pg.schemaName;
+            }
+          }
+        }
+
+        if (!pgGISGeometryCodec && !pgGISGeographyCodec) {
+          debug("PostGIS extension not found in database; skipping");
+        } else {
+          debug("PostGIS plugin enabled");
+        }
+
+        build.pgGISGraphQLTypesByTypeAndSubtype = {};
+        build.pgGISGraphQLInterfaceTypesByType = {};
+        build.pgGISGeometryCodec = pgGISGeometryCodec;
+        build.pgGISGeographyCodec = pgGISGeographyCodec;
+        build.pgGISExtensionSchema = pgGISExtensionSchema;
+
+        return build;
+      },
+    },
+  },
 };
 
-export default plugin;
+export default PostgisExtensionDetectionPlugin;

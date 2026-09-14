@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`prints a schema with this plugin 1`] = `
 """All input for the create \`GisDebug\` mutation."""
@@ -27,7 +27,7 @@ type CreateGisDebugPayload {
   """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
     """The method to use when ordering \`GisDebug\`."""
-    orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [GisDebugsOrderBy!]! = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
   """
@@ -78,7 +78,7 @@ type DeleteGisDebugPayload {
   """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
     """The method to use when ordering \`GisDebug\`."""
-    orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [GisDebugsOrderBy!]! = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
   """
@@ -973,7 +973,7 @@ type GisDebugsConnection {
   """
   A list of edges which contains the \`GisDebug\` and cursor to aid in pagination.
   """
-  edges: [GisDebugsEdge!]!
+  edges: [GisDebugsEdge]!
 
   """A list of \`GisDebug\` objects."""
   nodes: [GisDebug]!
@@ -1239,6 +1239,8 @@ type Query implements Node {
     """The globally unique \`ID\` to be used in selecting a single \`GisDebug\`."""
     nodeId: ID!
   ): GisDebug
+
+  """Get a single \`GisDebug\`."""
   gisDebugById(id: Int!): GisDebug
 
   """Fetches an object given its globally unique \`ID\`."""
@@ -1307,7 +1309,7 @@ type UpdateGisDebugPayload {
   """An edge for our \`GisDebug\`. May be used by Relay 1."""
   gisDebugEdge(
     """The method to use when ordering \`GisDebug\`."""
-    orderBy: [GisDebugsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [GisDebugsOrderBy!]! = [PRIMARY_KEY_ASC]
   ): GisDebugsEdge
 
   """
@@ -1315,5 +1317,4 @@ type UpdateGisDebugPayload {
   """
   query: Query
 }
-
 `;

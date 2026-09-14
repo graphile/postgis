@@ -1,0 +1,60 @@
+mutation CreateUpdateDelete($geomMultipolygon: GeoJSON, $geogPoint: GeoJSON) {
+  create: createGisDebug(
+    input: {
+      gisDebug: {
+        id: 9001
+        geom: { type: "Point", coordinates: [30, 10] }
+        geomMultipolygon: $geomMultipolygon
+        geogPoint: $geogPoint
+      }
+    }
+  ) {
+    gisDebug {
+      ...gisDebugFields
+    }
+  }
+  update: updateGisDebugById(
+    input: {
+      id: 9001
+      gisDebugPatch: {
+        geom: {
+          type: "MultiPolygon"
+          coordinates: [[[[40, 40], [20, 45], [45, 30], [40, 40]]]]
+        }
+        geomMultipolygon: {
+          type: "MultiPolygon"
+          coordinates: [[[[5, 5], [10, 20], [20, 10], [5, 5]]]]
+        }
+        geogPoint: { type: "Point", coordinates: [7, 51] }
+      }
+    }
+  ) {
+    gisDebug {
+      ...gisDebugFields
+    }
+  }
+  delete: deleteGisDebugById(input: { id: 9001 }) {
+    deletedGisDebugId
+    gisDebug {
+      ...gisDebugFields
+    }
+  }
+}
+
+fragment gisDebugFields on GisDebug {
+  id
+  geom {
+    __typename
+    geojson
+    srid
+  }
+  geomMultipolygon {
+    geojson
+    srid
+  }
+  geogPoint {
+    geojson
+    latitude
+    longitude
+  }
+}

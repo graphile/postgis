@@ -1,53 +1,74 @@
-import { Plugin } from "graphile-build";
-import { PgType } from "graphile-build-pg";
-import { Subtype } from "./interfaces";
-import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants";
+import type {
+  GISTypeInflectionDetails,
+  GISInterfaceInflectionDetails,
+  GISDimensionInterfaceInflectionDetails,
+  GISFieldInflectionDetails,
+  GISModifiedCodecInflectionDetails,
+} from "./types.ts";
+import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants.ts";
+import { getGISTypeDetails, getGISTypeName } from "./utils.ts";
+import { version } from "./version.ts";
 
-const plugin: Plugin = builder => {
-  builder.hook("inflection", inflection => {
-    return {
-      ...inflection,
-      gisType(type: PgType, subtype: Subtype, hasZ: boolean, hasM: boolean) {
+export const PostgisInflectionPlugin: GraphileConfig.Plugin = {
+  name: "PostgisInflectionPlugin",
+  version,
+
+  inflection: {
+    add: {
+      gisType(_preset, details: GISTypeInflectionDetails) {
+        const { typeName, subtype, hasZ, hasM } = details;
         return this.upperCamelCase(
           [
-            type.name,
+            typeName,
             SUBTYPE_STRING_BY_SUBTYPE[subtype],
             hasZ ? "z" : null,
             hasM ? "m" : null,
           ]
-            .filter(_ => _)
+            .filter((_) => _)
             .join("-")
         );
       },
-      gisInterfaceName(type: PgType) {
-        return this.upperCamelCase(`${type.name}-interface`);
+      gisInterfaceName(_preset, details: GISInterfaceInflectionDetails) {
+        return this.upperCamelCase(`${details.typeName}-interface`);
       },
-      gisDimensionInterfaceName(type: PgType, hasZ: boolean, hasM: boolean) {
+      gisDimensionInterfaceName(
+        _preset,
+        details: GISDimensionInterfaceInflectionDetails
+      ) {
+        const { typeName, hasZ, hasM } = details;
         return this.upperCamelCase(
           [
-            type.name,
+            typeName,
             SUBTYPE_STRING_BY_SUBTYPE[0],
             hasZ ? "z" : null,
             hasM ? "m" : null,
           ]
-            .filter(_ => _)
+            .filter((_) => _)
             .join("-")
         );
       },
-      geojsonFieldName() {
+      geojsonFieldName(_preset) {
         return `geojson`;
       },
-      gisXFieldName(type: PgType) {
-        return type.name === "geography" ? "longitude" : "x";
+      gisXFieldName(_preset, details: GISFieldInflectionDetails) {
+        return details.typeName === "geography" ? "longitude" : "x";
       },
-      gisYFieldName(type: PgType) {
-        return type.name === "geography" ? "latitude" : "y";
+      gisYFieldName(_preset, details: GISFieldInflectionDetails) {
+        return details.typeName === "geography" ? "latitude" : "y";
       },
-      gisZFieldName(type: PgType) {
-        return type.name === "geography" ? "height" : "z";
+      gisZFieldName(_preset, details: GISFieldInflectionDetails) {
+        return details.typeName === "geography" ? "height" : "z";
       },
-    };
-  });
+      pgGISModifiedCodecName(
+        _preset,
+        details: GISModifiedCodecInflectionDetails
+      ) {
+        const { baseCodecName, typeModifier } = details;
+        const { subtype, hasZ, hasM, srid } = getGISTypeDetails(typeModifier);
+        return `${baseCodecName}_${getGISTypeName(subtype, hasZ, hasM)}_${srid}`;
+      },
+    },
+  },
 };
 
-export default plugin;
+export default PostgisInflectionPlugin;

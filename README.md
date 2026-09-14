@@ -33,7 +33,7 @@ have specific needs please get in touch!
 
 ## Usage
 
-This plugin requires PostGraphile **v4.4.0** or higher to function correctly.
+This plugin requires PostGraphile **v5.0.0-rc.6** or higher to function correctly.
 
 Add PostGIS to your database:
 
@@ -43,8 +43,18 @@ CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
 
 Load the plugin:
 
-```
-postgraphile --append-plugins @graphile/postgis
+```ts
+import { PostgisPreset } from "@graphile/postgis";
+
+const preset: GraphileConfig.Preset = {
+  extends: [
+    // ... Amber/V4/etc presets
+    PostgisPreset,
+  ],
+  // ...
+};
+
+export default preset;
 ```
 
 #### Querying and mutating
