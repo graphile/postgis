@@ -358,3 +358,41 @@ create table graphile_postgis_mixed.mixed_geoms (
 insert into graphile_postgis_mixed.mixed_geoms (geom) values
   (GeomFromEWKT('SRID=4326;POINT (30 10)')),
   (GeomFromEWKT('SRID=4326;MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)))'));
+
+-- Functions returning and receiving PostGIS values: covers the function
+-- output path (castFromPg/fromPg) and the GeoJSON argument input path.
+
+-- Computed column on mixed_geoms.
+create function graphile_postgis_mixed.mixed_geoms_center(m graphile_postgis_mixed.mixed_geoms)
+returns geometry as $$
+  select ST_Centroid(m.geom);
+$$ language sql stable;
+
+-- Root query field. Note: PostgreSQL DISCARDS the (Point, 4326) typmod on
+-- function return types (pg_proc keeps no rettypmod), so this function is
+-- introspected exactly like point_bare(); kept to document that gotcha.
+create function graphile_postgis_mixed.point_typmod()
+returns geometry(Point, 4326) as $$
+  select ST_GeomFromEWKT('SRID=4326;POINT(30 10)');
+$$ language sql immutable strict;
+
+create function graphile_postgis_mixed.point_bare()
+returns geometry as $$
+  select ST_GeomFromEWKT('SRID=4326;POINT(30 10)');
+$$ language sql immutable strict;
+
+create function graphile_postgis_mixed.point_geog()
+returns geography as $$
+  select ST_GeomFromEWKT('SRID=4326;POINT(30 10)')::geography;
+$$ language sql immutable strict;
+
+-- Input path: echoes a GeoJSON-supplied geometry argument. The `default null`
+-- is load-bearing: graphile-build-pg marks a strict function's REQUIRED args
+-- non-null (PgProceduresPlugin: `notNull = isStrict || ...`), and a non-null
+-- arg cannot be passed null. Giving the arg a default makes it optional, so
+-- the arg stays nullable (`notNull && !optional`) while the function itself
+-- remains `immutable strict`.
+create function graphile_postgis_mixed.echo_geom(g geometry default null)
+returns geometry as $$
+  select g;
+$$ language sql immutable strict;

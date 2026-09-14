@@ -1,5 +1,157 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`functions.geometry.graphql 1`] = `
+{
+  "data": {
+    "allMixedGeoms": {
+      "nodes": [
+        {
+          "center": {
+            "__typename": "GeometryPoint",
+            "geojson": {
+              "coordinates": [
+                30,
+                10,
+              ],
+              "type": "Point",
+            },
+            "srid": 4326,
+          },
+          "geom": {
+            "__typename": "GeometryPoint",
+            "geojson": {
+              "coordinates": [
+                30,
+                10,
+              ],
+              "type": "Point",
+            },
+            "srid": 4326,
+            "x": 30,
+            "y": 10,
+          },
+          "id": 1,
+        },
+        {
+          "center": {
+            "__typename": "GeometryPoint",
+            "geojson": {
+              "coordinates": [
+                35,
+                38.333333333,
+              ],
+              "type": "Point",
+            },
+            "srid": 4326,
+          },
+          "geom": {
+            "__typename": "GeometryMultiPolygon",
+            "geojson": {
+              "coordinates": [
+                [
+                  [
+                    [
+                      40,
+                      40,
+                    ],
+                    [
+                      20,
+                      45,
+                    ],
+                    [
+                      45,
+                      30,
+                    ],
+                    [
+                      40,
+                      40,
+                    ],
+                  ],
+                ],
+              ],
+              "type": "MultiPolygon",
+            },
+            "polygons": [
+              {
+                "exterior": {
+                  "points": [
+                    {
+                      "x": 40,
+                      "y": 40,
+                    },
+                    {
+                      "x": 20,
+                      "y": 45,
+                    },
+                    {
+                      "x": 45,
+                      "y": 30,
+                    },
+                    {
+                      "x": 40,
+                      "y": 40,
+                    },
+                  ],
+                },
+              },
+            ],
+            "srid": 4326,
+          },
+          "id": 2,
+        },
+      ],
+    },
+    "echoInline": {
+      "__typename": "GeometryPoint",
+      "geojson": {
+        "coordinates": [
+          30,
+          10,
+        ],
+        "type": "Point",
+      },
+      "srid": 0,
+    },
+    "echoNull": null,
+    "pointBare": {
+      "__typename": "GeometryPoint",
+      "geojson": {
+        "coordinates": [
+          30,
+          10,
+        ],
+        "type": "Point",
+      },
+      "srid": 4326,
+    },
+    "pointGeog": {
+      "__typename": "GeographyPoint",
+      "geojson": {
+        "coordinates": [
+          30,
+          10,
+        ],
+        "type": "Point",
+      },
+      "latitude": 10,
+      "longitude": 30,
+      "srid": 4326,
+    },
+    "pointTypmod": {
+      "__typename": "GeometryPoint",
+      "geojson": {
+        "coordinates": [
+          30,
+          10,
+        ],
+        "type": "Point",
+      },
+      "srid": 4326,
+    },
+  },
+}
+`;
+
 exports[`geog.graphql 1`] = `
 {
   "data": {
