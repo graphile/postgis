@@ -6,6 +6,7 @@ import type {
   GISModifiedCodecInflectionDetails,
 } from "./types.ts";
 import { SUBTYPE_STRING_BY_SUBTYPE } from "./constants.ts";
+import { getGISTypeDetails, getGISTypeName } from "./utils.ts";
 import { version } from "./version.ts";
 
 export const PostgisInflectionPlugin: GraphileConfig.Plugin = {
@@ -63,7 +64,8 @@ export const PostgisInflectionPlugin: GraphileConfig.Plugin = {
         details: GISModifiedCodecInflectionDetails
       ) {
         const { baseCodecName, typeModifier } = details;
-        return `${baseCodecName}__${typeModifier}`;
+        const { subtype, hasZ, hasM, srid } = getGISTypeDetails(typeModifier);
+        return `${baseCodecName}_${getGISTypeName(subtype, hasZ, hasM)}_${srid}`;
       },
     },
   },
